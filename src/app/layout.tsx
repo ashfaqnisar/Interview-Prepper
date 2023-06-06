@@ -8,13 +8,13 @@ import TopBar from "./topbar";
 
 const inter = Inter({
   variable: "--font-inter",
-  display: "optional",
+  display: "swap",
   subsets: ["latin"]
 });
 
 const roboto_mono = Roboto_Mono({
   variable: "--font-roboto-mono",
-  display: "optional",
+  display: "swap",
   subsets: ["latin"]
 });
 

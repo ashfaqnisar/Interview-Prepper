@@ -6,10 +6,10 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import classNames from "classnames";
 
-import QuestionCard from "@/app/questions/components/QuestionCard";
+import SearchAndResults from "@/app/questions/components/SearchAndResults";
 
 const Page = () => {
-  const [languageFilter, setLanguageFilter] = useState("");
+  const [technologyFilter, setTechnologyFilter] = useState("");
   const { data: technologies } = useQuery({
     queryKey: ["languages"],
     queryFn: async ({ signal }) => {
@@ -44,29 +44,6 @@ const Page = () => {
     initialDataUpdatedAt: Date.now()
   });
 
-  const { data: questions, status: questionStatus } = useQuery({
-    queryKey: ["questions", languageFilter],
-    queryFn: async ({ signal }) => {
-      const res = await axios({
-        method: "POST",
-        url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
-        data: {
-          query: "",
-          ...(languageFilter && {
-            filters: {
-              language: [languageFilter]
-            }
-          })
-        },
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_SEARCH_KEY}`
-        },
-        signal
-      });
-      return res.data;
-    }
-  });
-
   return (
     <div className={"w-full px-4 pb-8 sm:pt-16"}>
       <div className={"md:container md:mx-auto"}>
@@ -84,12 +61,12 @@ const Page = () => {
                 <div
                   className={classNames(
                     "cursor-pointer rounded p-1 px-2 text-xs font-medium ring-1 duration-150 2xl:text-sm",
-                    languageFilter === ""
+                    technologyFilter === ""
                       ? "bg-neutral-100 text-neutral-900 ring-neutral-900"
                       : "text-zinc-50 ring-neutral-400"
                   )}
                   onClick={() => {
-                    setLanguageFilter("");
+                    setTechnologyFilter("");
                   }}
                 >
                   <p className={"capitalize"}>All</p>
@@ -99,12 +76,12 @@ const Page = () => {
                     key={`${technology.value}`}
                     className={classNames(
                       "cursor-pointer rounded p-1 px-2 text-xs font-medium ring-1 duration-150 2xl:text-sm",
-                      technology.value === languageFilter
+                      technology.value === technologyFilter
                         ? "bg-neutral-100 text-neutral-900 ring-neutral-900"
                         : "text-zinc-50 ring-neutral-400"
                     )}
                     onClick={() => {
-                      setLanguageFilter(technology.value);
+                      setTechnologyFilter(technology.value);
                     }}
                   >
                     <p className={"capitalize"}>
@@ -114,13 +91,7 @@ const Page = () => {
                 ))}
               </div>
             )}
-            {questions && (
-              <div className={"grid gap-4"}>
-                {questions.results.map((question: { id: { raw: string }; question: string }) => (
-                  <QuestionCard result={question} key={question.id.raw} editable />
-                ))}
-              </div>
-            )}
+            <SearchAndResults technologyFilter={technologyFilter} />
           </div>
         </div>
       </div>

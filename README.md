@@ -1,6 +1,6 @@
 # Interview-Prepper
 
-InterviewPrepper is a project designed to help individuals prepare for technology job interviews. 
+Interview Prepper is a project designed to help individuals prepare for technology job interviews. 
 
 ### Features
 
