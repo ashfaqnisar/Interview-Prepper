@@ -77,7 +77,7 @@ const Page = () => {
                     className={classNames(
                       "cursor-pointer rounded p-1 px-2 text-xs font-medium ring-1 duration-150 2xl:text-sm",
                       technology.value === technologyFilter
-                        ? "bg-neutral-100 text-neutral-900 ring-neutral-900"
+                        ? "bg-neutral-100 font-semibold text-neutral-900 ring-neutral-900"
                         : "text-zinc-50 ring-neutral-400"
                     )}
                     onClick={() => {

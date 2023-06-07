@@ -5,6 +5,7 @@ import axios from "axios";
 
 import QuestionCard from "@/app/questions/components/QuestionCard";
 import CustomMenu from "@/shared/CustomMenu";
+import CustomPagingInfo from "@/shared/CustomPagingInfo";
 
 const SORT_OPTIONS: {
   name: string;
@@ -23,7 +24,7 @@ const SORT_OPTIONS: {
   {
     name: "id - desc",
     field: "id",
-    direction: "asc"
+    direction: "desc"
   }
 ];
 
@@ -51,7 +52,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
     };
     page: {
       size: number;
-      current?: number;
+      current: number;
     };
   }>({
     query: "",
@@ -130,10 +131,16 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
         />
       </div>
       <div className={"mt-2 grid grid-cols-2 items-center"}>
-        <div>Showing Pagination Count</div>
+        <CustomPagingInfo
+          currentPage={querySearchState.page.current}
+          pageSize={querySearchState.page.size}
+          totalItems={questions?.meta.page.total_results}
+          isLoading={isLoading}
+        />
+
         <div className={"flex flex-row items-center justify-end space-x-3"}>
           <div className={"flex items-center justify-end space-x-1.5"}>
-            <p className={"text-xs tracking-tight text-zinc-200 md:text-sm"}>Show:</p>
+            <p className={"text-xs tracking-tight text-zinc-200 md:text-sm "}>Show:</p>
             <CustomMenu
               options={PAGE_OPTIONS}
               value={querySearchState.page}
@@ -152,6 +159,12 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           </div>
         </div>
       </div>
+      {/* <div className={"relative mt-2 w-fit text-xs md:text-sm"}>
+        <button className={"rounded-md bg-zinc-900 p-2 pr-10 ring-2 ring-zinc-600"}>Hello World</button>
+        <span className={"absolute inset-y-0 right-0 flex items-center"}>
+          <HiChevronDown size={20} className="h-5 w-5 text-gray-400" aria-hidden="true" />
+        </span>
+      </div>*/}
 
       {isLoading && <div>Loading...</div>}
       {!isLoading && questions && (

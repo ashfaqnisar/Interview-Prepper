@@ -26,7 +26,7 @@ const CustomMenu = ({
       {({ open }) => (
         <div className="relative w-fit">
           {/*<Listbox.Button className="relative right-0 cursor-default rounded-md bg-zinc-900 py-1.5 pl-3 pr-10 text-right text-white shadow-sm ring-1 ring-zinc-600 hover:ring-2 hover:ring-red-500 focus:outline-none focus:ring-2 focus:ring-zinc-400 sm:text-sm sm:leading-6">*/}
-          <Listbox.Button className="relative w-fit rounded-md bg-zinc-900 p-2 pr-10 text-xs ring-2 ring-zinc-600 duration-150 hover:bg-zinc-800 md:text-sm">
+          <Listbox.Button className="relative w-fit rounded-md bg-zinc-900 px-2 py-1.5 pr-10 text-xs ring-2 ring-zinc-600 duration-150 hover:bg-zinc-800 md:text-sm">
             <span className="block truncate capitalize">{selected[valueKey] ?? "None"}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
               <HiChevronDown size={20} className="h-5 w-5 text-gray-400" aria-hidden="true" />
