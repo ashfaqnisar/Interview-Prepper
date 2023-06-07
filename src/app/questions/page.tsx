@@ -57,7 +57,7 @@ const Page = () => {
               Questions
             </h1>
             {technologies && (
-              <div className={"flex gap-2"}>
+              <div className={"flex flex-wrap gap-2"}>
                 <div
                   className={classNames(
                     "cursor-pointer rounded p-1 px-2 text-xs font-medium ring-1 duration-150 2xl:text-sm",

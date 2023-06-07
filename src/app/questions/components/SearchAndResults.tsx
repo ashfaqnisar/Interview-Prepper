@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { IoMdSend } from "react-icons/io";
 
 import QuestionCard from "@/app/questions/components/QuestionCard";
 import CustomMenu from "@/shared/CustomMenu";
@@ -114,23 +115,47 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
 
   return (
     <>
-      <div className={"relative"}>
+      <div className={"relative flex w-full flex-col rounded-md border border-gray-300 bg-zinc-900 py-3 pl-4 "}>
         <textarea
           rows={1}
           className={
-            "-mb-2 block w-full rounded-md border border-gray-300 bg-zinc-900 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            "w-full bg-transparent pr-12 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-0 focus-visible:ring-0"
           }
           placeholder={"Search Questions"}
+          style={{
+            maxHeight: "200px",
+            height: "24px"
+          }}
           value={querySearchState.query}
           onChange={(event) => {
             const target = event.target as HTMLTextAreaElement;
-            target.style.height = "30px";
+            target.style.height = "24px";
             target.style.height = target.scrollHeight + "px";
+            console.log(target.value);
             setQuerySearchState({ ...querySearchState, query: target.value });
           }}
         />
+        {/*<button className="enabled:bg-brand-purple absolute bottom-1.5 right-2 rounded-md p-1 text-white transition-colors disabled:text-gray-400 disabled:opacity-40 dark:hover:bg-gray-900 dark:disabled:hover:bg-transparent md:bottom-3 md:right-3 md:p-2">*/}
+        {/*  <span className="" data-state="closed">*/}
+        {/*    <svg*/}
+        {/*      xmlns="http://www.w3.org/2000/svg"*/}
+        {/*      viewBox="0 0 16 16"*/}
+        {/*      fill="none"*/}
+        {/*      className="m-1 h-4 w-4 md:m-0"*/}
+        {/*      strokeWidth={2}*/}
+        {/*    >*/}
+        {/*      <path*/}
+        {/*        d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z"*/}
+        {/*        fill="currentColor"*/}
+        {/*      ></path>*/}
+        {/*    </svg>*/}
+        {/*  </span>*/}
+        {/*</button>*/}
+        <button className={"absolute bottom-2 right-2 flex items-center p-2"}>
+          <IoMdSend size={20} />
+        </button>
       </div>
-      <div className={"mt-2 grid grid-cols-2 items-center"}>
+      <div className={"grid grid-cols-1 items-center gap-2 duration-150 sm:grid-cols-2"}>
         <CustomPagingInfo
           currentPage={querySearchState.page.current}
           pageSize={querySearchState.page.size}
@@ -138,7 +163,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           isLoading={isLoading}
         />
 
-        <div className={"flex flex-row items-center justify-end space-x-3"}>
+        <div className={"flex flex-row flex-wrap items-center gap-2 duration-150 sm:justify-end"}>
           <div className={"flex items-center justify-end space-x-1.5"}>
             <p className={"text-xs tracking-tight text-zinc-200 md:text-sm "}>Show:</p>
             <CustomMenu
