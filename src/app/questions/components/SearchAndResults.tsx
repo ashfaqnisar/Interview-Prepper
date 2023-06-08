@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { HiChevronDown } from "react-icons/hi";
+import classNames from "classnames";
+import { HiChevronDown, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { MdSend } from "react-icons/md";
 
 import QuestionCard from "@/app/questions/components/QuestionCard";
@@ -20,13 +21,13 @@ const SORT_OPTIONS: {
     field: "relevance"
   },
   {
-    name: "id - asc",
-    field: "id",
+    name: "SID - asc",
+    field: "sid",
     direction: "asc"
   },
   {
-    name: "id - desc",
-    field: "id",
+    name: "SID - desc",
+    field: "sid",
     direction: "desc"
   }
 ];
@@ -66,11 +67,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
     }
   });
 
-  const {
-    data: questions,
-    isLoading,
-    status: questionStatus
-  } = useQuery({
+  const { data: questions, isLoading } = useQuery({
     queryKey: ["questions", technologyFilter, querySearchState],
     queryFn: async ({ signal }) => {
       const res = await axios({
@@ -136,7 +133,11 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           const query = target["search-textarea"].value;
           setQuerySearchState({
             ...querySearchState,
-            query
+            query,
+            page: {
+              ...querySearchState.page,
+              current: 1
+            }
           });
         }}
       >
@@ -204,6 +205,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           </div>
         </div>
       </div>
+
       {isLoading && <div>Loading...</div>}
       {!isLoading && questions && (
         <>

@@ -152,7 +152,7 @@ export function buildFacetConfigFromConfig(searchConfig) {
     acc = acc || {};
     acc[n] = {
       type: "value",
-      size: 100,
+      size: 100
     };
     return acc;
   }, undefined);

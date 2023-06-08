@@ -7,8 +7,6 @@ import MarkdownIt from "markdown-it";
 import Token from "markdown-it/lib/token";
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { readMarkdownFile } from "@/pages/utils";
-
 const client = new Client({
   url: process.env.ELASTIC_APP_SEARCH_ENDPOINT as string,
   auth: {
@@ -16,10 +14,19 @@ const client = new Client({
   }
 });
 
+const readMarkdownFile = (fullPath: string): string => {
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`File not found: ${fullPath}`);
+  }
+
+  return fs.readFileSync(fullPath, "utf8");
+};
+
 const md = new MarkdownIt();
 
 interface QuestionAndAnswer {
   id?: string;
+  sid?: number;
   date?: string;
   language?: string;
   question?: string;
@@ -32,9 +39,11 @@ let counter = 0;
 function generateId() {
   const timestamp = Date.now();
   counter++;
-  return `${timestamp}-${counter}`;
+  return Number(`${timestamp}${counter}`);
 }
 
+// TODO: Update this function to process the react markdown files.
+// eslint-disable-next-line no-unused-vars
 const processReactMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
   // For storing the processed data we will use an array.
   const results: QuestionAndAnswer[] = [];
@@ -64,7 +73,7 @@ const processReactMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
         case "heading_close":
           // If the token type is a heading_close then end the question.
           results.push({
-            id: generateId(),
+            sid: generateId(),
             date: new Date().toISOString(),
             ...singleQuestion,
             question_type: "",
@@ -122,7 +131,7 @@ const processJSMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
         case "heading_close":
           // If the token type is a heading_close then end the question.
           results.push({
-            id: generateId(),
+            sid: generateId(),
             date: new Date().toISOString(),
             ...singleQuestion,
             question_type: "",
@@ -135,7 +144,7 @@ const processJSMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
           singleQuestion?.answer?.push("```" + token.info + "\n" + token.content + "\n```");
           break;
         case "inline":
-          // If the token type is a inline then add the text to the question or answer.
+          // If the token type is an inline then add the text to the question or answer.
           // Check the previous token type to determine if the text is a question or answer.
           if (previousTokenType?.type === "heading" && previousTokenType?.tag === "h3") {
             singleQuestion.question = token.content.trim();
@@ -153,7 +162,7 @@ const processJSMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     try {
       const { technology } = req.body;
       const fileName = technology.toLowerCase();
@@ -168,7 +177,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const processedFilePath = path.join(dataPath, `${fileName}-processed.json`);
       const markdown = readMarkdownFile(path.join(dataPath, `${fileName}.md`));
 
-      const results = processReactMarkdown(md.parse(markdown, {}));
+      const results = processJSMarkdown(md.parse(markdown, {}));
 
       console.log(`Processing ${results.length} documents...`);
       // Group the processed data into chunks of 100.
@@ -191,7 +200,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).send({ message: "Error processing the documents" });
     }
   }
-  if (req.method === "POST") {
+  if (req.method === "DELETE") {
     try {
       let { technology } = req.body;
       technology = technology?.toLowerCase();
@@ -206,7 +215,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           },
           ...(technology && {
             filters: {
-              language: technology
+              language: [technology]
             }
           })
         }
