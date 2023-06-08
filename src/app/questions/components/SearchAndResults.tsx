@@ -2,10 +2,12 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { HiChevronDown } from "react-icons/hi";
 import { MdSend } from "react-icons/md";
 
 import QuestionCard from "@/app/questions/components/QuestionCard";
 import CustomMenu from "@/shared/CustomMenu";
+import CustomPagination from "@/shared/CustomPagination";
 import CustomPagingInfo from "@/shared/CustomPagingInfo";
 
 const SORT_OPTIONS: {
@@ -108,7 +110,18 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
       ...querySearchState,
       page: {
         ...querySearchState.page,
+        current: 1,
         size: option.size
+      }
+    });
+  };
+
+  const updatePage = (newPage: number) => {
+    setQuerySearchState({
+      ...querySearchState,
+      page: {
+        ...querySearchState.page,
+        current: newPage
       }
     });
   };
@@ -156,7 +169,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
         <button
           type={"submit"}
           className={
-            "absolute bottom-2 right-2.5 flex items-center rounded-md bg-zinc-300 p-1.5 shadow-md hover:bg-zinc-400"
+            "absolute bottom-2 right-2.5 flex items-center rounded-md bg-zinc-200 p-1.5 shadow-md hover:bg-zinc-400"
           }
         >
           <MdSend size={18} className={"text-zinc-900"} />
@@ -193,13 +206,19 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
       </div>
       {isLoading && <div>Loading...</div>}
       {!isLoading && questions && (
-        <div className={"mt-2 grid gap-4"}>
-          {questions.results.map((question: { id: { raw: string }; question: string }) => (
-            <QuestionCard result={question} key={question.id.raw} editable />
-          ))}
-        </div>
+        <>
+          <div className={"mt-2 grid gap-4"}>
+            {questions.results.map((question: { id: { raw: string }; question: string }) => (
+              <QuestionCard result={question} key={question.id.raw} editable />
+            ))}
+          </div>
+          <CustomPagination
+            currentPage={questions?.meta.page.current}
+            totalPages={questions?.meta.page.total_pages}
+            updatePage={updatePage}
+          />
+        </>
       )}
-      {!isLoading && <div>Total Pages: {questions?.meta.page.total_pages}</div>}
     </>
   );
 };
