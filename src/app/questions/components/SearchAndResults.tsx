@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { IoMdSend } from "react-icons/io";
+import { MdSend } from "react-icons/md";
 
 import QuestionCard from "@/app/questions/components/QuestionCard";
 import CustomMenu from "@/shared/CustomMenu";
@@ -46,7 +46,7 @@ const PAGE_OPTIONS: { size: number }[] = [
 
 const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) => {
   const [querySearchState, setQuerySearchState] = useState<{
-    query: string;
+    query: "";
     sort: {
       field: string | number;
       direction?: string;
@@ -75,7 +75,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
         method: "POST",
         url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
         data: {
-          query: "",
+          query: querySearchState.query,
           ...(technologyFilter && {
             filters: {
               language: [technologyFilter]
@@ -115,47 +115,54 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
 
   return (
     <>
-      <div className={"relative flex w-full flex-col rounded-md border border-gray-300 bg-zinc-900 py-3 pl-4 "}>
+      <form
+        className={"relative flex w-full flex-col rounded-md border border-gray-300 bg-zinc-900 py-3 pl-4 "}
+        onSubmit={(event) => {
+          event.preventDefault();
+          const target = event.target as HTMLFormElement;
+          const query = target["search-textarea"].value;
+          setQuerySearchState({
+            ...querySearchState,
+            query
+          });
+        }}
+      >
         <textarea
+          name={"search-textarea"}
           rows={1}
           className={
-            "w-full bg-transparent pr-12 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-0 focus-visible:ring-0"
+            "w-full resize-none bg-transparent pr-12 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-0 focus-visible:ring-0"
           }
           placeholder={"Search Questions"}
           style={{
             maxHeight: "200px",
             height: "24px"
           }}
-          value={querySearchState.query}
           onChange={(event) => {
             const target = event.target as HTMLTextAreaElement;
             target.style.height = "24px";
             target.style.height = target.scrollHeight + "px";
-            console.log(target.value);
-            setQuerySearchState({ ...querySearchState, query: target.value });
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" && event.ctrlKey) {
+              event.preventDefault();
+              event.stopPropagation();
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              event.target?.form.requestSubmit();
+            }
           }}
         />
-        {/*<button className="enabled:bg-brand-purple absolute bottom-1.5 right-2 rounded-md p-1 text-white transition-colors disabled:text-gray-400 disabled:opacity-40 dark:hover:bg-gray-900 dark:disabled:hover:bg-transparent md:bottom-3 md:right-3 md:p-2">*/}
-        {/*  <span className="" data-state="closed">*/}
-        {/*    <svg*/}
-        {/*      xmlns="http://www.w3.org/2000/svg"*/}
-        {/*      viewBox="0 0 16 16"*/}
-        {/*      fill="none"*/}
-        {/*      className="m-1 h-4 w-4 md:m-0"*/}
-        {/*      strokeWidth={2}*/}
-        {/*    >*/}
-        {/*      <path*/}
-        {/*        d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z"*/}
-        {/*        fill="currentColor"*/}
-        {/*      ></path>*/}
-        {/*    </svg>*/}
-        {/*  </span>*/}
-        {/*</button>*/}
-        <button className={"absolute bottom-2 right-2 flex items-center p-2"}>
-          <IoMdSend size={20} />
+        <button
+          type={"submit"}
+          className={
+            "absolute bottom-2 right-2.5 flex items-center rounded-md bg-zinc-300 p-1.5 shadow-md hover:bg-zinc-400"
+          }
+        >
+          <MdSend size={18} className={"text-zinc-900"} />
         </button>
-      </div>
-      <div className={"grid grid-cols-1 items-center gap-2 duration-150 sm:grid-cols-2"}>
+      </form>
+      <div className={"grid grid-cols-1 items-center gap-4 duration-150 sm:grid-cols-2 md:gap-2"}>
         <CustomPagingInfo
           currentPage={querySearchState.page.current}
           pageSize={querySearchState.page.size}
@@ -163,7 +170,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           isLoading={isLoading}
         />
 
-        <div className={"flex flex-row flex-wrap items-center gap-2 duration-150 sm:justify-end"}>
+        <div className={"flex flex-row flex-wrap items-center gap-3 duration-150 sm:justify-end"}>
           <div className={"flex items-center justify-end space-x-1.5"}>
             <p className={"text-xs tracking-tight text-zinc-200 md:text-sm "}>Show:</p>
             <CustomMenu
@@ -184,13 +191,6 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           </div>
         </div>
       </div>
-      {/* <div className={"relative mt-2 w-fit text-xs md:text-sm"}>
-        <button className={"rounded-md bg-zinc-900 p-2 pr-10 ring-2 ring-zinc-600"}>Hello World</button>
-        <span className={"absolute inset-y-0 right-0 flex items-center"}>
-          <HiChevronDown size={20} className="h-5 w-5 text-gray-400" aria-hidden="true" />
-        </span>
-      </div>*/}
-
       {isLoading && <div>Loading...</div>}
       {!isLoading && questions && (
         <div className={"mt-2 grid gap-4"}>
@@ -199,7 +199,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           ))}
         </div>
       )}
-      <div>Pagination</div>
+      {!isLoading && <div>Total Pages: {questions?.meta.page.total_pages}</div>}
     </>
   );
 };

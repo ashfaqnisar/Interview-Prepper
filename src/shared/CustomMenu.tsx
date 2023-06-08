@@ -58,7 +58,7 @@ const CustomMenu = ({
                     <>
                       <div className="flex items-center">
                         <span
-                          className={classNames(selected ? "font-semibold" : "font-normal", "ml-3  capitalize")}
+                          className={classNames(selected && "font-semibold", "capitalize")}
                           style={{ marginRight: 12 }}
                         >
                           {option[valueKey]}

@@ -1,7 +1,7 @@
 [
   {
-    "id": "1680885349528-1",
-    "date": "2023-04-07T16:35:49.528Z",
+    "id": "1686220426036-1",
+    "date": "2023-06-08T10:33:46.036Z",
     "question": "What is React?",
     "answer": [
       "React(aka React.js or ReactJS) is an **open-source front-end JavaScript library** that is used for building composable user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps based on components in a declarative approach.",
@@ -12,8 +12,8 @@
     "tags": []
   },
   {
-    "id": "1680885349528-2",
-    "date": "2023-04-07T16:35:49.528Z",
+    "id": "1686220426036-2",
+    "date": "2023-06-08T10:33:46.036Z",
     "question": "What is the history behind React evolution?",
     "answer": [
       "The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements.",
@@ -26,8 +26,8 @@
     "tags": []
   },
   {
-    "id": "1680885349528-3",
-    "date": "2023-04-07T16:35:49.528Z",
+    "id": "1686220426037-3",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are the major features of React?",
     "answer": [
       "The major features of React are:",
@@ -42,8 +42,8 @@
     "tags": []
   },
   {
-    "id": "1680885349528-4",
-    "date": "2023-04-07T16:35:49.528Z",
+    "id": "1686220426037-4",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is JSX?",
     "answer": [
       "_JSX_ stands for _JavaScript XML_ and it is an XML-like syntax extension to ECMAScript. Basically it just provides the syntactic sugar for the `React.createElement(type, props, ...children)` function, giving us expressiveness of JavaScript along with HTML like template syntax.",
@@ -61,8 +61,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-5",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-5",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the difference between Element and Component?",
     "answer": [
       "An _Element_ is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React element is cheap. Once an element is created, it cannot be mutated.",
@@ -83,8 +83,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-6",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-6",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to create components in React?",
     "answer": [
       "Components are the building blocks of creating User Interfaces(UI) in React. There are two possible ways to create a component.",
@@ -98,8 +98,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-7",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-7",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "When to use a Class Component over a Function Component?",
     "answer": [
       "After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to use Function components over Class components  in React. Because you could use state, lifecycle methods and other features that were only available in class component present in function component too.",
@@ -115,8 +115,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-8",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-8",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are Pure Components?",
     "answer": [
       "Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized `React.memo()` API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations.",
@@ -134,8 +134,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-9",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-9",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is state in React?",
     "answer": [
       "_State_ of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.",
@@ -152,8 +152,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-10",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-10",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are props in React?",
     "answer": [
       "_Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. Here, the data is passed down from a parent component to a child component.",
@@ -178,8 +178,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-11",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-11",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the difference between state and props?",
     "answer": [
       "In React, both `state` and `props` are are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.\n`state` is managed by the component itself and can be updated using the `setState()` function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children.\n`props` (short for \"properties\") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components."
@@ -189,8 +189,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-12",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-12",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why should we not update the state directly?",
     "answer": [
       "If you try to update the state directly then it won't re-render the component.",
@@ -204,8 +204,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-13",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-13",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the purpose of callback function as an argument of `setState()`?",
     "answer": [
       "The callback function is invoked when setState finished and the component gets rendered. Since `setState()` is **asynchronous** the callback function is used for any post action.",
@@ -217,8 +217,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-14",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-14",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the difference between HTML and React event handling?",
     "answer": [
       "Below are some of the main differences between HTML and React event handling,",
@@ -237,8 +237,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-15",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-15",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to bind methods or event handlers in JSX callbacks?",
     "answer": [
       "There are 3 possible ways to achieve this in class components:",
@@ -256,8 +256,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-16",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-16",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to pass a parameter to an event handler or callback?",
     "answer": [
       "You can use an _arrow function_ to wrap around an _event handler_ and pass parameters:",
@@ -272,8 +272,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-17",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-17",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are synthetic events in React?",
     "answer": [
       "`SyntheticEvent` is a cross-browser wrapper around the browser's native event. Its API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers. The native events can be accessed directly from synthetic events using `nativeEvent` attribute.",
@@ -285,8 +285,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-18",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-18",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are inline conditional expressions?",
     "answer": [
       "You can use either _if statements_ or _ternary expressions_ which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.",
@@ -297,8 +297,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-19",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-19",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is \"key\" prop and what is the benefit of using it in arrays of elements?",
     "answer": [
       "A `key` is a special attribute you **should** include when creating arrays of elements. _Key_ prop helps React identify which items have changed, are added, or are removed.",
@@ -317,8 +317,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-20",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-20",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the use of refs?",
     "answer": [
       "The _ref_ is used to return a reference to the element. They _should be avoided_ in most cases, however, they can be useful when you need a direct access to the DOM element or an instance of a component."
@@ -328,8 +328,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-21",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-21",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to create refs?",
     "answer": [
       "There are two approaches",
@@ -344,8 +344,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-22",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-22",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are forward refs?",
     "answer": [
       "_Ref forwarding_ is a feature that lets some components take a _ref_ they receive, and pass it further down to a child.",
@@ -356,8 +356,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-23",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-23",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Which is preferred option with in callback refs and findDOMNode()?",
     "answer": [
       "It is preferred to use _callback refs_ over `findDOMNode()` API. Because `findDOMNode()` prevents certain improvements in React in the future.",
@@ -371,8 +371,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-24",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-24",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why are String Refs legacy?",
     "answer": [
       "If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `ref={'textInput'}`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because _string refs have below issues_, and are considered legacy. String refs were **removed in React v16**.",
@@ -387,8 +387,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-25",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-25",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is Virtual DOM?",
     "answer": [
       "The _Virtual DOM_ (VDOM) is an in-memory representation of _Real DOM_. The representation of a UI is kept in memory and synced with the \"real\" DOM. It's a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called _reconciliation_."
@@ -398,8 +398,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-26",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-26",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How Virtual DOM works?",
     "answer": [
       "The _Virtual DOM_ works in three simple steps.",
@@ -415,8 +415,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-27",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-27",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the difference between Shadow DOM and Virtual DOM?",
     "answer": [
       "The _Shadow DOM_ is a browser technology designed primarily for scoping variables and CSS in _web components_. The _Virtual DOM_ is a concept implemented by libraries in JavaScript on top of browser APIs."
@@ -426,8 +426,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-28",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-28",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is React Fiber?",
     "answer": [
       "Fiber is the new _reconciliation_ engine or reimplementation of core algorithm in React v16. The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort, or reuse work and assign priority to different types of updates; and new concurrency primitives."
@@ -437,8 +437,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-29",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-29",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the main goal of React Fiber?",
     "answer": [
       "The goal of _React Fiber_ is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is **incremental rendering**: the ability to split rendering work into chunks and spread it out over multiple frames.",
@@ -455,8 +455,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-30",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-30",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are controlled components?",
     "answer": [
       "A component that controls the input elements within the forms on subsequent user input is called **Controlled Component**, i.e, every state mutation will have an associated handler function.",
@@ -468,8 +468,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-31",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-31",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are uncontrolled components?",
     "answer": [
       "The **Uncontrolled Components** are the ones that store their own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.",
@@ -482,8 +482,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-32",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-32",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the difference between createElement and cloneElement?",
     "answer": [
       "JSX elements will be transpiled to `React.createElement()` functions to create React elements which are going to be used for the object representation of UI. Whereas `cloneElement` is used to clone an element and pass it new props."
@@ -493,8 +493,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-33",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-33",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is Lifting State Up in React?",
     "answer": [
       "When several components need to share the same changing data then it is recommended to _lift the shared state up_ to their closest common ancestor. That means if two child components share the same data from its parent, then move the state to parent instead of maintaining local state in both of the child components."
@@ -504,8 +504,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-34",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-34",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are the different phases of component lifecycle?",
     "answer": [
       "The component lifecycle has three distinct lifecycle phases:",
@@ -526,8 +526,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-35",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-35",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are the lifecycle methods of React?",
     "answer": [
       "Before React 16.3",
@@ -551,8 +551,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-36",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-36",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are Higher-Order Components?",
     "answer": [
       "A _higher-order component_ (_HOC_) is a function that takes a component and returns a new component. Basically, it's a pattern that is derived from React's compositional nature.",
@@ -569,8 +569,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-37",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-37",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to create props proxy for HOC component?",
     "answer": [
       "You can add/edit props passed to the component using _props proxy_ pattern like this:",
@@ -581,8 +581,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-38",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-38",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is context?",
     "answer": [
       "_Context_ provides a way to pass data through the component tree without having to pass props down manually at every level.",
@@ -594,8 +594,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-39",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-39",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is children prop?",
     "answer": [
       "_Children_ is a prop (`this.props.children`) that allows you to pass components as data to other components, just like any other prop you use. Component tree put between component's opening and closing tag will be passed to that component as `children` prop.",
@@ -608,8 +608,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-40",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-40",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to write comments in React?",
     "answer": [
       "The comments in React/JSX are similar to JavaScript Multiline comments but are wrapped in curly braces.",
@@ -623,8 +623,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-41",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-41",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the purpose of using super constructor with props argument?",
     "answer": [
       "A child class constructor cannot make use of `this` reference until the `super()` method has been called. The same applies to ES6 sub-classes as well. The main reason for passing props parameter to `super()` call is to access `this.props` in your child constructors.",
@@ -639,8 +639,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-42",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-42",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is reconciliation?",
     "answer": [
       "When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called _reconciliation_."
@@ -650,8 +650,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-43",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-43",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to set state with a dynamic key name?",
     "answer": [
       "If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with _computed property names_.",
@@ -662,8 +662,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-44",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-44",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What would be the common mistake of function being called every time the component renders?",
     "answer": [
       "You need to make sure that function is not being called while passing the function as a parameter.",
@@ -676,8 +676,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-45",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-45",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Is lazy function supports named exports?",
     "answer": [
       "No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that tree shaking keeps working and don’t pull unused components.\nLet's take a component file which exports multiple named components,",
@@ -692,8 +692,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-46",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-46",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why React uses `className` over `class` attribute?",
     "answer": [
       "The attribute `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React uses `className` instead of `class`. Pass a string as the `className` prop.",
@@ -704,8 +704,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-47",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-47",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are fragments?",
     "answer": [
       "It's a common pattern or practice in React for a component to return multiple elements. _Fragments_ let you group a list of children without adding extra nodes to the DOM.\nYou need to use either **<Fragment>** or a shorter syntax having empty tag (**<></>**).",
@@ -718,8 +718,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-48",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-48",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why fragments are better than container divs?",
     "answer": [
       "Below are the list of reasons to prefer fragments over container DOM elements,",
@@ -732,8 +732,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-49",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-49",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are portals in React?",
     "answer": [
       "_Portal_ is a recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.",
@@ -745,8 +745,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-50",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-50",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are stateless components?",
     "answer": [
       "If the behaviour of a component is independent of its state then it can be a stateless component. You can use either a function or a class for creating stateless components. But unless you need to use a lifecycle hook in your components, you should go for function components. There are a lot of benefits if you decide to use function components here; they are easy to write, understand, and test, a little faster, and you can avoid the `this` keyword altogether."
@@ -756,8 +756,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-51",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-51",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are stateful components?",
     "answer": [
       "If the behaviour of a component is dependent on the _state_ of the component then it can be termed as stateful component. These _stateful components_ are either function components with hooks or _class components_.",
@@ -772,8 +772,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-52",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-52",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to apply validation on props in React?",
     "answer": [
       "When the application is running in _development mode_, React will automatically check all props that we set on components to make sure they have _correct type_. If the type is incorrect, React will generate warning messages in the console. It's disabled in _production mode_ due to performance impact. The mandatory props are defined with `isRequired`.",
@@ -799,8 +799,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-53",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-53",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are the advantages of React?",
     "answer": [
       "Below are the list of main advantages of React,",
@@ -815,8 +815,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-54",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-54",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are the limitations of React?",
     "answer": [
       "Apart from the advantages, there are few limitations of React too,",
@@ -831,8 +831,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-55",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-55",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are error boundaries in React v16?",
     "answer": [
       "_Error boundaries_ are components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.",
@@ -846,8 +846,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-56",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-56",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How are error boundaries handled in React v15?",
     "answer": [
       "React v15 provided very basic support for _error boundaries_ using `unstable_handleError` method. It has been renamed to `componentDidCatch` in React v16."
@@ -857,8 +857,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-57",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-57",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are the recommended ways for static type checking?",
     "answer": [
       "Normally we use _PropTypes library_ (`React.PropTypes` moved to a `prop-types` package since React v15.5) for _type checking_ in the React applications. For large code bases, it is recommended to use _static type checkers_ such as Flow or TypeScript, that perform type checking at compile time and provide auto-completion features."
@@ -868,8 +868,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-58",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-58",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the use of `react-dom` package?",
     "answer": [
       "The `react-dom` package provides _DOM-specific methods_ that can be used at the top level of your app. Most of the components are not required to use this module. Some of the methods of this package are:",
@@ -884,8 +884,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-59",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-59",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the purpose of render method of `react-dom`?",
     "answer": [
       "This method is used to render a React element into the DOM in the supplied container and return a reference to the component. If the React element was previously rendered into container, it will perform an update on it and only mutate the DOM as necessary to reflect the latest changes.",
@@ -897,8 +897,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-60",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-60",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is ReactDOMServer?",
     "answer": [
       "The `ReactDOMServer` object enables you to render components to static markup (typically used on node server). This object is mainly used for _server-side rendering_ (SSR). The following methods can be used in both the server and browser environments:",
@@ -912,8 +912,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-61",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-61",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to use innerHTML in React?",
     "answer": [
       "The `dangerouslySetInnerHTML` attribute is React's replacement for using `innerHTML` in the browser DOM. Just like `innerHTML`, it is risky to use this attribute considering cross-site scripting (XSS) attacks. You just need to pass a `__html` object as key and HTML text as value.",
@@ -925,8 +925,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-62",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-62",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to use styles in React?",
     "answer": [
       "The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes.",
@@ -938,8 +938,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-63",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-63",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How events are different in React?",
     "answer": [
       "Handling events in React elements has some syntactic differences:",
@@ -951,8 +951,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-64",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-64",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What will happen if you use `setState()` in constructor?",
     "answer": [
       "When you use `setState()`, then apart from assigning to the object state React also re-renders the component and all its children. You would get error like this: _Can only update a mounted or mounting component._ So we need to use `this.state` to initialize variables inside constructor."
@@ -962,8 +962,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-65",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-65",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the impact of indexes as keys?",
     "answer": [
       "Keys should be stable, predictable, and unique so that React can keep track of elements.",
@@ -977,8 +977,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-66",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-66",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Is it good to use `setState()` in `componentWillMount()` method?",
     "answer": [
       "Yes, it is safe to use `setState()` inside `componentWillMount()` method. But at the same it is recommended to avoid async initialization in `componentWillMount()` lifecycle method. `componentWillMount()` is invoked immediately before mounting occurs. It is called before `render()`, therefore setting state in this method will not trigger a re-render. Avoid introducing any side-effects or subscriptions in this method. We need to make sure async calls for component initialization happened in `componentDidMount()` instead of `componentWillMount()`.",
@@ -989,8 +989,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-67",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-67",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What will happen if you use props in initial state?",
     "answer": [
       "If the props on the component are changed without the component being refreshed, the new prop value will never be displayed because the constructor function will never update the current state of the component. The initialization of state from props only runs when the component is first created.",
@@ -1004,8 +1004,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-68",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-68",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How do you conditionally render components?",
     "answer": [
       "In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional _short-circuiting_ to render a given part of your component only if a certain condition is true.",
@@ -1018,8 +1018,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-69",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-69",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why we need to be careful when spreading props on DOM elements?",
     "answer": [
       "When we _spread props_ we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props.",
@@ -1031,8 +1031,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-70",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-70",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How you use decorators in React?",
     "answer": [
       "You can _decorate_ your _class_ components, which is the same as passing the component into a function. **Decorators** are flexible and readable way of modifying component functionality.",
@@ -1044,8 +1044,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-71",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-71",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How do you memoize a component?",
     "answer": [
       "There are memoize libraries available which can be used on function components.",
@@ -1059,8 +1059,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-72",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-72",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How you implement Server Side Rendering or SSR?",
     "answer": [
       "React is already equipped to handle rendering on Node servers. A special version of the DOM renderer is available, which follows the same pattern as on the client side.",
@@ -1072,8 +1072,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-73",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-73",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "How to enable production mode in React?",
     "answer": [
       "You should use Webpack's `DefinePlugin` method to set `NODE_ENV` to `production`, by which it strip out things like propType validation and extra warnings. Apart from this, if you minify the code, for example, Uglify's dead-code elimination to strip out development only code and comments, it will drastically reduce the size of your bundle."
@@ -1083,8 +1083,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-74",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-74",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is CRA and its benefits?",
     "answer": [
       "The `create-react-app` CLI tool allows you to quickly create & run React applications with no configuration step.",
@@ -1103,8 +1103,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-75",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-75",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the lifecycle methods order in mounting?",
     "answer": [
       "The lifecycle methods are called in the following order when an instance of a component is being created and inserted into the DOM.",
@@ -1118,8 +1118,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-76",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-76",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are the lifecycle methods going to be deprecated in React v16?",
     "answer": [
       "The following lifecycle methods going to be unsafe coding practices and will be more problematic with async rendering.",
@@ -1133,8 +1133,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-77",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-77",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the purpose of `getDerivedStateFromProps()` lifecycle method?",
     "answer": [
       "The new static `getDerivedStateFromProps()` lifecycle method is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or `null` to indicate that the new props do not require any state updates.",
@@ -1146,8 +1146,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-78",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-78",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the purpose of `getSnapshotBeforeUpdate()` lifecycle method?",
     "answer": [
       "The new `getSnapshotBeforeUpdate()` lifecycle method is called right before DOM updates. The return value from this method will be passed as the third parameter to `componentDidUpdate()`.",
@@ -1159,8 +1159,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-79",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-79",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Do Hooks replace render props and higher order components?",
     "answer": [
       "Both render props and higher-order components render only a single child but in most of the cases Hooks are a simpler way to serve this by reducing nesting in your tree."
@@ -1170,8 +1170,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-80",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-80",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the recommended way for naming components?",
     "answer": [
       "It is recommended to name the component by reference instead of using `displayName`.",
@@ -1187,8 +1187,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-81",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-81",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the recommended ordering of methods in component class?",
     "answer": [
       "_Recommended_ ordering of methods from _mounting_ to _render stage_:",
@@ -1212,8 +1212,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-82",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-82",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is a switching component?",
     "answer": [
       "A _switching component_ is a component that renders one of many components. We need to use object to map prop values to components.",
@@ -1225,8 +1225,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-83",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-83",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why we need to pass a function to setState()?",
     "answer": [
       "The reason behind for this is that `setState()` is an asynchronous operation. React batches state changes for performance reasons, so the state may not change immediately after `setState()` is called. That means you should not rely on the current state when calling `setState()` since you can't be sure what that state will be. The solution is to pass a function to `setState()`, with the previous state as an argument. By doing this you can avoid issues with the user getting the old state value on access due to the asynchronous nature of `setState()`.",
@@ -1241,8 +1241,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-84",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-84",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why function is preferred over object for `setState()`?",
     "answer": [
       "React may batch multiple `setState()` calls into a single update for performance. Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.",
@@ -1256,8 +1256,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-85",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-85",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is strict mode in React?",
     "answer": [
       "`React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for _development mode_ only.",
@@ -1275,8 +1275,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-86",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-86",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are React Mixins?",
     "answer": [
       "_Mixins_ are a way to totally separate components to have a common functionality. Mixins **should not be used** and can be replaced with _higher-order components_ or _decorators_.",
@@ -1289,8 +1289,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-87",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-87",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why is `isMounted()` an anti-pattern and what is the proper solution?",
     "answer": [
       "The primary use case for `isMounted()` is to avoid calling `setState()` after a component has been unmounted, because it will emit a warning.",
@@ -1303,8 +1303,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-88",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-88",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What are the Pointer Events supported in React?",
     "answer": [
       "_Pointer Events_ provide a unified way of handling all input events. In the old days we had a mouse and respective event listeners to handle them but nowadays we have many devices which don't correlate to having a mouse, like phones with touch surface or pens. We need to remember that these events will only work in browsers that support the _Pointer Events_ specification.",
@@ -1325,8 +1325,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-89",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-89",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Why should component names start with capital letter?",
     "answer": [
       "If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as an unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.",
@@ -1343,8 +1343,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-90",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-90",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "Are custom DOM attributes supported in React v16?",
     "answer": [
       "Yes. In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it.",
@@ -1361,8 +1361,8 @@
     "tags": []
   },
   {
-    "id": "1680885349529-91",
-    "date": "2023-04-07T16:35:49.529Z",
+    "id": "1686220426037-91",
+    "date": "2023-06-08T10:33:46.037Z",
     "question": "What is the difference between constructor and getInitialState?",
     "answer": [
       "You should initialize state in the constructor when using ES6 classes, and `getInitialState()` method when using `React.createClass()`.",
@@ -1377,8 +1377,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-92",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-92",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "Can you force a component to re-render without calling setState?",
     "answer": [
       "By default, when your component's state or props change, your component will re-render. If your `render()` method depends on some other data, you can tell React that the component needs re-rendering by calling `forceUpdate()`.",
@@ -1390,8 +1390,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-93",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-93",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is the difference between `super()` and `super(props)` in React using ES6 classes?",
     "answer": [
       "When you want to access `this.props` in `constructor()` then you should pass props to `super()` method.",
@@ -1406,8 +1406,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-94",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-94",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to loop inside JSX?",
     "answer": [
       "You can simply use `Array.prototype.map` with ES6 _arrow function_ syntax.",
@@ -1422,8 +1422,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-95",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-95",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How do you access props in attribute quotes?",
     "answer": [
       "React (or JSX) doesn't support variable interpolation inside an attribute value. The below representation won't work:",
@@ -1438,8 +1438,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-96",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-96",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is React proptype array with shape?",
     "answer": [
       "If you want to pass an array of objects to a component with a particular shape then use `React.PropTypes.shape()` as an argument to `React.PropTypes.arrayOf()`.",
@@ -1450,8 +1450,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-97",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-97",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to conditionally apply class attributes?",
     "answer": [
       "You shouldn't use curly braces inside quotes because it is going to be evaluated as a string.",
@@ -1466,8 +1466,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-98",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-98",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is the difference between React and ReactDOM?",
     "answer": [
       "The `react` package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The `react-dom` package contains `ReactDOM.render()`, and in `react-dom/server` we have _server-side rendering_ support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`."
@@ -1477,8 +1477,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-99",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-99",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "Why ReactDOM is separated from React?",
     "answer": [
       "The React team worked on extracting all DOM-related features into a separate library called _ReactDOM_. React v0.14 is the first release in which the libraries are split. By looking at some of the packages, `react-native`, `react-art`, `react-canvas`, and `react-three`, it has become clear that the beauty and essence of React has nothing to do with browsers or the DOM.",
@@ -1489,8 +1489,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-100",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-100",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to use React label element?",
     "answer": [
       "If you try to render a `<label>` element bound to a text input using the standard `for` attribute, then it produces HTML missing that attribute and prints a warning to the console.",
@@ -1503,8 +1503,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-101",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-101",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to combine multiple inline style objects?",
     "answer": [
       "You can use _spread operator_ in regular React:",
@@ -1517,8 +1517,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-102",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-102",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to re-render the view when the browser is resized?",
     "answer": [
       "You can use the `useState` hook to manage the width and height state variables, and the `useEffect` hook to add and remove the `resize` event listener. The `[]` dependency array passed to useEffect ensures that the effect only runs once (on mount) and not on every re-render.",
@@ -1533,8 +1533,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-103",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-103",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is the difference between `setState()` and `replaceState()` methods?",
     "answer": [
       "When you use `setState()` the current and previous states are merged. `replaceState()` throws out the current state, and replaces it with only what you provide. Usually `setState()` is used unless you really need to remove all previous keys for some reason. You can also set state to `false`/`null` in `setState()` instead of using `replaceState()`."
@@ -1544,8 +1544,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-104",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-104",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to listen to state changes?",
     "answer": [
       "The `componentDidUpdate` lifecycle method will be called when state changes. You can compare provided state and props values with current state and props to determine if something meaningful changed.",
@@ -1557,8 +1557,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-105",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-105",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is the recommended approach of removing an array element in React state?",
     "answer": [
       "The better approach is to use `Array.prototype.filter()` method.",
@@ -1570,8 +1570,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-106",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-106",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "Is it possible to use React without rendering HTML?",
     "answer": [
       "It is possible. Below are the possible options:",
@@ -1592,8 +1592,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-107",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-107",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to pretty print JSON with React?",
     "answer": [
       "We can use `<pre>` tag so that the formatting of the `JSON.stringify()` is retained:",
@@ -1604,8 +1604,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-108",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-108",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "Why you can't update props in React?",
     "answer": [
       "The React philosophy is that props should be _immutable_ and _top-down_. This means that a parent can send any prop values to a child, but the child can't modify received props."
@@ -1615,8 +1615,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-109",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-109",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to focus an input element on page load?",
     "answer": [
       "You can do it by creating _ref_ for `input` element and using it in `componentDidMount()`:",
@@ -1629,8 +1629,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-110",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-110",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the possible ways of updating objects in state?",
     "answer": [],
     "question_type": "",
@@ -1638,8 +1638,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-111",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-111",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How can we find the version of React at runtime in the browser?",
     "answer": [
       "You can use `React.version` to get the version.",
@@ -1650,8 +1650,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-112",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-112",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the approaches to include polyfills in your `create-react-app`?",
     "answer": [
       "There are approaches to include polyfills in create-react-app,"
@@ -1661,8 +1661,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-113",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-113",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to use https instead of http in create-react-app?",
     "answer": [
       "You just need to use `HTTPS=true` configuration. You can edit your `package.json` scripts section:",
@@ -1674,8 +1674,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-114",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-114",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to avoid using relative path imports in create-react-app?",
     "answer": [
       "Create a file called `.env` in the project root and write the import path:",
@@ -1687,8 +1687,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-115",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-115",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to add Google Analytics for React Router?",
     "answer": [
       "Add a listener on the `history` object to record each page view:",
@@ -1699,8 +1699,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-116",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-116",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to update a component every second?",
     "answer": [
       "You need to use `setInterval()` to trigger the change, but you also need to clear the timer when the component unmounts to prevent errors and memory leaks.",
@@ -1711,8 +1711,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-117",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-117",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How do you apply vendor prefixes to inline styles in React?",
     "answer": [
       "React _does not_ apply _vendor prefixes_ automatically. You need to add vendor prefixes manually.",
@@ -1723,8 +1723,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-118",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-118",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to import and export components using React and ES6?",
     "answer": [
       "You should use default for exporting the components",
@@ -1736,8 +1736,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-119",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-119",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "Why is a component constructor called only once?",
     "answer": [
       "React's _reconciliation_ algorithm assumes that without any information to the contrary, if a custom component appears in the same place on subsequent renders, it's the same component as before, so reuses the previous instance rather than creating a new one."
@@ -1747,8 +1747,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-120",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-120",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to define constants in React?",
     "answer": [
       "You can use ES7 `static` field to define constant.",
@@ -1759,8 +1759,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-121",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-121",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to programmatically trigger click event in React?",
     "answer": [
       "You could use the ref prop to acquire a reference to the underlying `HTMLInputElement` object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the `HTMLElement.click` method.",
@@ -1771,8 +1771,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-122",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-122",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "Is it possible to use async/await in plain React?",
     "answer": [
       "If you want to use `async`/`await` in React, you will need _Babel_ and [transform-async-to-generator](https://babeljs.io/docs/en/babel-plugin-transform-async-to-generator) plugin. React Native ships with Babel and a set of transforms."
@@ -1782,8 +1782,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-123",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-123",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the common folder structures for React?",
     "answer": [
       "There are two common practices for React project file structure."
@@ -1793,8 +1793,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-124",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-124",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the popular packages for animation?",
     "answer": [
       "_React Transition Group_ and _React Motion_ are popular animation packages in React ecosystem."
@@ -1804,8 +1804,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-125",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-125",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is the benefit of styles modules?",
     "answer": [
       "It is recommended to avoid hard coding style values in components. Any values that are likely to be used across different UI components should be extracted into their own modules.",
@@ -1819,8 +1819,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-126",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-126",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the popular React-specific linters?",
     "answer": [
       "ESLint is a popular JavaScript linter. There are plugins available that analyse specific code styles. One of the most common for React is an npm package called `eslint-plugin-react`. By default, it will check a number of best practices, with rules checking things from keys in iterators to a complete set of prop types.",
@@ -1831,8 +1831,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-127",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-127",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to make AJAX call and in which component lifecycle methods should I make an AJAX call?",
     "answer": [
       "You can use AJAX libraries such as Axios, jQuery AJAX, and the browser built-in `fetch`. You should fetch data in the `componentDidMount()` lifecycle method. This is so you can use `setState()` to update your component when the data is retrieved.",
@@ -1844,8 +1844,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-128",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-128",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are render props?",
     "answer": [
       "**Render Props** is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a React element.",
@@ -1858,8 +1858,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-129",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-129",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is React Router?",
     "answer": [
       "React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page."
@@ -1869,8 +1869,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-130",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-130",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How React Router is different from history library?",
     "answer": [
       "React Router is a wrapper around the `history` library which handles interaction with the browser's `window.history` with its browser and hash histories. It also provides memory history which is useful for environments that don't have global history, such as mobile app development (React Native) and unit testing with Node."
@@ -1880,8 +1880,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-131",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-131",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the `<Router>` components of React Router v4?",
     "answer": [
       "React Router v4 provides below 3 `<Router>` components:"
@@ -1891,8 +1891,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-132",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-132",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is the purpose of `push()` and `replace()` methods of `history`?",
     "answer": [
       "A history instance has two methods for navigation purpose."
@@ -1902,8 +1902,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-133",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-133",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How do you programmatically navigate using React Router v4?",
     "answer": [
       "There are three different ways to achieve programmatic routing/navigation within components."
@@ -1913,8 +1913,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-134",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-134",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to get query parameters in React Router v4?",
     "answer": [
       "The ability to parse query strings was taken out of React Router v4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.",
@@ -1928,8 +1928,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-135",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-135",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "Why you get \"Router may have only one child element\" warning?",
     "answer": [
       "You have to wrap your Route's in a `<Switch>` block because `<Switch>` is unique in that it renders a route exclusively.",
@@ -1943,8 +1943,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-136",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-136",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to pass params to `history.push` method in React Router v4?",
     "answer": [
       "While navigating you can pass props to the `history` object:",
@@ -1956,8 +1956,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-137",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-137",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to implement _default_ or _NotFound_ page?",
     "answer": [
       "A `<Switch>` renders the first child `<Route>` that matches. A `<Route>` with no path always matches. So you just need to simply drop path attribute as below",
@@ -1968,8 +1968,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-138",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-138",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to get history on React Router v4?",
     "answer": [
       "Below are the list of steps to get history object on React Router v4,"
@@ -1979,8 +1979,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-139",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-139",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to perform automatic redirect after login?",
     "answer": [
       "The `react-router` package provides `<Redirect>` component in React Router. Rendering a `<Redirect>` will navigate to a new location. Like server-side redirects, the new location will override the current location in the history stack.",
@@ -1991,8 +1991,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-140",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-140",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is React Intl?",
     "answer": [
       "The _React Intl_ library makes internationalization in React straightforward, with off-the-shelf components and an API that can handle everything from formatting strings, dates, and numbers, to pluralization. React Intl is part of _FormatJS_ which provides bindings to React via its components and API."
@@ -2002,8 +2002,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-141",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-141",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the main features of React Intl?",
     "answer": [
       "Below are the main features of React Intl,"
@@ -2013,8 +2013,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-142",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-142",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the two ways of formatting in React Intl?",
     "answer": [
       "The library provides two ways to format strings, numbers, and dates:"
@@ -2024,8 +2024,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-143",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-143",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to use `<FormattedMessage>` as placeholder using React Intl?",
     "answer": [
       "The `<Formatted... />` components from `react-intl` return elements, not plain text, so they can't be used for placeholders, alt text, etc. In that case, you should use lower level API `formatMessage()`. You can inject the `intl` object into your component using `injectIntl()` higher-order component and then format the message using `formatMessage()` available on that object.",
@@ -2036,8 +2036,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-144",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-144",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to access current locale with React Intl?",
     "answer": [
       "You can get the current locale in any component of your application using `injectIntl()`:",
@@ -2048,8 +2048,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-145",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-145",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "How to format date using React Intl?",
     "answer": [
       "The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.",
@@ -2060,8 +2060,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-146",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-146",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is Shallow Renderer in React testing?",
     "answer": [
       "_Shallow rendering_ is useful for writing unit test cases in React. It lets you render a component _one level deep_ and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered.",
@@ -2075,8 +2075,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-147",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-147",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is `TestRenderer` package in React?",
     "answer": [
       "This package provides a renderer that can be used to render components to pure JavaScript objects, without depending on the DOM or a native mobile environment. This package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a ReactDOM or React Native without using a browser or `jsdom`.",
@@ -2087,8 +2087,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-148",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-148",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is the purpose of ReactTestUtils package?",
     "answer": [
       "_ReactTestUtils_ are provided in the `with-addons` package and allow you to perform actions against a simulated DOM for the purpose of unit testing."
@@ -2098,8 +2098,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-149",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-149",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is Jest?",
     "answer": [
       "_Jest_ is a JavaScript unit testing framework created by Facebook based on Jasmine and provides automated mock creation and a `jsdom` environment. It's often used for testing components."
@@ -2109,8 +2109,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-150",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-150",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the advantages of Jest over Jasmine?",
     "answer": [
       "There are couple of advantages compared to Jasmine:"
@@ -2120,8 +2120,8 @@
     "tags": []
   },
   {
-    "id": "1680885349530-151",
-    "date": "2023-04-07T16:35:49.530Z",
+    "id": "1686220426038-151",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "Give a simple example of Jest test case",
     "answer": [
       "Let's write a test for a function that adds two numbers in `sum.js` file:",
@@ -2138,8 +2138,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-152",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426038-152",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is flux?",
     "answer": [
       "_Flux_ is an _application design paradigm_ used as a replacement for the more traditional MVC pattern. It is not a framework or a library but a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Facebook uses this pattern internally when working with React.",
@@ -2151,8 +2151,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-153",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426038-153",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is Redux?",
     "answer": [
       "_Redux_ is a predictable state container for JavaScript apps based on the _Flux design pattern_. Redux can be used together with React, or with any other view library. It is tiny (about 2kB) and has no dependencies."
@@ -2162,8 +2162,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-154",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426038-154",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the core principles of Redux?",
     "answer": [
       "Redux follows three fundamental principles:"
@@ -2173,8 +2173,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-155",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426038-155",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What are the downsides of Redux compared to Flux?",
     "answer": [
       "Instead of saying downsides we can say that there are few compromises of using Redux over Flux. Those are as follows:"
@@ -2184,8 +2184,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-156",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426038-156",
+    "date": "2023-06-08T10:33:46.038Z",
     "question": "What is the difference between `mapStateToProps()` and `mapDispatchToProps()`?",
     "answer": [
       "`mapStateToProps()` is a utility which helps your component get updated state (which is updated by some other components):",
@@ -2201,8 +2201,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-157",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-157",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Can I dispatch an action in reducer?",
     "answer": [
       "Dispatching an action within a reducer is an **anti-pattern**. Your reducer should be _without side effects_, simply digesting the action payload and returning a new state object. Adding listeners and dispatching actions within the reducer can lead to chained actions and other side effects."
@@ -2212,8 +2212,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-158",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-158",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to access Redux store outside a component?",
     "answer": [
       "You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.",
@@ -2224,8 +2224,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-159",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-159",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the drawbacks of MVW pattern?",
     "answer": [],
     "question_type": "",
@@ -2233,8 +2233,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-160",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-160",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Are there any similarities between Redux and RxJS?",
     "answer": [
       "These libraries are very different for very different purposes, but there are some vague similarities.",
@@ -2245,8 +2245,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-161",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-161",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to dispatch an action on load?",
     "answer": [
       "You can dispatch an action in `componentDidMount()` method and in `render()` method you can verify the data.",
@@ -2257,8 +2257,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-162",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-162",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to use `connect()` from React Redux?",
     "answer": [
       "You need to follow two steps to use your store in your container:"
@@ -2268,8 +2268,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-163",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-163",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to reset state in Redux?",
     "answer": [
       "You need to write a _root reducer_ in your application which delegate handling the action to the reducer generated by `combineReducers()`.",
@@ -2283,8 +2283,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-164",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-164",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Whats the purpose of `at` symbol in the Redux connect decorator?",
     "answer": [
       "The **@** symbol is in fact a JavaScript expression used to signify decorators. _Decorators_ make it possible to annotate and modify classes and properties at design time.",
@@ -2295,8 +2295,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-165",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-165",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the difference between React context and React Redux?",
     "answer": [
       "You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for.",
@@ -2307,8 +2307,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-166",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-166",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Why are Redux state functions called reducers?",
     "answer": [
       "Reducers always return the accumulation of the state (based on all previous and current actions). Therefore, they act as a reducer of state. Each time a Redux reducer is called, the state and action are passed as parameters. This state is then reduced (or accumulated) based on the action, and then the next state is returned. You could _reduce_ a collection of actions and an initial state (of the store) on which to perform these actions to get the resulting final state."
@@ -2318,8 +2318,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-167",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-167",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to make AJAX request in Redux?",
     "answer": [
       "You can use `redux-thunk` middleware which allows you to define async actions.",
@@ -2331,8 +2331,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-168",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-168",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Should I keep all component's state in Redux store?",
     "answer": [
       "Keep your data in the Redux store, and the UI related state internally in the component."
@@ -2342,8 +2342,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-169",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-169",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the proper way to access Redux store?",
     "answer": [
       "The best way to access your store in a component is to use the `connect()` function, that creates a new component that wraps around your existing one. This pattern is called _Higher-Order Components_, and is generally the preferred way of extending a component's functionality in React. This allows you to map state and action creators to your component, and have them passed in automatically as your store updates.",
@@ -2357,8 +2357,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-170",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-170",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the difference between component and container in React Redux?",
     "answer": [
       "**Component** is a class or function component that describes the presentational part of your application.",
@@ -2369,8 +2369,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-171",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-171",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the purpose of the constants in Redux?",
     "answer": [
       "Constants allows you to easily find all usages of that specific functionality across the project when you use an IDE. It also prevents you from introducing silly bugs caused by typos – in which case, you will get a `ReferenceError` immediately.",
@@ -2383,8 +2383,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-172",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-172",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the different ways to write `mapDispatchToProps()`?",
     "answer": [
       "There are a few ways of binding _action creators_ to `dispatch()` in `mapDispatchToProps()`.",
@@ -2399,8 +2399,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-173",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-173",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the use of the `ownProps` parameter in `mapStateToProps()` and `mapDispatchToProps()`?",
     "answer": [
       "If the `ownProps` parameter is specified, React Redux will pass the props that were passed to the component into your _connect_ functions. So, if you use a connected component:",
@@ -2414,8 +2414,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-174",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-174",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to structure Redux top level directories?",
     "answer": [
       "Most of the applications has several top-level directories as below:"
@@ -2425,8 +2425,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-175",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-175",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is redux-saga?",
     "answer": [
       "`redux-saga` is a library that aims to make side effects (asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.",
@@ -2438,8 +2438,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-176",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-176",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the mental model of redux-saga?",
     "answer": [
       "_Saga_ is like a separate thread in your application, that's solely responsible for side effects. `redux-saga` is a redux _middleware_, which means this thread can be started, paused and cancelled from the main application with normal Redux actions, it has access to the full Redux application state and it can dispatch Redux actions as well."
@@ -2449,8 +2449,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-177",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-177",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the differences between `call()` and `put()` in redux-saga?",
     "answer": [
       "Both `call()` and `put()` are effect creator functions. `call()` function is used to create effect description, which instructs middleware to call the promise. `put()` function creates an effect, which instructs middleware to dispatch an action to the store.",
@@ -2462,8 +2462,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-178",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-178",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is Redux Thunk?",
     "answer": [
       "_Redux Thunk_ middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods `dispatch()` and `getState()` as parameters."
@@ -2473,8 +2473,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-179",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-179",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the differences between `redux-saga` and `redux-thunk`?",
     "answer": [
       "Both _Redux Thunk_ and _Redux Saga_ take care of dealing with side effects. In most of the scenarios, Thunk uses _Promises_ to deal with them, whereas Saga uses _Generators_. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them."
@@ -2484,8 +2484,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-180",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-180",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is Redux DevTools?",
     "answer": [
       "_Redux DevTools_ is a live-editing time travel environment for Redux with hot reloading, action replay, and customizable UI. If you don't want to bother with installing Redux DevTools and integrating it into your project, consider using Redux DevTools Extension for Chrome and Firefox."
@@ -2495,8 +2495,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-181",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-181",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the features of Redux DevTools?",
     "answer": [
       "Some of the main features of Redux DevTools are below,"
@@ -2506,8 +2506,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-182",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-182",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are Redux selectors and why to use them?",
     "answer": [
       "_Selectors_ are functions that take Redux state as an argument and return some data to pass to the component.",
@@ -2520,8 +2520,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-183",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-183",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is Redux Form?",
     "answer": [
       "_Redux Form_ works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works very well with common UI frameworks like Material UI, React Widgets and React Bootstrap."
@@ -2531,8 +2531,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-184",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-184",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the main features of Redux Form?",
     "answer": [
       "Some of the main features of Redux Form are:"
@@ -2542,8 +2542,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-185",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-185",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to add multiple middlewares to Redux?",
     "answer": [
       "You can use `applyMiddleware()`.",
@@ -2555,8 +2555,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-186",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-186",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to set initial state in Redux?",
     "answer": [
       "You need to pass initial state as second argument to createStore:",
@@ -2567,8 +2567,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-187",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-187",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How Relay is different from Redux?",
     "answer": [
       "Relay is similar to Redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via _GraphQL_ queries (for reading data) and mutations (for changing data). Relay caches the data for you and optimizes data fetching for you, by fetching only changed data and nothing more."
@@ -2578,8 +2578,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-188",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-188",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is an action in Redux?",
     "answer": [
       "_Actions_ are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of information for the store. Actions must have a type property that indicates the type of action being performed.",
@@ -2592,8 +2592,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-189",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-189",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the difference between React Native and React?",
     "answer": [
       "**React** is a JavaScript library, supporting both front end web and being run on the server, for building user interfaces and web applications.",
@@ -2604,8 +2604,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-190",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-190",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to test React Native apps?",
     "answer": [
       "React Native can be tested only in mobile simulators like iOS and Android. You can run the app in your mobile using expo app (https://expo.io) Where it syncs using QR code, your mobile and computer should be in same wireless network."
@@ -2615,8 +2615,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-191",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-191",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to do logging in React Native?",
     "answer": [
       "You can use `console.log`, `console.warn`, etc. As of React Native v0.29 you can simply run the following to see logs in the console:",
@@ -2627,8 +2627,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-192",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-192",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to debug your React Native?",
     "answer": [
       "Follow the below steps to debug React Native app:",
@@ -2639,8 +2639,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-193",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-193",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is reselect and how it works?",
     "answer": [
       "_Reselect_ is a **selector library** (for Redux) which uses _memoization_ concept. It was originally written to compute derived data from Redux-like applications state, but it can't be tied to any architecture or library.",
@@ -2651,8 +2651,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-194",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-194",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is Flow?",
     "answer": [
       "_Flow_ is a _static type checker_ designed to find type errors in JavaScript. Flow types can express much more fine-grained distinctions than traditional type systems. For example, Flow helps you catch errors involving `null`, unlike most type systems."
@@ -2662,8 +2662,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-195",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-195",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the difference between Flow and PropTypes?",
     "answer": [
       "Flow is a _static analysis tool_ (static checker) which uses a superset of the language, allowing you to add type annotations to all of your code and catch an entire class of bugs at compile time.",
@@ -2674,8 +2674,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-196",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-196",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to use Font Awesome icons in React?",
     "answer": [
       "The below steps followed to include Font Awesome in React:"
@@ -2685,8 +2685,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-197",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-197",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is React Dev Tools?",
     "answer": [
       "_React Developer Tools_ let you inspect the component hierarchy, including component props and state. It exists both as a browser extension (for Chrome and Firefox), and as a standalone app (works with other environments including Safari, IE, and React Native).",
@@ -2697,8 +2697,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-198",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-198",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Why is DevTools not loading in Chrome for local files?",
     "answer": [
       "If you opened a local HTML file in your browser (`file://...`) then you must first open _Chrome Extensions_ and check `Allow access to file URLs`."
@@ -2708,8 +2708,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-199",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-199",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to use Polymer in React?",
     "answer": [
       "You need to follow below steps to use Polymer in React,"
@@ -2719,8 +2719,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-200",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-200",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the advantages of React over Vue.js?",
     "answer": [
       "React has the following advantages over Vue.js:",
@@ -2731,8 +2731,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-201",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-201",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the difference between React and Angular?",
     "answer": [
       "Let's see the difference between React and Angular in a table format.",
@@ -2744,8 +2744,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-202",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-202",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Why React tab is not showing up in DevTools?",
     "answer": [
       "When the page loads, _React DevTools_ sets a global named `__REACT_DEVTOOLS_GLOBAL_HOOK__`, then React communicates with that hook during initialization. If the website is not using React or if React fails to communicate with DevTools then it won't show up the tab."
@@ -2755,8 +2755,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-203",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-203",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are Styled Components?",
     "answer": [
       "`styled-components` is a JavaScript library for styling React applications. It removes the mapping between styles and components, and lets you write actual CSS augmented with JavaScript."
@@ -2766,8 +2766,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-204",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-204",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Give an example of Styled Components?",
     "answer": [
       "Lets create `<Title>` and `<Wrapper>` components with specific styles for each.",
@@ -2780,8 +2780,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-205",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-205",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is Relay?",
     "answer": [
       "Relay is a JavaScript framework for providing a data layer and client-server communication to web applications using the React view layer."
@@ -2791,8 +2791,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-206",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-206",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to use TypeScript in `create-react-app` application?",
     "answer": [
       "Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. i.e, `create-react-app` now supports typescript natively. You can just pass `--typescript` option as below",
@@ -2806,8 +2806,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-207",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-207",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the main features of Reselect library?",
     "answer": [
       "Let's see the main features of Reselect library,",
@@ -2820,8 +2820,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-208",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-208",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Does the statics object work with ES6 classes in React?",
     "answer": [
       "No, `statics` only works with `React.createClass()`:",
@@ -2836,8 +2836,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-209",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-209",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Can Redux only be used with React?",
     "answer": [
       "Redux can be used as a data store for any UI layer. The most common usage is with React and React Native, but there are bindings available for Angular, Angular 2, Vue, Mithril, and more. Redux simply provides a subscription mechanism which can be used by any other code."
@@ -2847,8 +2847,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-210",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-210",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Do you need to have a particular build tool to use Redux?",
     "answer": [
       "Redux is originally written in ES6 and transpiled for production into ES5 with Webpack and Babel. You should be able to use it regardless of your JavaScript build process. Redux also offers a UMD build that can be used directly without any build process at all."
@@ -2858,8 +2858,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-211",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-211",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How Redux Form `initialValues` get updated from state?",
     "answer": [
       "You need to add `enableReinitialize : true` setting.",
@@ -2871,8 +2871,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-212",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-212",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How React PropTypes allow different types for one prop?",
     "answer": [
       "You can use `oneOfType()` method of `PropTypes`.",
@@ -2884,8 +2884,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-213",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-213",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Can I import an SVG file as react component?",
     "answer": [
       "You can import SVG directly as component instead of loading it as a file. This feature is available with `react-scripts@2.0.0` and higher.",
@@ -2897,8 +2897,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-214",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-214",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Why are inline ref callbacks or functions not recommended?",
     "answer": [
       "If the ref callback is defined as an inline function, it will get called twice during updates, first with null and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one.",
@@ -2912,8 +2912,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-215",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-215",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is render hijacking in react?",
     "answer": [
       "The concept of render hijacking is the ability to control what a component will output from another component. It means that you decorate your component by wrapping it into a Higher-Order component. By wrapping, you can inject additional props or make other changes, which can cause changing logic of rendering. It does not actually enable hijacking, but by using HOC you make your component behave differently."
@@ -2923,8 +2923,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-216",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-216",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are HOC factory implementations?",
     "answer": [
       "There are two main ways of implementing HOCs in React."
@@ -2934,8 +2934,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-217",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-217",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to pass numbers to React component?",
     "answer": [
       "You should be passing the numbers via curly braces({}) where as strings in quotes",
@@ -2946,8 +2946,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-218",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-218",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Do I need to keep all my state into Redux? Should I ever use react internal state?",
     "answer": [
       "It is up to the developer's decision, i.e., it is developer's job to determine what kinds of state make up your application, and where each piece of state should live. Some users prefer to keep every single piece of data in Redux, to maintain a fully serializable and controlled version of their application at all times. Others prefer to keep non-critical or UI state, such as “is this dropdown currently open”, inside a component's internal state.",
@@ -2958,8 +2958,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-219",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-219",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the purpose of registerServiceWorker in React?",
     "answer": [
       "React creates a service worker for you without any configuration by default. The service worker is a web API that helps you cache your assets and other files so that when the user is offline or on a slow network, he/she can still see results on the screen, as such, it helps you build a better user experience, that's what you should know about service worker for now. It's all about adding offline capabilities to your site.",
@@ -2970,8 +2970,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-220",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-220",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is React memo function?",
     "answer": [
       "Class components can be restricted from re-rendering when their input props are the same using **PureComponent or shouldComponentUpdate**. Now you can do the same with function components by wrapping them in **React.memo**.",
@@ -2982,8 +2982,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-221",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-221",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is React lazy function?",
     "answer": [
       "The `React.lazy` function lets you render a dynamic import as a regular component. It will automatically load the bundle containing the `OtherComponent` when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.",
@@ -2995,8 +2995,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-222",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-222",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to prevent unnecessary updates using setState?",
     "answer": [
       "You can compare the current value of the state with an existing state value and decide whether to rerender the page or not. If the values are the same then you need to return **null** to stop re-rendering otherwise return the latest state value.",
@@ -3008,8 +3008,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-223",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-223",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How do you render Array, Strings and Numbers in React 16 Version?",
     "answer": [
       "**Arrays**: Unlike older releases, you don't need to make sure **render** method return a single element in React16. You are able to return multiple sibling elements without a wrapping element by returning an array.",
@@ -3025,8 +3025,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-224",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-224",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to use class field declarations syntax in React classes?",
     "answer": [
       "React Class Components can be made much more concise using the class field declarations. You can initialize the local state without using the constructor and declare class methods by using arrow functions without the extra need to bind them.",
@@ -3038,8 +3038,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-225",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-225",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are hooks?",
     "answer": [
       "Hooks is a special JavaScript function that allows you use state and other React features without writing a class. This pattern has been introduced as a new feature in React 16.8 and helped to isolate the stateful logic from the components.",
@@ -3052,8 +3052,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-226",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-226",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What rules need to be followed for hooks?",
     "answer": [
       "You need to follow two rules in order to use hooks,"
@@ -3063,8 +3063,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-227",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-227",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to ensure hooks followed the rules in your project?",
     "answer": [
       "React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces these two rules. You can add this plugin to your project using the below command,",
@@ -3078,8 +3078,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-228",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-228",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the differences between Flux and Redux?",
     "answer": [
       "Below are the major differences between Flux and Redux",
@@ -3090,8 +3090,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-229",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-229",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the benefits of React Router V4?",
     "answer": [
       "Below are the main benefits of React Router V4 module,"
@@ -3101,8 +3101,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-230",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-230",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Can you describe about componentDidCatch lifecycle method signature?",
     "answer": [
       "The **componentDidCatch** lifecycle method is invoked after an error has been thrown by a descendant component. The method receives two parameters,"
@@ -3112,8 +3112,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-231",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-231",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "In which scenarios error boundaries do not catch errors?",
     "answer": [
       "Below are the cases in which error boundaries doesn't work,"
@@ -3123,8 +3123,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-232",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-232",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Why do you not need error boundaries for event handlers?",
     "answer": [
       "Error boundaries do not catch errors inside event handlers.",
@@ -3138,8 +3138,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-233",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-233",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the difference between try catch block and error boundaries?",
     "answer": [
       "Try catch block works with imperative code whereas error boundaries are meant for declarative code to render on the screen.",
@@ -3154,8 +3154,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-234",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-234",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the behavior of uncaught errors in react 16?",
     "answer": [
       "In React 16, errors that were not caught by any error boundary will result in unmounting of the whole React component tree. The reason behind this decision is that it is worse to leave corrupted UI in place than to completely remove it. For example, it is worse for a payments app to display a wrong amount than to render nothing."
@@ -3165,8 +3165,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-235",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-235",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the proper placement for error boundaries?",
     "answer": [
       "The granularity of error boundaries usage is up to the developer based on project needs. You can follow either of these approaches,\n1. You can wrap top-level route components to display a generic error message for the entire application.\n2. You can also wrap individual components in an error boundary to protect them from crashing the rest of the application."
@@ -3176,8 +3176,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-236",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-236",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the benefit of component stack trace from error boundary?",
     "answer": [
       "Apart from error messages and javascript stack, React16 will display the component stack trace with file names and line numbers using error boundary concept.",
@@ -3189,8 +3189,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-237",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-237",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the required method to be defined for a class component?",
     "answer": [
       "The `render()` method is the only required method in a class component. i.e, All methods other than render method are optional for a class component."
@@ -3200,8 +3200,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-238",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-238",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the possible return types of render method?",
     "answer": [
       "Below are the list of following types used and return from render method,"
@@ -3211,8 +3211,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-239",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-239",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the main purpose of constructor?",
     "answer": [
       "The constructor is mainly used for two purposes,"
@@ -3222,8 +3222,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-240",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-240",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Is it mandatory to define constructor for React component?",
     "answer": [
       "No, it is not mandatory. i.e, If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component."
@@ -3233,8 +3233,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-241",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-241",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are default props?",
     "answer": [
       "The _defaultProps_ can be defined as a property on the component to set the default values for the props. These default props are used when props not supplied(i.e., undefined props), but not for null props. That means, If you provide null value then it remains null value.",
@@ -3248,8 +3248,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-242",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-242",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Why should not call setState in componentWillUnmount?",
     "answer": [
       "You should not call `setState()` in `componentWillUnmount()` because once a component instance is unmounted, it will never be mounted again."
@@ -3259,8 +3259,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-243",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-243",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the purpose of getDerivedStateFromError?",
     "answer": [
       "This lifecycle method is invoked after an error has been thrown by a descendant component. It receives the error that was thrown as a parameter and should return a value to update state.",
@@ -3274,8 +3274,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-244",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-244",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the methods order when component re-rendered?",
     "answer": [
       "An update can be caused by changes to props or state. The below methods are called in the following order when a component is being re-rendered."
@@ -3285,8 +3285,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-245",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-245",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the methods invoked during error handling?",
     "answer": [
       "Below methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component."
@@ -3296,8 +3296,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-246",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-246",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the purpose of displayName class property?",
     "answer": [
       "The displayName string is used in debugging messages. Usually, you don’t need to set it explicitly because it’s inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component.",
@@ -3309,8 +3309,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-247",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-247",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the browser support for react applications?",
     "answer": [
       "React supports all popular browsers, including Internet Explorer 9 and above, although some polyfills are required for older browsers such as IE 9 and IE 10. If you use **es5-shim and es5-sham** polyfill then it even support old browsers that doesn't support ES5 methods."
@@ -3320,8 +3320,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-248",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-248",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the purpose of unmountComponentAtNode method?",
     "answer": [
       "This method is available from react-dom package and it removes a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns true if a component was unmounted and false if there was no component to unmount.",
@@ -3333,8 +3333,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-249",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-249",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is code-splitting?",
     "answer": [
       "Code-Splitting is a feature supported by bundlers like Webpack and Browserify which can create multiple bundles that can be dynamically loaded at runtime. The react project supports code splitting via dynamic import() feature.",
@@ -3348,8 +3348,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-250",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-250",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is the benefit of strict mode?",
     "answer": [
       "The <StrictMode> will be helpful in the below cases"
@@ -3359,8 +3359,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-251",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-251",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are Keyed Fragments?",
     "answer": [
       "The Fragments declared with the explicit <React.Fragment> syntax may have keys. The general use case is mapping a collection to an array of fragments as below,",
@@ -3372,8 +3372,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-252",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-252",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Does React support all HTML attributes?",
     "answer": [
       "As of React 16, both standard or custom DOM attributes are fully supported. Since React components often take both custom and DOM-related props, React uses the camelCase convention just like the DOM APIs.",
@@ -3386,8 +3386,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-253",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-253",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the limitations with HOCs?",
     "answer": [
       "Higher-order components come with a few caveats apart from its benefits. Below are the few listed in an order,"
@@ -3397,8 +3397,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-254",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-254",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to debug forwardRefs in DevTools?",
     "answer": [
       "**React.forwardRef** accepts a render function as parameter and DevTools uses this function to determine what to display for the ref forwarding component.",
@@ -3414,8 +3414,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-255",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-255",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "When component props defaults to true?",
     "answer": [
       "If you pass no value for a prop, it defaults to true. This behavior is available so that it matches the behavior of HTML.",
@@ -3428,8 +3428,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-256",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-256",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What is NextJS and major features of it?",
     "answer": [
       "Next.js is a popular and lightweight framework for static and server‑rendered applications built with React. It also provides styling and routing solutions. Below are the major features provided by NextJS,"
@@ -3439,8 +3439,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-257",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-257",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How do you pass an event handler to a component?",
     "answer": [
       "You can pass event handlers and other functions as props to child components. It can be used in child component as below,",
@@ -3451,8 +3451,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-258",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-258",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Is it good to use arrow functions in render methods?",
     "answer": [
       "Yes, You can use. It is often the easiest way to pass parameters to callback functions. But you need to optimize the performance while using it.",
@@ -3464,8 +3464,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-259",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-259",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to prevent a function from being called multiple times?",
     "answer": [
       "If you use an event handler such as **onClick or onScroll** and want to prevent the callback from being fired too quickly, then you can limit the rate at which callback is executed. This can be achieved in the below possible ways,"
@@ -3475,8 +3475,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-260",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-260",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How JSX prevents Injection Attacks?",
     "answer": [
       "React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered.",
@@ -3489,8 +3489,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-261",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-261",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How do you update rendered elements?",
     "answer": [
       "You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method.",
@@ -3502,8 +3502,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-262",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-262",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How do you say that props are readonly?",
     "answer": [
       "When you declare a component as a function or a class, it must never modify its own props.",
@@ -3516,8 +3516,8 @@
     "tags": []
   },
   {
-    "id": "1680885349531-263",
-    "date": "2023-04-07T16:35:49.531Z",
+    "id": "1686220426039-263",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How do you say that state updates are merged?",
     "answer": [
       "When you call setState() in the component, React merges the object you provide into the current state.",
@@ -3532,8 +3532,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-264",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426039-264",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How do you pass arguments to an event handler?",
     "answer": [
       "During iterations or loops, it is common to pass an extra parameter to an event handler. This can be achieved through arrow functions or bind method.",
@@ -3546,8 +3546,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-265",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426039-265",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "How to prevent component from rendering?",
     "answer": [
       "You can prevent component from rendering by returning null based on specific condition. This way it can conditionally render component.",
@@ -3560,8 +3560,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-266",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426039-266",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "What are the conditions to safely use the index as a key?",
     "answer": [
       "There are three conditions to make sure, it is safe use the index as a key."
@@ -3571,8 +3571,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-267",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426039-267",
+    "date": "2023-06-08T10:33:46.039Z",
     "question": "Should keys be globally unique?",
     "answer": [
       "The keys used within arrays should be unique among their siblings but they don’t need to be globally unique. i.e, You can use the same keys with two different arrays.",
@@ -3584,8 +3584,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-268",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-268",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the popular choice for form handling?",
     "answer": [
       "`Formik` is a form library for react which provides solutions such as validation, keeping track of the visited fields, and handling form submission.",
@@ -3596,8 +3596,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-269",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-269",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are the advantages of formik over redux form library?",
     "answer": [
       "Below are the main reasons to recommend formik over redux form library,"
@@ -3607,8 +3607,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-270",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-270",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Why are you not required to use inheritance?",
     "answer": [
       "In React, it is recommended to use composition over inheritance to reuse code between components. Both Props and composition give you all the flexibility you need to customize a component’s look and behavior explicitly and safely.\nWhereas, If you want to reuse non-UI functionality between components, it is suggested to extract it into a separate JavaScript module. Later components import it and use that function, object, or class, without extending it."
@@ -3618,8 +3618,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-271",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-271",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Can I use web components in react application?",
     "answer": [
       "Yes, you can use web components in a react application. Even though many developers won't use this combination, it may require especially if you are using third-party UI components that are written using Web Components.",
@@ -3631,8 +3631,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-272",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-272",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is dynamic import?",
     "answer": [
       "You can achieve code-splitting in your app using dynamic import.",
@@ -3643,8 +3643,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-273",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-273",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are loadable components?",
     "answer": [
       "If you want to do code-splitting in a server rendered app, it is recommend to use Loadable Components because React.lazy and Suspense is not yet available for server-side rendering. Loadable lets you render a dynamic import as a regular component.",
@@ -3657,8 +3657,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-274",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-274",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is suspense component?",
     "answer": [
       "If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component.",
@@ -3671,8 +3671,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-275",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-275",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is route based code splitting?",
     "answer": [
       "One of the best place to do code splitting is with routes. The entire page is going to re-render at once so users are unlikely to interact with other elements in the page at the same time. Due to this, the user experience won't be disturbed.",
@@ -3685,8 +3685,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-276",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-276",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Give an example on How to use context?",
     "answer": [
       "**Context** is designed to share data that can be considered **global** for a tree of React components.",
@@ -3698,8 +3698,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-277",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-277",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the purpose of default value in context?",
     "answer": [
       "The defaultValue argument is only used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them.",
@@ -3711,8 +3711,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-278",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-278",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How do you use contextType?",
     "answer": [
       "ContextType is used to consume the context object. The contextType property can be used in two ways,"
@@ -3722,8 +3722,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-279",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-279",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is a consumer?",
     "answer": [
       "A Consumer is a React component that subscribes to context changes. It requires a function as a child which receives current context value as argument and returns a react node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree.",
@@ -3735,8 +3735,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-280",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-280",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How do you solve performance corner cases while using context?",
     "answer": [
       "The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider’s parent re-renders.",
@@ -3750,8 +3750,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-281",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-281",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the purpose of forward ref in HOCs?",
     "answer": [
       "Refs will not get passed through because ref is not a prop. It is handled differently by React just like **key**. If you add a ref to a HOC, the ref will refer to the outermost container component, not the wrapped component. In this case, you can use Forward Ref API. For example, we can explicitly forward refs to the inner FancyButton component using the React.forwardRef API.",
@@ -3767,8 +3767,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-282",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-282",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Is ref argument available for all functions or class components?",
     "answer": [
       "Regular function or class components don’t receive the ref argument, and ref is not available in props either. The second ref argument only exists when you define a component with React.forwardRef call."
@@ -3778,8 +3778,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-283",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-283",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Why do you need additional care for component libraries while using forward refs?",
     "answer": [
       "When you start using forwardRef in a component library, you should treat it as a breaking change and release a new major version of your library. This is because your library likely has a different behavior such as what refs get assigned to, and what types are exported. These changes can break apps and other libraries that depend on the old behavior."
@@ -3789,8 +3789,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-284",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-284",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How to create react class components without ES6?",
     "answer": [
       "If you don’t use ES6 then you may need to use the create-react-class module instead. For default props, you need to define getDefaultProps() as a function on the passed object. Whereas for initial state, you have to provide a separate getInitialState method that returns the initial state.",
@@ -3802,8 +3802,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-285",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-285",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Is it possible to use react without JSX?",
     "answer": [
       "Yes, JSX is not mandatory for using React. Actually it is convenient when you don’t want to set up compilation in your build environment. Each JSX element is just syntactic sugar for calling `React.createElement(component, props, ...children)`.",
@@ -3817,8 +3817,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-286",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-286",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is diffing algorithm?",
     "answer": [
       "React needs to use algorithms to find out how to efficiently update the UI to match the most recent tree. The diffing algorithms is generating the minimum number of operations to transform one tree into another. However, the algorithms have a complexity in the order of O(n³) where n is the number of elements in the tree.",
@@ -3829,8 +3829,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-287",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-287",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are the rules covered by diffing algorithm?",
     "answer": [
       "When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements. It covers the below rules during reconciliation algorithm,"
@@ -3840,19 +3840,22 @@
     "tags": []
   },
   {
-    "id": "1680885349532-288",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-288",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "When do you need to use refs?",
     "answer": [
-      "There are few use cases to go for refs,"
+      "There are few use cases to go for refs,",
+      "Managing focus, text selection, or media playback.",
+      "Triggering imperative animations.",
+      "Integrating with third-party DOM libraries."
     ],
     "question_type": "",
     "language": "react",
     "tags": []
   },
   {
-    "id": "1680885349532-289",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-289",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Must prop be named as render for render props?",
     "answer": [
       "Even though the pattern named render props, you don’t have to use a prop named render to use this pattern. i.e, Any prop that is a function that a component uses to know what to render is technically a “render prop”. Lets take an example with the children prop for render props,",
@@ -3867,8 +3870,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-290",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-290",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are the problems of using render props with pure components?",
     "answer": [
       "If you create a function inside a render method, it negates the purpose of pure component. Because the shallow prop comparison will always return false for new props, and each render in this case will generate a new value for the render prop. You can solve this issue by defining the render function as instance method."
@@ -3878,8 +3881,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-291",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-291",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How do you create HOC using render props?",
     "answer": [
       "You can implement most higher-order components (HOC) using a regular component with a render prop. For example, if you would prefer to have a withMouse HOC instead of a <Mouse> component, you could easily create one using a regular <Mouse> with a render prop.",
@@ -3891,8 +3894,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-292",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-292",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is windowing technique?",
     "answer": [
       "Windowing is a technique that only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created. If your application renders long lists of data then this technique is recommended. Both react-window and react-virtualized are popular windowing libraries which provides several reusable components for displaying lists, grids, and tabular data."
@@ -3902,8 +3905,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-293",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-293",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How do you print falsy values in JSX?",
     "answer": [
       "The falsy values such as false, null, undefined, and true are valid children but they don't render anything. If you still want to display them then you need to convert it to string. Let's take an example on how to convert to a string,",
@@ -3914,8 +3917,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-294",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-294",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the typical use case of portals?",
     "answer": [
       "React portals are very useful when a parent component has overflow: hidden or has properties that affect the stacking context (e.g. z-index, position, opacity) and you need to visually “break out” of its container.",
@@ -3926,8 +3929,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-295",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-295",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How do you set default value for uncontrolled component?",
     "answer": [
       "In React, the value attribute on form elements will override the value in the DOM. With an uncontrolled component, you might want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a **defaultValue** attribute instead of **value**.",
@@ -3939,8 +3942,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-296",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-296",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is your favorite React stack?",
     "answer": [
       "Even though the tech stack varies from developer to developer, the most popular stack is used in react boilerplate project code. It mainly uses Redux and redux-saga for state management and asynchronous side-effects, react-router for routing purpose, styled-components for styling react components, axios for invoking REST api, and other supported stack such as webpack, reselect, ESNext, Babel.\nYou can clone the project https://github.com/react-boilerplate/react-boilerplate and start working on any new react project."
@@ -3950,8 +3953,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-297",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-297",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the difference between Real DOM and Virtual DOM?",
     "answer": [
       "Below are the main differences between Real DOM and Virtual DOM,",
@@ -3962,8 +3965,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-298",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-298",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How to add Bootstrap to a react application?",
     "answer": [
       "Bootstrap can be added to your React app in a three possible ways,"
@@ -3973,8 +3976,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-299",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-299",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Can you list down top websites or applications using react as front end framework?",
     "answer": [
       "Below are the `top 10 websites` using React as their front-end framework,"
@@ -3984,8 +3987,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-300",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-300",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Is it recommended to use CSS In JS technique in React?",
     "answer": [
       "React does not have any opinion about how styles are defined but if you are a beginner then good starting point is to define your styles in a separate \\*.css file as usual and refer to them using className. This functionality is not part of React but came from third-party libraries. But If you want to try a different approach(CSS-In-JS) then styled-components library is a good option."
@@ -3995,8 +3998,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-301",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-301",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Do I need to rewrite all my class components with hooks?",
     "answer": [
       "No. But you can try Hooks in a few components(or new components) without rewriting any existing code. Because there are no plans to remove classes in ReactJS."
@@ -4006,8 +4009,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-302",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-302",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How to fetch data with React Hooks?",
     "answer": [
       "The effect hook called `useEffect` can be used to fetch data from an API and to set the data in the local state of the component with the useState hook’s update function.",
@@ -4021,8 +4024,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-303",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-303",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Is Hooks cover all use cases for classes?",
     "answer": [
       "Hooks doesn't cover all use cases of classes but there is a plan to add them soon. Currently there are no Hook equivalents to the uncommon **getSnapshotBeforeUpdate** and **componentDidCatch** lifecycles yet."
@@ -4032,8 +4035,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-304",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-304",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the stable release for hooks support?",
     "answer": [
       "React includes a stable implementation of React Hooks in 16.8 release for below packages"
@@ -4043,8 +4046,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-305",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-305",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Why do we use array destructuring (square brackets notation) in `useState`?",
     "answer": [
       "When we declare a state variable with `useState`, it returns a pair — an array with two items. The first item is the current value, and the second is a function that updates the value. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.",
@@ -4058,8 +4061,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-306",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-306",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are the sources used for introducing hooks?",
     "answer": [
       "Hooks got the ideas from several different sources. Below are some of them,"
@@ -4069,8 +4072,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-307",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-307",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How do you access imperative API of web components?",
     "answer": [
       "Web Components often expose an imperative API to implement its functions. You will need to use a **ref** to interact with the DOM node directly if you want to access imperative API of a web component. But if you are using third-party Web Components, the best solution is to write a React component that behaves as a **wrapper** for your Web Component."
@@ -4080,8 +4083,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-308",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-308",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is formik?",
     "answer": [
       "Formik is a small react form library that helps you with the three major problems,"
@@ -4091,8 +4094,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-309",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-309",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are typical middleware choices for handling asynchronous calls in Redux?",
     "answer": [
       "Some of the popular middleware choices for handling asynchronous calls in Redux eco system are `Redux Thunk, Redux Promise, Redux Saga`."
@@ -4102,8 +4105,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-310",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-310",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Do browsers understand JSX code?",
     "answer": [
       "No, browsers can't understand JSX code. You need a transpiler to convert your JSX to regular Javascript that browsers can understand. The most widely used transpiler right now is Babel."
@@ -4113,8 +4116,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-311",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-311",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Describe about data flow in react?",
     "answer": [
       "React implements one-way reactive data flow using props which reduce boilerplate and is easier to understand than traditional two-way data binding."
@@ -4124,8 +4127,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-312",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-312",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is react scripts?",
     "answer": [
       "The `react-scripts` package is a set of scripts from the create-react-app starter pack which helps you kick off projects without configuring. The `react-scripts start` command sets up the development environment and starts a server, as well as hot module reloading."
@@ -4135,8 +4138,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-313",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-313",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are the features of create react app?",
     "answer": [
       "Below are the list of some of the features provided by create react app."
@@ -4146,8 +4149,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-314",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-314",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the purpose of renderToNodeStream method?",
     "answer": [
       "The `ReactDOMServer#renderToNodeStream` method is used to generate HTML on the server and send the markup down on the initial request for faster page loads. It also helps search engines to crawl your pages easily for SEO purposes.\n**Note:** Remember this method is not available in the browser but only server."
@@ -4157,8 +4160,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-315",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-315",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is MobX?",
     "answer": [
       "MobX is a simple, scalable and battle tested state management solution for applying functional reactive programming (TFRP). For reactJs application, you need to install below packages,",
@@ -4169,8 +4172,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-316",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-316",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are the differences between Redux and MobX?",
     "answer": [
       "Below are the main differences between Redux and MobX,",
@@ -4181,8 +4184,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-317",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-317",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Should I learn ES6 before learning ReactJS?",
     "answer": [
       "No, you don’t have to learn es2015/es6 to learn react. But you may find many resources or React ecosystem uses ES6 extensively. Let's see some of the frequently used ES6 features,"
@@ -4192,8 +4195,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-318",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-318",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is Concurrent Rendering?",
     "answer": [
       "The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,",
@@ -4204,8 +4207,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-319",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-319",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the difference between async mode and concurrent mode?",
     "answer": [
       "Both refers the same thing. Previously concurrent Mode being referred to as \"Async Mode\" by React team. The name has been changed to highlight React’s ability to perform work on different priority levels. So it avoids the confusion from other approaches to Async Rendering."
@@ -4215,8 +4218,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-320",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-320",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "Can I use javascript urls in react16.9?",
     "answer": [
       "Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like `<a href>` and create a security hole.",
@@ -4228,8 +4231,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-321",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-321",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the purpose of eslint plugin for hooks?",
     "answer": [
       "The ESLint plugin enforces rules of Hooks to avoid bugs. It assumes that any function starting with ”use” and a capital letter right after it is a Hook. In particular, the rule enforces that,"
@@ -4239,8 +4242,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-322",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-322",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What is the difference between Imperative and Declarative in React?",
     "answer": [
       "Imagine a simple UI component, such as a \"Like\" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.",
@@ -4256,8 +4259,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-323",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-323",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "What are the benefits of using typescript with reactjs?",
     "answer": [
       "Below are some of the benefits of using typescript with Reactjs,"
@@ -4267,8 +4270,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-324",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426040-324",
+    "date": "2023-06-08T10:33:46.040Z",
     "question": "How do you make sure that user remains authenticated on page refresh while using Context API State Management?",
     "answer": [
       "When a user logs in and reload, to persist the state generally we add the load user action in the useEffect hooks in the main App.js. While using Redux, loadUser action can be easily accessed.",
@@ -4287,8 +4290,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-325",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-325",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "What are the benefits of new JSX transform?",
     "answer": [
       "There are three major benefits of new JSX transform,"
@@ -4298,8 +4301,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-326",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-326",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "How is the new JSX transform different from old transform??",
     "answer": [
       "The new JSX transform doesn’t require React to be in scope. i.e, You don't need to import React package for simple scenarios.",
@@ -4320,8 +4323,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-327",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-327",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "How do you get redux scaffolding using create-react-app?",
     "answer": [
       "Redux team has provided official redux+js or redux+typescript templates for create-react-app project. The generated project setup includes,\n1. Redux Toolkit and React-Redux dependencies\n2. Create and configure Redux store\n3. React-Redux `<Provider>` passing the store to React components\n4. Small \"counter\" example to demo how to add redux logic and React-Redux hooks API to interact with the store from components\n  The below commands need to be executed along with template option as below,\n5. **Javascript template:**",
@@ -4332,8 +4335,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-328",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-328",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "What are React Server components?",
     "answer": [
       "React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend.",
@@ -4344,8 +4347,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-329",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-329",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "What is prop drilling?",
     "answer": [
       "Prop Drilling is the process by which you pass data from one component of the React Component tree to another by going through other components that do not need the data but only help in passing it around."
@@ -4355,8 +4358,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-330",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-330",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "What is state mutation and how to prevent it?",
     "answer": [
       "`State mutation` happens when you try to update the state of a component without actually using `setState` function. This can happen when you are trying to do some computations using a state variable and unknowingly save the result in the same state variable. This is the main reason why it is advised to return new instances of state variables from the reducers by using Object.assign({}, ...) or spread syntax.",
@@ -4370,11 +4373,11 @@
     "tags": []
   },
   {
-    "id": "1680885349532-331",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-331",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "What is the difference between useState and useRef hook?",
     "answer": [
-      "useState causes components to re-render after state updates whereas useRef doesn’t cause a component to re-render when the value or state changes.\n    Essentially, useRef is like a “box” that can hold a mutable value in its (.current) property.",
+      "useState causes components to re-render after state updates whereas useRef doesn’t cause a component to re-render when the value or state changes.\nEssentially, useRef is like a “box” that can hold a mutable value in its (.current) property.",
       "useState allows us to update the state inside components. While useRef allows referencing DOM elements."
     ],
     "question_type": "",
@@ -4382,8 +4385,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-332",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-332",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "What is a wrapper component?",
     "answer": [
       "A wrapper in React is a component that wraps or surrounds another component or group of components. It can be used for a variety of purposes such as adding additional functionality, styling, or layout to the wrapped components.",
@@ -4404,8 +4407,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-333",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-333",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "What are the differences between useEffect and useLayoutEffect hooks?",
     "answer": [
       "useEffect and useLayoutEffect are both React hooks that can be used to synchronize a component with an external system, such as a browser API or a third-party library. However, there are some key differences between the two:"
@@ -4415,8 +4418,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-334",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-334",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "What are the differences between Functional and Class Components?",
     "answer": [
       "There are two different ways to create components in ReactJS. The main differences are listed down as below,",
@@ -4445,8 +4448,8 @@
     "tags": []
   },
   {
-    "id": "1680885349532-335",
-    "date": "2023-04-07T16:35:49.532Z",
+    "id": "1686220426041-335",
+    "date": "2023-06-08T10:33:46.041Z",
     "question": "Why does strict mode render twice in React?",
     "answer": [
       "StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.",

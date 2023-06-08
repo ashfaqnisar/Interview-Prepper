@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import { FirebaseOptions } from "@firebase/app";
 import { getFirestore } from "@firebase/firestore";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import axios from "axios";
 import { FirebaseAppProvider, FirestoreProvider, useFirebaseApp } from "reactfire";
 
@@ -31,7 +32,10 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
       <FirestoreCustomProvider>
-        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+        <QueryClientProvider client={queryClient}>
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
       </FirestoreCustomProvider>
     </FirebaseAppProvider>
   );
