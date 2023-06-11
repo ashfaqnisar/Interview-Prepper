@@ -1,12 +1,11 @@
 "use client";
 
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { BiPlus } from "react-icons/bi";
 
 export default function CreateQuestion() {
-  const queryClient = useQueryClient();
   const methods = useForm({
     defaultValues: {
       question: "",
