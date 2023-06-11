@@ -2,8 +2,6 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import classNames from "classnames";
-import { HiChevronDown, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { MdSend } from "react-icons/md";
 
 import QuestionCard from "@/app/questions/components/QuestionCard";

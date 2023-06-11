@@ -108,7 +108,7 @@ const QuestionCard = ({ result, editable = false }: { result: SearchResult; edit
       <div className={"flex flex-row items-center justify-between"}>
         <p
           className={
-            "w-min rounded-full px-2 py-0.5 text-xs font-medium capitalize text-neutral-200 ring-2 ring-neutral-200 2xl:text-sm"
+            "w-fit rounded-full px-2 py-0.5 text-xs font-medium capitalize text-neutral-200 ring-2 ring-neutral-200 2xl:text-sm"
           }
         >
           {question?.language?.raw ?? "unknown"}

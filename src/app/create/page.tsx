@@ -1,23 +1,26 @@
 "use client";
 
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { BiPlus } from "react-icons/bi";
 
 export default function CreateQuestion() {
+  const queryClient = useQueryClient();
   const methods = useForm({
     defaultValues: {
       question: "",
       answer: "",
       question_type: "definition",
-      language: "other",
+      language: "",
+      otherLanguage: "",
       tags: ""
     }
   });
-  const { register, handleSubmit, reset } = methods;
 
-  const { data: technologies } = useQuery({
+  const { register, watch, handleSubmit, reset } = methods;
+
+  const { data: technologies, refetch } = useQuery({
     queryKey: ["technologies"],
     queryFn: async ({ signal }) => {
       const res = await axios({
@@ -59,8 +62,11 @@ export default function CreateQuestion() {
         data: newQuestion
       });
     },
-    onSuccess: () => {
+    onSuccess: async () => {
       reset();
+      // Invalidate the cache for the questions query after 2 seconds
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await refetch();
     },
     onError: (error) => {
       console.log(error);
@@ -69,7 +75,8 @@ export default function CreateQuestion() {
 
   const onSubmit = (question: Record<string, string>) => {
     const questionData = {
-      ...question,
+      question_type: question.question_type,
+      language: question.otherLanguage.trim() !== "" ? question.otherLanguage.trim() : question.language,
       question: question.question.trim(),
       answer: question.answer.trim().split("-*-"),
       tags: question.tags.split(",").map((tag) => tag.trim())
@@ -90,9 +97,9 @@ export default function CreateQuestion() {
             >
               Create
             </h1>
-            <form onSubmit={handleSubmit(onSubmit)} className={"grid grid-cols-1 gap-3"}>
+            <form onSubmit={handleSubmit(onSubmit)} className={"grid grid-cols-1 gap-4"}>
               <div className={"grid grid-cols-1 gap-0.5"}>
-                <label htmlFor="question" className={"text-sm font-medium md:text-sm 2xl:text-base"}>
+                <label htmlFor="question" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
                   Question
                 </label>
                 <textarea
@@ -100,17 +107,19 @@ export default function CreateQuestion() {
                     "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
                   }
                   id="question"
+                  placeholder={"Ex: What is a variable?"}
                   required
                   {...register("question", { required: true })}
                 />
               </div>
 
               <div className={"grid grid-cols-1 gap-0.5"}>
-                <label htmlFor="answer" className={"text-sm font-medium md:text-sm 2xl:text-base"}>
+                <label htmlFor="answer" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
                   Answer
                 </label>
                 <textarea
                   id="answer"
+                  placeholder={"Ex: A variable is a container for a value."}
                   className={
                     "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
                   }
@@ -121,7 +130,10 @@ export default function CreateQuestion() {
 
               <div className="grid grid-cols-1 items-start gap-3 lg:grid-cols-2">
                 <div className={"grid grid-cols-1 gap-0.5"}>
-                  <label htmlFor="question_type" className={"text-sm font-medium md:text-sm 2xl:text-base"}>
+                  <label
+                    htmlFor="question_type"
+                    className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}
+                  >
                     Question Type
                   </label>
                   <select
@@ -140,15 +152,15 @@ export default function CreateQuestion() {
                 </div>
 
                 <div className={"grid grid-cols-1 gap-0.5"}>
-                  <label htmlFor="language" className={"text-sm font-medium md:text-sm 2xl:text-base"}>
+                  <label htmlFor="language" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
                     Language
                   </label>
                   <select
                     id="language"
                     className={
-                      " mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm capitalize tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
+                      "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm capitalize tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
                     }
-                    required
+                    {...(watch().language === "" && watch().otherLanguage.trim() === "" && { required: true })}
                     {...register("language")}
                   >
                     {technologies &&
@@ -159,13 +171,25 @@ export default function CreateQuestion() {
                           </option>
                         );
                       })}
-                    <option value="other">Other</option>
+                    <option value="">Other</option>
                   </select>
+                  {watch().language === "" && (
+                    <div className={"mt-2"}>
+                      <input
+                        className={
+                          "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
+                        }
+                        placeholder={"Ex: Python"}
+                        required
+                        {...register("otherLanguage")}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 
               <div className={"grid grid-cols-1 gap-0.5"}>
-                <label htmlFor="tags" className={"text-sm font-medium md:text-sm 2xl:text-base"}>
+                <label htmlFor="tags" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
                   Tags
                 </label>
                 <input
@@ -173,6 +197,7 @@ export default function CreateQuestion() {
                   className={
                     "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
                   }
+                  placeholder={"Ex: Python, Variables"}
                   id="tags"
                   {...register("tags")}
                 />
