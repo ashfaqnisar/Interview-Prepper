@@ -26,7 +26,7 @@ const md = new MarkdownIt();
 
 interface QuestionAndAnswer {
   id?: string;
-  sid?: number;
+  sid?: string;
   date?: string;
   language?: string;
   question?: string;
@@ -37,9 +37,11 @@ interface QuestionAndAnswer {
 
 let counter = 0;
 function generateId() {
-  const timestamp = Date.now();
+  const timestamp = new Date().getTime();
+  const sequentialNumber = counter.toString().padStart(6, "0");
+  const sortableId = `${timestamp}_${sequentialNumber}`;
   counter++;
-  return Number(`${timestamp}${counter}`);
+  return sortableId;
 }
 
 // TODO: Update this function to process the react markdown files.
@@ -211,7 +213,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         body: {
           query: "",
           page: {
-            size: 500
+            size: 1000
           },
           ...(technology && {
             filters: {
