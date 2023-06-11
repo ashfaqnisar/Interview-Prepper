@@ -5,7 +5,6 @@ import { FirebaseOptions } from "@firebase/app";
 import { getFirestore } from "@firebase/firestore";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import axios from "axios";
 import { FirebaseAppProvider, FirestoreProvider, useFirebaseApp } from "reactfire";
 
 //  Your web app's Firebase configuration
@@ -25,8 +24,6 @@ const FirestoreCustomProvider = ({ children }: { children: ReactNode }) => {
 };
 
 const queryClient = new QueryClient();
-
-axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/`;
 
 export function Providers({ children }: { children: ReactNode }) {
   return (

@@ -192,7 +192,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
 
       // Store the processed data in a file.
-      fs.writeFileSync(processedFilePath, JSON.stringify(results, null, 2));
+      // fs.writeFileSync(processedFilePath, JSON.stringify(results, null, 2));
 
       return res.status(200).send({
         message: "Successfully processed the markdown file."

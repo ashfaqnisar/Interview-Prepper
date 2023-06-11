@@ -37,4 +37,6 @@ next-env.d.ts
 
 .env.local
 .env.dev
+
 /src/sample.txt
+data/**/*.json

@@ -18,7 +18,7 @@ const CustomPagingInfo = ({
   }, [currentPage, pageSize]);
 
   return (
-    <div className={"text-xs tracking-tight duration-150 md:text-sm xl:text-base"}>
+    <div className={"text-xs tracking-normal duration-150 md:text-sm"}>
       {isLoading ? (
         <p>Loading...</p>
       ) : (

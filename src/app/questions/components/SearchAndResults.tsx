@@ -93,7 +93,10 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
         signal
       });
       return res.data;
-    }
+    },
+    keepPreviousData: true,
+    staleTime: 20 * 1000,
+    initialDataUpdatedAt: Date.now()
   });
 
   const updateSortOption = (option: { name: string; field: string | number; direction?: string }) => {
