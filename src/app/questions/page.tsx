@@ -11,7 +11,7 @@ import SearchAndResults from "@/app/questions/components/SearchAndResults";
 const Page = () => {
   const [technologyFilter, setTechnologyFilter] = useState("");
   const { data: technologies } = useQuery({
-    queryKey: ["languages"],
+    queryKey: ["technologies"],
     queryFn: async ({ signal }) => {
       const res = await axios({
         method: "POST",
@@ -37,7 +37,7 @@ const Page = () => {
         },
         signal
       });
-      return res.data;
+      return res.data.facets.language[0].data;
     },
     keepPreviousData: true,
     staleTime: 20 * 1000,
@@ -71,7 +71,7 @@ const Page = () => {
                 >
                   <p className={"capitalize"}>All</p>
                 </div>
-                {(technologies?.facets?.language[0].data).map((technology: { value: string; count: number }) => (
+                {technologies.map((technology: { value: string; count: number }) => (
                   <div
                     key={`${technology.value}`}
                     className={classNames(

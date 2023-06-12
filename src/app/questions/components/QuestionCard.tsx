@@ -1,8 +1,11 @@
 import { ChangeEvent, FormEvent, Fragment, useEffect, useState } from "react";
 
 import { SearchResult } from "@elastic/search-ui";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { FaEdit, FaSave, FaTimes } from "react-icons/fa";
+import { HiTrash } from "react-icons/hi";
+import { ImSpinner2 } from "react-icons/im";
 
 import CustomMarkdown from "@/shared/CustomMarkdown";
 
@@ -94,6 +97,8 @@ const QuestionCard = ({ result, editable = false }: { result: SearchResult; edit
   const [question, setQuestion] = useState(result);
   const [editing, setEditing] = useState(false);
 
+  const queryClient = useQueryClient();
+
   useEffect(() => {
     setQuestion(result);
   }, [result]);
@@ -102,6 +107,23 @@ const QuestionCard = ({ result, editable = false }: { result: SearchResult; edit
     setEditing(false);
     setQuestion({ ...question, ...data });
   };
+
+  const mutation = useMutation({
+    mutationFn: (questionId) => {
+      return axios({
+        method: "DELETE",
+        url: `/api/questions/deleteOne?id=${questionId}`
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["questions"]
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["technologies"]
+      });
+    }
+  });
 
   return (
     <div className={"grid grid-cols-1 gap-3 rounded-lg p-4 shadow-lg ring-2 ring-zinc-50 duration-150"}>
@@ -113,6 +135,17 @@ const QuestionCard = ({ result, editable = false }: { result: SearchResult; edit
         >
           {question?.language?.raw ?? "unknown"}
         </p>
+        <button
+          className={
+            "rounded-md bg-zinc-800 p-2 text-base hover:bg-zinc-700 focus:ring-1 focus:ring-zinc-300 2xl:text-lg"
+          }
+          disabled={mutation.isLoading}
+          onClick={() => {
+            mutation.mutate(question?.id?.raw);
+          }}
+        >
+          {mutation.isLoading ? <ImSpinner2 className={"animate-spin"} /> : <HiTrash />}
+        </button>
       </div>
 
       <div className={"grid grid-cols-1"}>
