@@ -1,6 +1,6 @@
 "use client";
 
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { BiPlus } from "react-icons/bi";
@@ -16,10 +16,11 @@ export default function CreateQuestion() {
       tags: ""
     }
   });
+  const queryClient = useQueryClient();
 
   const { register, watch, handleSubmit, reset } = methods;
 
-  const { data: technologies, refetch } = useQuery({
+  const { data: technologies } = useQuery({
     queryKey: ["technologies"],
     queryFn: async ({ signal }) => {
       const res = await axios({
@@ -61,11 +62,22 @@ export default function CreateQuestion() {
         data: newQuestion
       });
     },
-    onSuccess: async () => {
+    onSuccess: async (data, variables) => {
+      queryClient.setQueryData<Array<{ value: string; count: number }>>(["technologies"], (oldData) => {
+        const { language } = variables;
+
+        if (oldData) {
+          const foundTechnology = oldData.find((technology) => technology.value === language);
+          if (foundTechnology) {
+            foundTechnology.count++;
+          } else {
+            oldData.push({ value: language as string, count: 1 });
+          }
+          return oldData;
+        }
+        return [{ value: language as string, count: 1 }];
+      });
       reset();
-      // Invalidate the cache for the questions query after 2 seconds
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      await refetch();
     },
     onError: (error) => {
       console.log(error);
