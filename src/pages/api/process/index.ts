@@ -163,6 +163,11 @@ const processJSMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
   return results;
 };
 
+const markdownProcessor: Record<string, (parsedTokens: Token[]) => QuestionAndAnswer[]> = {
+  react: processReactMarkdown,
+  javascript: processJSMarkdown
+};
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
@@ -175,11 +180,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(404).json({ error: "Technology not found" });
       }
 
-      // Provided all the paths for the processing and storing of the data.
-      const processedFilePath = path.join(dataPath, `${fileName}-processed.json`);
+      // If there is no Markdown processor present for the technology then return an error.
+      if (!markdownProcessor[technology]) {
+        return res.status(404).json({ error: "Markdown processor not found" });
+      }
+
       const markdown = readMarkdownFile(path.join(dataPath, `${fileName}.md`));
 
-      const results = processJSMarkdown(md.parse(markdown, {}));
+      const results = markdownProcessor[technology](md.parse(markdown, {}));
 
       console.log(`Processing ${results.length} documents...`);
       // Group the processed data into chunks of 100.
@@ -191,7 +199,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
       }
 
+      // Provided all the paths for the processing and storing of the data.
       // Store the processed data in a file.
+      // const processedFilePath = path.join(dataPath, `${fileName}-processed.json`);
       // fs.writeFileSync(processedFilePath, JSON.stringify(results, null, 2));
 
       return res.status(200).send({
@@ -231,6 +241,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           })
         });
       }
+
+      // wait for 1 second to make sure the documents are deleted.
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       return res.status(200).send("Successfully deleted all the documents.");
       // return res.status(200).send(results);
