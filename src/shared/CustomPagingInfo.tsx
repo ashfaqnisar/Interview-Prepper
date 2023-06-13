@@ -25,9 +25,9 @@ const CustomPagingInfo = ({
         <p>
           Showing{" "}
           <span className={"font-medium text-zinc-100"}>
-            {startIndexRef.current} - {Math.min(startIndexRef.current + pageSize - 1, totalItems)}
+            {startIndexRef?.current ?? 0} - {Math.min(startIndexRef.current + pageSize - 1, totalItems) ?? 0}
           </span>{" "}
-          of <span className={"font-medium text-zinc-100"}>{totalItems}</span>
+          of <span className={"font-medium text-zinc-100"}>{totalItems ?? 0}</span>
         </p>
       )}
     </div>

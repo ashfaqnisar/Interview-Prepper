@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { MdSend } from "react-icons/md";
+import { BiSend } from "react-icons/bi";
+import { HiX } from "react-icons/hi";
 
 import QuestionCard from "@/app/questions/components/QuestionCard";
 import CustomMenu from "@/shared/CustomMenu";
@@ -45,25 +46,30 @@ const PAGE_OPTIONS: { size: number }[] = [
   }
 ];
 
+interface QuerySearchStateType {
+  query: "";
+  sort: {
+    field: string | number;
+    direction?: string;
+    name?: string;
+  };
+  page: {
+    size: number;
+    current: number;
+  };
+}
+
+const DEFAULT_QUERY_SEARCH_STATE: QuerySearchStateType = {
+  query: "",
+  sort: SORT_OPTIONS[0],
+  page: {
+    size: PAGE_OPTIONS[0].size,
+    current: 1
+  }
+};
+
 const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) => {
-  const [querySearchState, setQuerySearchState] = useState<{
-    query: "";
-    sort: {
-      field: string | number;
-      direction?: string;
-    };
-    page: {
-      size: number;
-      current: number;
-    };
-  }>({
-    query: "",
-    sort: SORT_OPTIONS[0],
-    page: {
-      size: PAGE_OPTIONS[0].size,
-      current: 1
-    }
-  });
+  const [querySearchState, setQuerySearchState] = useState<QuerySearchStateType>(DEFAULT_QUERY_SEARCH_STATE);
 
   const { data: questions, isLoading } = useQuery({
     queryKey: ["questions", { technologyFilter }, querySearchState],
@@ -135,6 +141,7 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           setQuerySearchState({
             ...querySearchState,
             query,
+            sort: SORT_OPTIONS[0],
             page: {
               ...querySearchState.page,
               current: 1
@@ -171,12 +178,27 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
         <button
           type={"submit"}
           className={
-            "absolute bottom-2 right-2.5 flex items-center rounded-md bg-zinc-200 p-1.5 shadow-md hover:bg-zinc-400"
+            "absolute bottom-3 right-3 flex items-center rounded-md bg-zinc-200 p-1.5 text-sm shadow-md hover:bg-zinc-400"
           }
         >
-          <MdSend size={18} className={"text-zinc-900"} />
+          <BiSend className={"text-zinc-900"} />
         </button>
       </form>
+      {querySearchState.query !== "" && (
+        <button
+          className={
+            "group flex w-fit items-center gap-2 rounded-md border border-zinc-300 px-2 py-1 text-sm hover:bg-zinc-800"
+          }
+          onClick={() => {
+            setQuerySearchState(DEFAULT_QUERY_SEARCH_STATE);
+          }}
+        >
+          <p className={"h-fit align-middle"}>{querySearchState.query}</p>
+          <span className={"rounded-full bg-zinc-300 text-zinc-900 "}>
+            <HiX />
+          </span>
+        </button>
+      )}
       <div className={"grid grid-cols-1 items-center gap-4 duration-150 sm:grid-cols-2 md:gap-2"}>
         <CustomPagingInfo
           currentPage={querySearchState.page.current}

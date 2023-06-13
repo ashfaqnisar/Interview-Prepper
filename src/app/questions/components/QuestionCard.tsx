@@ -68,7 +68,7 @@ const QuestionEditor = ({ answer, id, setEditing, updateQuestion }: QuestionEdit
             }
           >
             {markdown.split("---").map((answer: string, index: number) => (
-              <CustomMarkdown key={answer + index} answer={answer} />
+              <CustomMarkdown key={answer + index} value={answer} />
             ))}
           </div>
         )}
@@ -180,10 +180,10 @@ const QuestionCard = ({ result, editable = false }: { result: SearchResult; edit
             >
               {/*Check whether the answer is a string or an array*/}
               {typeof question?.answer?.raw === "string" ? (
-                <CustomMarkdown answer={question?.answer?.raw} />
+                <CustomMarkdown value={question?.answer?.raw} />
               ) : (
                 question?.answer?.raw.map((answer: string, index: number) => (
-                  <CustomMarkdown key={answer + index} answer={answer} />
+                  <CustomMarkdown key={answer + index} value={answer} />
                 ))
               )}
             </div>
