@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
 const CustomMarkdown = ({ value }: { value: string }) => {
@@ -40,6 +41,7 @@ const CustomMarkdown = ({ value }: { value: string }) => {
         }
       }}
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
     >
       {value}
     </ReactMarkdown>
