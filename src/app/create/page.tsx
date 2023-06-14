@@ -62,7 +62,7 @@ export default function CreateQuestion() {
     mutationFn: (newQuestion: Record<string, string | string[]>) => {
       return axios({
         method: "POST",
-        url: "/api/create",
+        url: "/api/questions/create",
         data: newQuestion
       });
     },

@@ -19,7 +19,7 @@ const QuestionEditor = ({ answer, id, setEditing, updateQuestion }: QuestionEdit
   const [markdown, setMarkdown] = useState("");
 
   useEffect(() => {
-    setMarkdown(answer.join("---"));
+    setMarkdown(answer.join("=*="));
   }, [answer]);
 
   const handleMarkdownChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -29,7 +29,7 @@ const QuestionEditor = ({ answer, id, setEditing, updateQuestion }: QuestionEdit
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const answer = markdown.split("---");
+      const answer = markdown.split("=*=");
       await axios({
         method: "PATCH",
         url: "/api/questions/update",
@@ -45,7 +45,7 @@ const QuestionEditor = ({ answer, id, setEditing, updateQuestion }: QuestionEdit
   };
 
   const handleCancel = () => {
-    setMarkdown(answer.join("---"));
+    // setMarkdown(answer.join("---"));
     setEditing(false);
   };
 
@@ -61,13 +61,13 @@ const QuestionEditor = ({ answer, id, setEditing, updateQuestion }: QuestionEdit
       />
       <div className={"mt-2"}>
         <p>Preview:</p>
-        {markdown.split("---").length > 0 && (
+        {markdown.split("=*=").length > 0 && (
           <div
             className={
               "prose grid max-w-none grid-cols-1 gap-2 dark:prose-invert md:prose-base 2xl:prose-lg prose-p:m-0 prose-p:text-zinc-300 prose-code:font-mono prose-pre:my-2 prose-pre:p-0"
             }
           >
-            {markdown.split("---").map((answer: string, index: number) => (
+            {markdown.split("=*=").map((answer: string, index: number) => (
               <CustomMarkdown key={answer + index} value={answer} />
             ))}
           </div>
