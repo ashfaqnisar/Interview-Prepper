@@ -4,6 +4,7 @@ import path from "path";
 import { Client } from "@elastic/enterprise-search";
 import MarkdownIt from "markdown-it";
 import Token from "markdown-it/lib/token";
+import { markdownTable } from "markdown-table";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const client = new Client({
@@ -60,9 +61,31 @@ const processReactMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
     inline: ""
   };
   let previousTokenType: { type: string; tag: string };
+  const tableData: string[][] = [];
+  let currentTableIndex = 0;
+  let isTable = false;
   parsedTokens.forEach((token) => {
+    if (token.type === "table_open") {
+      isTable = true;
+    }
+    if (token.type === "table_close") {
+      const table = markdownTable(tableData);
+      singleQuestion?.answer?.push(table);
+      tableData.length = 0;
+      currentTableIndex = 0;
+      isTable = false;
+    }
+
+    if (isTable) {
+      if (token.type === "tr_close") {
+        currentTableIndex++;
+      } else if (token.type === "inline") {
+        tableData[currentTableIndex] = tableData[currentTableIndex] ?? [];
+        tableData[currentTableIndex].push(token.content);
+      }
+    }
     //  Check the token type is a required token type or not.
-    if (requiredTokenTypes[token.type] === token.tag) {
+    else if (requiredTokenTypes[token.type] === token.tag) {
       switch (token.type) {
         case "heading_open":
           // If the token type is a heading_open then start the question.
@@ -118,9 +141,31 @@ const processJSMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
     inline: ""
   };
   let previousTokenType: { type: string; tag: string };
+  const tableData: string[][] = [];
+  let currentTableIndex = 0;
+  let isTable = false;
   parsedTokens.forEach((token) => {
+    if (token.type === "table_open") {
+      isTable = true;
+    }
+    if (token.type === "table_close") {
+      const table = markdownTable(tableData);
+      singleQuestion?.answer?.push(table);
+      tableData.length = 0;
+      currentTableIndex = 0;
+      isTable = false;
+    }
+
+    if (isTable) {
+      if (token.type === "tr_close") {
+        currentTableIndex++;
+      } else if (token.type === "inline") {
+        tableData[currentTableIndex] = tableData[currentTableIndex] ?? [];
+        tableData[currentTableIndex].push(token.content);
+      }
+    }
     //  Check the token type is a required token type or not.
-    if (requiredTokenTypes[token.type] === token.tag) {
+    else if (requiredTokenTypes[token.type] === token.tag) {
       switch (token.type) {
         case "heading_open":
           // If the token type is a heading_open then start the question.
@@ -169,6 +214,19 @@ const markdownProcessor: Record<string, (parsedTokens: Token[]) => QuestionAndAn
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
+    const { test } = req.query;
+    if (test) {
+      try {
+        const markdown = readMarkdownFile(path.join(process.cwd(), "data", "test.md"));
+
+        const results = markdownProcessor["javascript"](md.parse(markdown, {}));
+
+        return res.status(200).json(results);
+      } catch (e) {
+        console.log(e);
+        return res.status(500).json({ error: "Internal Server Error" });
+      }
+    }
     try {
       const { technology } = req.body;
       const fileName = technology.toLowerCase();
@@ -211,5 +269,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).send({ message: "Error processing the documents" });
     }
   }
+
   return res.status(400).send({ message: "Bad Request" });
 }
