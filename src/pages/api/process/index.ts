@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 import { Client } from "@elastic/enterprise-search";
-import { ListDocumentsResponse } from "@elastic/enterprise-search/lib/api/app/types";
 import MarkdownIt from "markdown-it";
 import Token from "markdown-it/lib/token";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -207,46 +206,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(200).send({
         message: "Successfully processed the markdown file."
       });
-    } catch (err) {
-      console.error(`Error processing the documents: ${err}`);
-      return res.status(500).send({ message: "Error processing the documents" });
-    }
-  }
-  if (req.method === "DELETE") {
-    try {
-      let { technology } = req.body;
-      technology = technology?.toLowerCase();
-
-      //    Get all the documents from the Elastic App Search.
-      const { results }: ListDocumentsResponse = await client.app.search({
-        engine_name: process.env.ELASTIC_ENGINE_NAME as string,
-        body: {
-          query: "",
-          page: {
-            size: 1000
-          },
-          ...(technology && {
-            filters: {
-              language: [technology]
-            }
-          })
-        }
-      });
-
-      for (let i = 0; i < results.length; i += 100) {
-        await client.app.deleteDocuments({
-          engine_name: process.env.ELASTIC_ENGINE_NAME as string,
-          documentIds: results.slice(i, i + 100).map((result: { id?: { raw?: string } }) => {
-            return result.id?.raw as string;
-          })
-        });
-      }
-
-      // wait for 1 second to make sure the documents are deleted.
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      return res.status(200).send("Successfully deleted all the documents.");
-      // return res.status(200).send(results);
     } catch (err) {
       console.error(`Error processing the documents: ${err}`);
       return res.status(500).send({ message: "Error processing the documents" });
