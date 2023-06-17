@@ -8,18 +8,19 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-2. ### What is the history behind React evolution?
-   The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements.
+2.  ### What is the history behind React evolution?
 
-   The main principle of this extension was to make front-end code easier to understand and to help avoid cross-site scripting attacks. The project was successful to prevent the malicious content submitted by the scrubbing user.
+    The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements.
 
-   But there was a different problem with XHP in which dynamic web applications require many roundtrips to the server, and XHP did not solve this problem. Also, the whole UI was re-rendered for small change in the application. Later, the initial prototype of React is created with the name **FaxJ** by Jordan inspired from XHP. Finally after sometime React has been introduced as a new library into JavaScript world.
+    The main principle of this extension was to make front-end code easier to understand and to help avoid cross-site scripting attacks. The project was successful to prevent the malicious content submitted by the scrubbing user.
 
-   **Note:** JSX comes from the idea of XHP
+    But there was a different problem with XHP in which dynamic web applications require many roundtrips to the server, and XHP did not solve this problem. Also, the whole UI was re-rendered for small change in the application. Later, the initial prototype of React is created with the name **FaxJ** by Jordan inspired from XHP. Finally after sometime React has been introduced as a new library into JavaScript world.
 
-   **[⬆ Back to Top](#table-of-contents)**
+    **Note:** JSX comes from the idea of XHP
 
-2.  ### What are the major features of React?
+    **[⬆ Back to Top](#table-of-contents)**
+
+3.  ### What are the major features of React?
 
     The major features of React are:
 
@@ -31,7 +32,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-3.  ### What is JSX?
+4.  ### What is JSX?
 
     _JSX_ stands for _JavaScript XML_ and it is an XML-like syntax extension to ECMAScript. Basically it just provides the syntactic sugar for the `React.createElement(type, props, ...children)` function, giving us expressiveness of JavaScript along with HTML like template syntax.
 
@@ -44,6 +45,7 @@
       );
     }
     ```
+
     If you don't use JSX syntax then the respective JavaScript code should be written as below,
 
     ```javascript
@@ -78,7 +80,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-4.  ### What is the difference between Element and Component?
+5.  ### What is the difference between Element and Component?
 
     An _Element_ is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React element is cheap. Once an element is created, it cannot be mutated.
 
@@ -87,6 +89,7 @@
     ```javascript
     const element = React.createElement("div", { id: "login-btn" }, "Login");
     ```
+
     and this element can be simiplified using JSX
 
     ```html
@@ -130,7 +133,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-5.  ### How to create components in React?
+6.  ### How to create components in React?
 
     Components are the building blocks of creating User Interfaces(UI) in React. There are two possible ways to create a component.
 
@@ -154,15 +157,14 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-6.  ### When to use a Class Component over a Function Component?
+7.  ### When to use a Class Component over a Function Component?
 
-    After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to use Function components over Class components  in React. Because you could use state, lifecycle methods and other features that were only available in class component present in function component too.
+    After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to use Function components over Class components in React. Because you could use state, lifecycle methods and other features that were only available in class component present in function component too.
 
     But even there are two reasons to use Class components over Function components.
 
     1. If you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries.
     2. In older versions, If the component needs _state or lifecycle methods_ then you need to use class component.
-
 
     **Note:** You can also use reusable [react error boundary](https://github.com/bvaughn/react-error-boundary) third-party component without writing any class. i.e, No need to use class components for Error boundaries.
 
@@ -180,7 +182,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-7.  ### What are Pure Components?
+8.  ### What are Pure Components?
 
     Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized `React.memo()` API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations.
 
@@ -220,15 +222,16 @@
         );
       }
     ```
+
     In the above code, the email prop has not been passed to child component. So there won't be any re-renders for email prop change.
 
-    In class components, the components extending _`React.PureComponent`_ instead of  _`React.Component`_ become the pure components. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state by invoking `shouldComponentUpdate()` lifecycle method.
+    In class components, the components extending _`React.PureComponent`_ instead of _`React.Component`_ become the pure components. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state by invoking `shouldComponentUpdate()` lifecycle method.
 
     **Note:** `React.memo()` is a higher-order component.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-8.  ### What is state in React?
+9.  ### What is state in React?
 
     _State_ of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.
 
@@ -280,7 +283,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-9.  ### What are props in React?
+10. ### What are props in React?
 
     _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. Here, the data is passed down from a parent component to a child component.
 
@@ -329,46 +332,47 @@
 
 The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). The above child component can be simplified like below.
 
-  ```jsx harmony
-    const ChildComponent = ({name, age}) => {
-        return (
-          <div>
-            <p>{name}</p>
-            <p>{age}</p>
-          </div>
-        );
-      };
-  ``` 
+```jsx harmony
+  const ChildComponent = ({name, age}) => {
+      return (
+        <div>
+          <p>{name}</p>
+          <p>{age}</p>
+        </div>
+      );
+    };
+```
 
   <details><summary><b>See Class</b></summary>
      The Props accessed in Class Based Component as below
 
-  ```jsx
-        import React from "react";
-        import ReactDOM from "react-dom";
+```jsx
+      import React from "react";
+      import ReactDOM from "react-dom";
 
-        class ChildComponent extends React.Component {
-          render() {
-            return (
-              <div>
-                <p>{this.props.name}</p>
-                <p>{this.props.age}</p>
-              </div>
-            );
-          }
+      class ChildComponent extends React.Component {
+        render() {
+          return (
+            <div>
+              <p>{this.props.name}</p>
+              <p>{this.props.age}</p>
+            </div>
+          );
         }
+      }
 
-        class ParentComponent extends React.Component {
-          render() {
-            return (
-              <div>
-                <ChildComponent name="John" age="30" />
-                <ChildComponent name="Mary" age="25" />
-              </div>
-            );
-          }
+      class ParentComponent extends React.Component {
+        render() {
+          return (
+            <div>
+              <ChildComponent name="John" age="30" />
+              <ChildComponent name="Mary" age="25" />
+            </div>
+          );
         }
-  ```
+      }
+```
+
   </details>
 
 **[⬆ Back to Top](#table-of-contents)**
@@ -1130,6 +1134,7 @@ The properties from props object can be accessed directly using destructing feat
     You need to use either **<Fragment>** or a shorter syntax having empty tag (**<></>**).
 
     Below is the example of how to use fragment inside _Story_ component.
+
     ```jsx harmony
     function Story({title, description, date}) {
       return (
@@ -1205,6 +1210,7 @@ It is also possible to render list of fragments inside a loop with the mandatory
     If the behaviour of a component is dependent on the _state_ of the component then it can be termed as stateful component. These _stateful components_ are either function components with hooks or _class components_.
 
     Let's take an example of function stateful component which update the state based on click event,
+
     ```javascript
     import React, {useState} from 'react';
 
@@ -1246,9 +1252,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
       }
     }
     ```
+
     </p>
     </details>
-
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -2313,75 +2319,76 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
 100.  ### How to re-render the view when the browser is resized?
 
-      You can use the `useState` hook to manage the width and height state variables, and the `useEffect` hook to add and remove the `resize` event listener. The `[]` dependency array passed to useEffect ensures that the effect only runs once (on mount) and not on every re-render.
+            You can use the `useState` hook to manage the width and height state variables, and the `useEffect` hook to add and remove the `resize` event listener. The `[]` dependency array passed to useEffect ensures that the effect only runs once (on mount) and not on every re-render.
 
-      ```javascript
-      import React, { useState, useEffect } from "react";
-      function WindowDimensions() {
-        const [dimensions, setDimensions] = useState({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
+            ```javascript
+            import React, { useState, useEffect } from "react";
+            function WindowDimensions() {
+              const [dimensions, setDimensions] = useState({
+                width: window.innerWidth,
+                height: window.innerHeight,
+              });
 
-        useEffect(() => {
-          function handleResize() {
-            setDimensions({
-              width: window.innerWidth,
-              height: window.innerHeight,
-            });
-          }
-          window.addEventListener("resize", handleResize);
-          return () => window.removeEventListener("resize", handleResize);
-        }, []);
+              useEffect(() => {
+                function handleResize() {
+                  setDimensions({
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                  });
+                }
+                window.addEventListener("resize", handleResize);
+                return () => window.removeEventListener("resize", handleResize);
+              }, []);
 
-        return (
-          <span>
-            {dimensions.width} x {dimensions.height}
-          </span>
-        );
-      }
-      ```
-      <details>
-        <summary><h4>Using Class Component</h4></summary>
-
-      You can listen to the `resize` event in `componentDidMount()` and then update the dimensions (`width` and `height`). You should remove the listener in `componentWillUnmount()` method.
-
-        ```javascript
-            class WindowDimensions extends React.Component {
-              constructor(props) {
-                super(props);
-                this.updateDimensions = this.updateDimensions.bind(this);
-              }
-
-              componentWillMount() {
-                this.updateDimensions();
-              }
-
-              componentDidMount() {
-                window.addEventListener("resize", this.updateDimensions);
-              }
-
-              componentWillUnmount() {
-                window.removeEventListener("resize", this.updateDimensions);
-              }
-
-              updateDimensions() {
-                this.setState({
-                  width: window.innerWidth,
-                  height: window.innerHeight,
-                });
-              }
-
-              render() {
-                return (
-                  <span>
-                    {this.state.width} x {this.state.height}
-                  </span>
-                );
-              }
+              return (
+                <span>
+                  {dimensions.width} x {dimensions.height}
+                </span>
+              );
             }
             ```
-</details>
+            <details>
+              <summary><h4>Using Class Component</h4></summary>
+
+            You can listen to the `resize` event in `componentDidMount()` and then update the dimensions (`width` and `height`). You should remove the listener in `componentWillUnmount()` method.
+
+              ```javascript
+                  class WindowDimensions extends React.Component {
+                    constructor(props) {
+                      super(props);
+                      this.updateDimensions = this.updateDimensions.bind(this);
+                    }
+
+                    componentWillMount() {
+                      this.updateDimensions();
+                    }
+
+                    componentDidMount() {
+                      window.addEventListener("resize", this.updateDimensions);
+                    }
+
+                    componentWillUnmount() {
+                      window.removeEventListener("resize", this.updateDimensions);
+                    }
+
+                    updateDimensions() {
+                      this.setState({
+                        width: window.innerWidth,
+                        height: window.innerHeight,
+                      });
+                    }
+
+                    render() {
+                      return (
+                        <span>
+                          {this.state.width} x {this.state.height}
+                        </span>
+                      );
+                    }
+                  }
+                  ```
+
+      </details>
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2556,32 +2563,32 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
 108. ### What are the possible ways of updating objects in state?
 
-    1. **Calling `setState()` with an object to merge with state:**
+109. **Calling `setState()` with an object to merge with state:**
 
-        - Using `Object.assign()` to create a copy of the object:
+    - Using `Object.assign()` to create a copy of the object:
 
-          ```javascript
-          const user = Object.assign({}, this.state.user, { age: 42 });
-          this.setState({ user });
-          ```
+      ```javascript
+      const user = Object.assign({}, this.state.user, { age: 42 });
+      this.setState({ user });
+      ```
 
-        - Using _spread operator_:
+    - Using _spread operator_:
 
-          ```javascript
-          const user = { ...this.state.user, age: 42 };
-          this.setState({ user });
-          ```
+      ```javascript
+      const user = { ...this.state.user, age: 42 };
+      this.setState({ user });
+      ```
 
-    2. **Calling `setState()` with a function:**
+110. **Calling `setState()` with a function:**
 
-       ```javascript
-       this.setState((prevState) => ({
-         user: {
-           ...prevState.user,
-           age: 42,
-         },
-       }));
-       ```
+     ```javascript
+     this.setState((prevState) => ({
+       user: {
+         ...prevState.user,
+         age: 42,
+       },
+     }));
+     ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2604,25 +2611,25 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      There are approaches to include polyfills in create-react-app,
 
-    1. **Manual import from `core-js`:**
+1. **Manual import from `core-js`:**
 
-       Create a file called (something like) `polyfills.js` and import it into root `index.js` file. Run `npm install core-js` or `yarn add core-js` and import your specific required features.
+   Create a file called (something like) `polyfills.js` and import it into root `index.js` file. Run `npm install core-js` or `yarn add core-js` and import your specific required features.
 
-       ```javascript
-       import "core-js/fn/array/find";
-       import "core-js/fn/array/includes";
-       import "core-js/fn/number/is-nan";
-       ```
+   ```javascript
+   import "core-js/fn/array/find";
+   import "core-js/fn/array/includes";
+   import "core-js/fn/number/is-nan";
+   ```
 
-    2. **Using Polyfill service:**
+1. **Using Polyfill service:**
 
-       Use the polyfill.io CDN to retrieve custom, browser-specific polyfills by adding this line to `index.html`:
+   Use the polyfill.io CDN to retrieve custom, browser-specific polyfills by adding this line to `index.html`:
 
-       ```html
-       <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script>
-       ```
+   ```html
+   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script>
+   ```
 
-       In the above script we had to explicitly request the `Array.prototype.includes` feature as it is not included in the default feature set.
+   In the above script we had to explicitly request the `Array.prototype.includes` feature as it is not included in the default feature set.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2740,17 +2747,17 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      This can be done in two steps:
 
-    1. Create ref in render method:
+1. Create ref in render method:
 
-       ```jsx harmony
-       <input ref={(input) => (this.inputElement = input)} />
-       ```
+   ```jsx harmony
+   <input ref={(input) => (this.inputElement = input)} />
+   ```
 
-    2. Apply click event in your event handler:
+1. Apply click event in your event handler:
 
-       ```javascript
-       this.inputElement.click();
-       ```
+   ```javascript
+   this.inputElement.click();
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2764,52 +2771,52 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      There are two common practices for React project file structure.
 
-    1. **Grouping by features or routes:**
+1. **Grouping by features or routes:**
 
-       One common way to structure projects is locate CSS, JS, and tests together, grouped by feature or route.
+   One common way to structure projects is locate CSS, JS, and tests together, grouped by feature or route.
 
-       ```
-       common/
-       ├─ Avatar.js
-       ├─ Avatar.css
-       ├─ APIUtils.js
-       └─ APIUtils.test.js
-       feed/
-       ├─ index.js
-       ├─ Feed.js
-       ├─ Feed.css
-       ├─ FeedStory.js
-       ├─ FeedStory.test.js
-       └─ FeedAPI.js
-       profile/
-       ├─ index.js
-       ├─ Profile.js
-       ├─ ProfileHeader.js
-       ├─ ProfileHeader.css
-       └─ ProfileAPI.js
-       ```
+   ```
+   common/
+   ├─ Avatar.js
+   ├─ Avatar.css
+   ├─ APIUtils.js
+   └─ APIUtils.test.js
+   feed/
+   ├─ index.js
+   ├─ Feed.js
+   ├─ Feed.css
+   ├─ FeedStory.js
+   ├─ FeedStory.test.js
+   └─ FeedAPI.js
+   profile/
+   ├─ index.js
+   ├─ Profile.js
+   ├─ ProfileHeader.js
+   ├─ ProfileHeader.css
+   └─ ProfileAPI.js
+   ```
 
-    2. **Grouping by file type:**
+1. **Grouping by file type:**
 
-       Another popular way to structure projects is to group similar files together.
+   Another popular way to structure projects is to group similar files together.
 
-       ```
-       api/
-       ├─ APIUtils.js
-       ├─ APIUtils.test.js
-       ├─ ProfileAPI.js
-       └─ UserAPI.js
-       components/
-       ├─ Avatar.js
-       ├─ Avatar.css
-       ├─ Feed.js
-       ├─ Feed.css
-       ├─ FeedStory.js
-       ├─ FeedStory.test.js
-       ├─ Profile.js
-       ├─ ProfileHeader.js
-       └─ ProfileHeader.css
-       ```
+   ```
+   api/
+   ├─ APIUtils.js
+   ├─ APIUtils.test.js
+   ├─ ProfileAPI.js
+   └─ UserAPI.js
+   components/
+   ├─ Avatar.js
+   ├─ Avatar.css
+   ├─ Feed.js
+   ├─ Feed.css
+   ├─ FeedStory.js
+   ├─ FeedStory.test.js
+   ├─ Profile.js
+   ├─ ProfileHeader.js
+   └─ ProfileHeader.css
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2933,11 +2940,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      React Router v4 provides below 3 `<Router>` components:
 
-    1. `<BrowserRouter>`
-    2. `<HashRouter>`
-    3. `<MemoryRouter>`
+1. `<BrowserRouter>`
+1. `<HashRouter>`
+1. `<MemoryRouter>`
 
-     The above components will create _browser_, _hash_, and _memory_ history instances. React Router v4 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
+   The above components will create _browser_, _hash_, and _memory_ history instances. React Router v4 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2945,10 +2952,10 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      A history instance has two methods for navigation purpose.
 
-    1. `push()`
-    2. `replace()`
+1. `push()`
+1. `replace()`
 
-     If you think of the history as an array of visited locations, `push()` will add a new location to the array and `replace()` will replace the current location in the array with the new one.
+   If you think of the history as an array of visited locations, `push()` will add a new location to the array and `replace()` will replace the current location in the array with the new one.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2956,14 +2963,35 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      There are three different ways to achieve programmatic routing/navigation within components.
 
-    1. **Using the `withRouter()` higher-order function:**
+1. **Using the `withRouter()` higher-order function:**
 
-       The `withRouter()` higher-order function will inject the history object as a prop of the component. This object provides `push()` and `replace()` methods to avoid the usage of context.
+   The `withRouter()` higher-order function will inject the history object as a prop of the component. This object provides `push()` and `replace()` methods to avoid the usage of context.
 
-       ```jsx harmony
-       import { withRouter } from "react-router-dom"; // this also works with 'react-router-native'
+   ```jsx harmony
+   import { withRouter } from "react-router-dom"; // this also works with 'react-router-native'
 
-       const Button = withRouter(({ history }) => (
+   const Button = withRouter(({ history }) => (
+     <button
+       type="button"
+       onClick={() => {
+         history.push("/new-location");
+       }}
+     >
+       {"Click Me!"}
+     </button>
+   ));
+   ```
+
+1. **Using `<Route>` component and render props pattern:**
+
+   The `<Route>` component passes the same props as `withRouter()`, so you will be able to access the history methods through the history prop.
+
+   ```jsx harmony
+   import { Route } from "react-router-dom";
+
+   const Button = () => (
+     <Route
+       render={({ history }) => (
          <button
            type="button"
            onClick={() => {
@@ -2972,54 +3000,33 @@ It is also possible to render list of fragments inside a loop with the mandatory
          >
            {"Click Me!"}
          </button>
-       ));
-       ```
+       )}
+     />
+   );
+   ```
 
-    2. **Using `<Route>` component and render props pattern:**
+1. **Using context:**
 
-       The `<Route>` component passes the same props as `withRouter()`, so you will be able to access the history methods through the history prop.
+   This option is not recommended and treated as unstable API.
 
-       ```jsx harmony
-       import { Route } from "react-router-dom";
+   ```jsx harmony
+   const Button = (props, context) => (
+     <button
+       type="button"
+       onClick={() => {
+         context.history.push("/new-location");
+       }}
+     >
+       {"Click Me!"}
+     </button>
+   );
 
-       const Button = () => (
-         <Route
-           render={({ history }) => (
-             <button
-               type="button"
-               onClick={() => {
-                 history.push("/new-location");
-               }}
-             >
-               {"Click Me!"}
-             </button>
-           )}
-         />
-       );
-       ```
-
-    3. **Using context:**
-
-       This option is not recommended and treated as unstable API.
-
-       ```jsx harmony
-       const Button = (props, context) => (
-         <button
-           type="button"
-           onClick={() => {
-             context.history.push("/new-location");
-           }}
-         >
-           {"Click Me!"}
-         </button>
-       );
-
-       Button.contextTypes = {
-         history: React.PropTypes.shape({
-           push: React.PropTypes.func.isRequired,
-         }),
-       };
-       ```
+   Button.contextTypes = {
+     history: React.PropTypes.shape({
+       push: React.PropTypes.func.isRequired,
+     }),
+   };
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3100,41 +3107,41 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the list of steps to get history object on React Router v4,
 
-    1. Create a module that exports a `history` object and import this module across the project.
+1. Create a module that exports a `history` object and import this module across the project.
 
-       For example, create `history.js` file:
+   For example, create `history.js` file:
 
-       ```javascript
-       import { createBrowserHistory } from "history";
+   ```javascript
+   import { createBrowserHistory } from "history";
 
-       export default createBrowserHistory({
-         /* pass a configuration object here if needed */
-       });
-       ```
+   export default createBrowserHistory({
+     /* pass a configuration object here if needed */
+   });
+   ```
 
-    2. You should use the `<Router>` component instead of built-in routers. Import the above `history.js` inside `index.js` file:
+1. You should use the `<Router>` component instead of built-in routers. Import the above `history.js` inside `index.js` file:
 
-       ```jsx harmony
-       import { Router } from "react-router-dom";
-       import history from "./history";
-       import App from "./App";
+   ```jsx harmony
+   import { Router } from "react-router-dom";
+   import history from "./history";
+   import App from "./App";
 
-       ReactDOM.render(
-         <Router history={history}>
-           <App />
-         </Router>,
-         holder
-       );
-       ```
+   ReactDOM.render(
+     <Router history={history}>
+       <App />
+     </Router>,
+     holder
+   );
+   ```
 
-    3. You can also use push method of `history` object similar to built-in history object:
+1. You can also use push method of `history` object similar to built-in history object:
 
-       ```javascript
-       // some-other-file.js
-       import history from "./history";
+   ```javascript
+   // some-other-file.js
+   import history from "./history";
 
-       history.push("/go-here");
-       ```
+   history.push("/go-here");
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3171,13 +3178,13 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the main features of React Intl,
 
-    1. Display numbers with separators.
-    2. Display dates and times correctly.
-    3. Display dates relative to "now".
-    4. Pluralize labels in strings.
-    5. Support for 150+ languages.
-    6. Runs in the browser and Node.
-    7. Built on standards.
+1. Display numbers with separators.
+1. Display dates and times correctly.
+1. Display dates relative to "now".
+1. Pluralize labels in strings.
+1. Support for 150+ languages.
+1. Runs in the browser and Node.
+1. Built on standards.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3185,27 +3192,27 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      The library provides two ways to format strings, numbers, and dates:
 
-    1. **Using react components:**
+1. **Using react components:**
 
-       ```jsx harmony
-       <FormattedMessage
-         id={"account"}
-         defaultMessage={"The amount is less than minimum balance."}
-       />
-       ```
+   ```jsx harmony
+   <FormattedMessage
+     id={"account"}
+     defaultMessage={"The amount is less than minimum balance."}
+   />
+   ```
 
-    2. **Using an API:**
+1. **Using an API:**
 
-       ```javascript
-       const messages = defineMessages({
-         accountMessage: {
-           id: "account",
-           defaultMessage: "The amount is less than minimum balance.",
-         },
-       });
+   ```javascript
+   const messages = defineMessages({
+     accountMessage: {
+       id: "account",
+       defaultMessage: "The amount is less than minimum balance.",
+     },
+   });
 
-       formatMessage(messages.accountMessage);
-       ```
+   formatMessage(messages.accountMessage);
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3355,6 +3362,7 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      There are couple of advantages compared to Jasmine:
 
+
     - Automatically finds tests to execute in your source code.
     - Automatically mocks dependencies when running your tests.
     - Allows you to test asynchronous code synchronously.
@@ -3425,9 +3433,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Redux follows three fundamental principles:
 
-    1. **Single source of truth:** The state of your whole application is stored in an object tree within a single store. The single state tree makes it easier to keep track of changes over time and debug or inspect the application.
-    2. **State is read-only:** The only way to change the state is to emit an action, an object describing what happened. This ensures that neither the views nor the network callbacks will ever write directly to the state.
-    3. **Changes are made with pure functions:** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure functions that take the previous state and an action as parameters, and return the next state.
+1. **Single source of truth:** The state of your whole application is stored in an object tree within a single store. The single state tree makes it easier to keep track of changes over time and debug or inspect the application.
+1. **State is read-only:** The only way to change the state is to emit an action, an object describing what happened. This ensures that neither the views nor the network callbacks will ever write directly to the state.
+1. **Changes are made with pure functions:** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure functions that take the previous state and an action as parameters, and return the next state.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3435,9 +3443,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Instead of saying downsides we can say that there are few compromises of using Redux over Flux. Those are as follows:
 
-    1. **You will need to learn to avoid mutations:** Flux is un-opinionated about mutating data, but Redux doesn't like mutations and many packages complementary to Redux assume you never mutate the state. You can enforce this with dev-only packages like `redux-immutable-state-invariant`, Immutable.js, or instructing your team to write non-mutating code.
-    2. **You're going to have to carefully pick your packages:** While Flux explicitly doesn't try to solve problems such as undo/redo, persistence, or forms, Redux has extension points such as middleware and store enhancers, and it has spawned a rich ecosystem.
-    3. **There is no nice Flow integration yet:** Flux currently lets you do very impressive static type checks which Redux doesn't support yet.
+1. **You will need to learn to avoid mutations:** Flux is un-opinionated about mutating data, but Redux doesn't like mutations and many packages complementary to Redux assume you never mutate the state. You can enforce this with dev-only packages like `redux-immutable-state-invariant`, Immutable.js, or instructing your team to write non-mutating code.
+1. **You're going to have to carefully pick your packages:** While Flux explicitly doesn't try to solve problems such as undo/redo, persistence, or forms, Redux has extension points such as middleware and store enhancers, and it has spawned a rich ecosystem.
+1. **There is no nice Flow integration yet:** Flux currently lets you do very impressive static type checks which Redux doesn't support yet.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3497,10 +3505,10 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
 159. ### What are the drawbacks of MVW pattern?
 
-    1. DOM manipulation is very expensive which causes applications to behave slow and inefficient.
-    2. Due to circular dependencies, a complicated model was created around models and views.
-    3. Lot of data changes happens for collaborative applications(like Google Docs).
-    4. No way to do undo (travel back in time) easily without adding so much extra code.
+1. DOM manipulation is very expensive which causes applications to behave slow and inefficient.
+1. Due to circular dependencies, a complicated model was created around models and views.
+1. Lot of data changes happens for collaborative applications(like Google Docs).
+1. No way to do undo (travel back in time) easily without adding so much extra code.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3546,25 +3554,25 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      You need to follow two steps to use your store in your container:
 
-    1. **Use `mapStateToProps()`:** It maps the state variables from your store to the props that you specify.
-    2. **Connect the above props to your container:** The object returned by the `mapStateToProps` function is connected to the container. You can import `connect()` from `react-redux`.
+1. **Use `mapStateToProps()`:** It maps the state variables from your store to the props that you specify.
+1. **Connect the above props to your container:** The object returned by the `mapStateToProps` function is connected to the container. You can import `connect()` from `react-redux`.
 
-       ```jsx harmony
-       import React from "react";
-       import { connect } from "react-redux";
+   ```jsx harmony
+   import React from "react";
+   import { connect } from "react-redux";
 
-       class App extends React.Component {
-         render() {
-           return <div>{this.props.containerData}</div>;
-         }
-       }
+   class App extends React.Component {
+     render() {
+       return <div>{this.props.containerData}</div>;
+     }
+   }
 
-       function mapStateToProps(state) {
-         return { containerData: state.data };
-       }
+   function mapStateToProps(state) {
+     return { containerData: state.data };
+   }
 
-       export default connect(mapStateToProps)(App);
-       ```
+   export default connect(mapStateToProps)(App);
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3615,6 +3623,7 @@ It is also possible to render list of fragments inside a loop with the mandatory
      The **@** symbol is in fact a JavaScript expression used to signify decorators. _Decorators_ make it possible to annotate and modify classes and properties at design time.
 
      Let's take an example setting up Redux without and with a decorator.
+
 
     - **Without decorator:**
 
@@ -3774,40 +3783,40 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      In Redux, you use them in two places:
 
-    1. **During action creation:**
+1. **During action creation:**
 
-       Let's take `actions.js`:
+   Let's take `actions.js`:
 
-       ```javascript
-       import { ADD_TODO } from "./actionTypes";
+   ```javascript
+   import { ADD_TODO } from "./actionTypes";
 
-       export function addTodo(text) {
-         return { type: ADD_TODO, text };
-       }
-       ```
+   export function addTodo(text) {
+     return { type: ADD_TODO, text };
+   }
+   ```
 
-    2. **In reducers:**
+1. **In reducers:**
 
-       Let's create `reducer.js`:
+   Let's create `reducer.js`:
 
-       ```javascript
-       import { ADD_TODO } from "./actionTypes";
+   ```javascript
+   import { ADD_TODO } from "./actionTypes";
 
-       export default (state = [], action) => {
-         switch (action.type) {
-           case ADD_TODO:
-             return [
-               ...state,
-               {
-                 text: action.text,
-                 completed: false,
-               },
-             ];
-           default:
-             return state;
-         }
-       };
-       ```
+   export default (state = [], action) => {
+     switch (action.type) {
+       case ADD_TODO:
+         return [
+           ...state,
+           {
+             text: action.text,
+             completed: false,
+           },
+         ];
+       default:
+         return state;
+     }
+   };
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3863,13 +3872,13 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Most of the applications has several top-level directories as below:
 
-    1. **Components**: Used for _dumb_ components unaware of Redux.
-    2. **Containers**: Used for _smart_ components connected to Redux.
-    3. **Actions**: Used for all action creators, where file names correspond to part of the app.
-    4. **Reducers**: Used for all reducers, where files name correspond to state key.
-    5. **Store**: Used for store initialization.
+1. **Components**: Used for _dumb_ components unaware of Redux.
+1. **Containers**: Used for _smart_ components connected to Redux.
+1. **Actions**: Used for all action creators, where file names correspond to part of the app.
+1. **Reducers**: Used for all reducers, where files name correspond to state key.
+1. **Store**: Used for store initialization.
 
-     This structure works well for small and medium size apps.
+   This structure works well for small and medium size apps.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3935,11 +3944,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Some of the main features of Redux DevTools are below,
 
-    1. Lets you inspect every state and action payload.
-    2. Lets you go back in time by _cancelling_ actions.
-    3. If you change the reducer code, each _staged_ action will be re-evaluated.
-    4. If the reducers throw, you will see during which action this happened, and what the error was.
-    5. With `persistState()` store enhancer, you can persist debug sessions across page reloads.
+1. Lets you inspect every state and action payload.
+1. Lets you go back in time by _cancelling_ actions.
+1. If you change the reducer code, each _staged_ action will be re-evaluated.
+1. If the reducers throw, you will see during which action this happened, and what the error was.
+1. With `persistState()` store enhancer, you can persist debug sessions across page reloads.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3955,8 +3964,8 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      These selectors have two main benefits,
 
-    1. The selector can compute derived data, allowing Redux to store the minimal possible state
-    2. The selector is not recomputed unless one of its arguments changes
+1. The selector can compute derived data, allowing Redux to store the minimal possible state
+1. The selector is not recomputed unless one of its arguments changes
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3970,9 +3979,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Some of the main features of Redux Form are:
 
-    1. Field values persistence via Redux store.
-    2. Validation (sync/async) and submission.
-    3. Formatting, parsing and normalization of field values.
+1. Field values persistence via Redux store.
+1. Validation (sync/async) and submission.
+1. Formatting, parsing and normalization of field values.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4063,11 +4072,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Follow the below steps to debug React Native app:
 
-    1. Run your application in the iOS simulator.
-    2. Press `Command + D` and a webpage should open up at `http://localhost:8081/debugger-ui`.
-    3. Enable _Pause On Caught Exceptions_ for a better debugging experience.
-    4. Press `Command + Option + I` to open the Chrome Developer tools, or open it via `View` -> `Developer` -> `Developer Tools`.
-    5. You should now be able to debug as you normally would.
+1. Run your application in the iOS simulator.
+1. Press `Command + D` and a webpage should open up at `http://localhost:8081/debugger-ui`.
+1. Enable _Pause On Caught Exceptions_ for a better debugging experience.
+1. Press `Command + Option + I` to open the Chrome Developer tools, or open it via `View` -> `Developer` -> `Developer Tools`.
+1. You should now be able to debug as you normally would.
 
 ## React supported libraries & Integration
 
@@ -4099,25 +4108,25 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      The below steps followed to include Font Awesome in React:
 
-    1. Install `font-awesome`:
+1. Install `font-awesome`:
 
-       ```console
-       $ npm install --save font-awesome
-       ```
+   ```console
+   $ npm install --save font-awesome
+   ```
 
-    2. Import `font-awesome` in your `index.js` file:
+1. Import `font-awesome` in your `index.js` file:
 
-       ```javascript
-       import "font-awesome/css/font-awesome.min.css";
-       ```
+   ```javascript
+   import "font-awesome/css/font-awesome.min.css";
+   ```
 
-    3. Add Font Awesome classes in `className`:
+1. Add Font Awesome classes in `className`:
 
-       ```javascript
-       render() {
-         return <div><i className={'fa fa-spinner'} /></div>
-       }
-       ```
+   ```javascript
+   render() {
+     return <div><i className={'fa fa-spinner'} /></div>
+   }
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4127,9 +4136,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      The official extensions available for different browsers or environments.
 
-    1. **Chrome extension**
-    2. **Firefox extension**
-    3. **Standalone app** (Safari, React Native, etc)
+1. **Chrome extension**
+1. **Firefox extension**
+1. **Standalone app** (Safari, React Native, etc)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4143,43 +4152,43 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      You need to follow below steps to use Polymer in React,
 
-    1. Create a Polymer element:
+1. Create a Polymer element:
 
-       ```jsx harmony
-       <link
-         rel="import"
-         href="../../bower_components/polymer/polymer.html"
-       />;
-       Polymer({
-         is: "calendar-element",
-         ready: function () {
-           this.textContent = "I am a calendar";
-         },
-       });
-       ```
+   ```jsx harmony
+   <link
+     rel="import"
+     href="../../bower_components/polymer/polymer.html"
+   />;
+   Polymer({
+     is: "calendar-element",
+     ready: function () {
+       this.textContent = "I am a calendar";
+     },
+   });
+   ```
 
-    2. Create the Polymer component HTML tag by importing it in a HTML document, e.g. import it in the `index.html` of your React application:
+1. Create the Polymer component HTML tag by importing it in a HTML document, e.g. import it in the `index.html` of your React application:
 
-       ```html
-       <link
-         rel="import"
-         href="./src/polymer-components/calendar-element.html"
-       />
-       ```
+   ```html
+   <link
+     rel="import"
+     href="./src/polymer-components/calendar-element.html"
+   />
+   ```
 
-    3. Use that element in the JSX file:
+1. Use that element in the JSX file:
 
-       ```javascript
-       import React from "react";
+   ```javascript
+   import React from "react";
 
-       class MyComponent extends React.Component {
-         render() {
-           return <calendar-element />;
-         }
-       }
+   class MyComponent extends React.Component {
+     render() {
+       return <calendar-element />;
+     }
+   }
 
-       export default MyComponent;
-       ```
+   export default MyComponent;
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4187,10 +4196,10 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      React has the following advantages over Vue.js:
 
-    1. Gives more flexibility in large apps developing.
-    2. Easier to test.
-    3. Suitable for mobile apps creating.
-    4. More information and solutions available.
+1. Gives more flexibility in large apps developing.
+1. Easier to test.
+1. Suitable for mobile apps creating.
+1. More information and solutions available.
 
 **Note:** The above list of advantages are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
 
@@ -4199,9 +4208,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 200. ### What is the difference between React and Angular?
 
      Let's see the difference between React and Angular in a table format.
-
+ 
      | React                                                                                       | Angular                                                                                                                            |
-          | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+     | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
      | React is a library and has only the View layer                                              | Angular is a framework and has complete MVC functionality                                                                          |
      | React handles rendering on the server side                                                  | AngularJS renders only on the client side but Angular 2 and above renders on the server side                                       |
      | React uses JSX that looks like HTML in JS which can be confusing                            | Angular follows the template approach for HTML, which makes code shorter and easy to understand                                    |
@@ -4301,50 +4310,50 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Let's see the main features of Reselect library,
 
-    1. Selectors can compute derived data, allowing Redux to store the minimal possible state.
-    2. Selectors are efficient. A selector is not recomputed unless one of its arguments changes.
-    3. Selectors are composable. They can be used as input to other selectors.
+1. Selectors can compute derived data, allowing Redux to store the minimal possible state.
+1. Selectors are efficient. A selector is not recomputed unless one of its arguments changes.
+1. Selectors are composable. They can be used as input to other selectors.
 
-207. #### Give an example of Reselect usage?
+1. #### Give an example of Reselect usage?
 
-     Let's take calculations and different amounts of a shipment order with the simplified usage of Reselect:
+   Let's take calculations and different amounts of a shipment order with the simplified usage of Reselect:
 
-     ```javascript
-     import { createSelector } from "reselect";
+   ```javascript
+   import { createSelector } from "reselect";
 
-     const shopItemsSelector = (state) => state.shop.items;
-     const taxPercentSelector = (state) => state.shop.taxPercent;
+   const shopItemsSelector = (state) => state.shop.items;
+   const taxPercentSelector = (state) => state.shop.taxPercent;
 
-     const subtotalSelector = createSelector(shopItemsSelector, (items) =>
-       items.reduce((acc, item) => acc + item.value, 0)
-     );
+   const subtotalSelector = createSelector(shopItemsSelector, (items) =>
+     items.reduce((acc, item) => acc + item.value, 0)
+   );
 
-     const taxSelector = createSelector(
-       subtotalSelector,
-       taxPercentSelector,
-       (subtotal, taxPercent) => subtotal * (taxPercent / 100)
-     );
+   const taxSelector = createSelector(
+     subtotalSelector,
+     taxPercentSelector,
+     (subtotal, taxPercent) => subtotal * (taxPercent / 100)
+   );
 
-     export const totalSelector = createSelector(
-       subtotalSelector,
-       taxSelector,
-       (subtotal, tax) => ({ total: subtotal + tax })
-     );
+   export const totalSelector = createSelector(
+     subtotalSelector,
+     taxSelector,
+     (subtotal, tax) => ({ total: subtotal + tax })
+   );
 
-     let exampleState = {
-       shop: {
-         taxPercent: 8,
-         items: [
-           { name: "apple", value: 1.2 },
-           { name: "orange", value: 0.95 },
-         ],
-       },
-     };
+   let exampleState = {
+     shop: {
+       taxPercent: 8,
+       items: [
+         { name: "apple", value: 1.2 },
+         { name: "orange", value: 0.95 },
+       ],
+     },
+   };
 
-     console.log(subtotalSelector(exampleState)); // 2.15
-     console.log(taxSelector(exampleState)); // 0.172
-     console.log(totalSelector(exampleState)); // { total: 2.322 }
-     ```
+   console.log(subtotalSelector(exampleState)); // 2.15
+   console.log(taxSelector(exampleState)); // 0.172
+   console.log(totalSelector(exampleState)); // { total: 2.322 }
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4508,38 +4517,38 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      There are two main ways of implementing HOCs in React.
 
-    1. Props Proxy (PP) and
-    2. Inheritance Inversion (II).
+1. Props Proxy (PP) and
+1. Inheritance Inversion (II).
 
-     But they follow different approaches for manipulating the _WrappedComponent_.
+   But they follow different approaches for manipulating the _WrappedComponent_.
 
-     **Props Proxy**
+   **Props Proxy**
 
-     In this approach, the render method of the HOC returns a React Element of the type of the WrappedComponent. We also pass through the props that the HOC receives, hence the name **Props Proxy**.
+   In this approach, the render method of the HOC returns a React Element of the type of the WrappedComponent. We also pass through the props that the HOC receives, hence the name **Props Proxy**.
 
-     ```jsx
-     function ppHOC(WrappedComponent) {
-       return class PP extends React.Component {
-         render() {
-           return <WrappedComponent {...this.props} />;
-         }
-       };
-     }
-     ```
+   ```jsx
+   function ppHOC(WrappedComponent) {
+     return class PP extends React.Component {
+       render() {
+         return <WrappedComponent {...this.props} />;
+       }
+     };
+   }
+   ```
 
-     **Inheritance Inversion**
+   **Inheritance Inversion**
 
-     In this approach, the returned HOC class (Enhancer) extends the WrappedComponent. It is called Inheritance Inversion because instead of the WrappedComponent extending some Enhancer class, it is passively extended by the Enhancer. In this way the relationship between them seems **inverse**.
+   In this approach, the returned HOC class (Enhancer) extends the WrappedComponent. It is called Inheritance Inversion because instead of the WrappedComponent extending some Enhancer class, it is passively extended by the Enhancer. In this way the relationship between them seems **inverse**.
 
-     ```jsx
-     function iiHOC(WrappedComponent) {
-       return class Enhancer extends WrappedComponent {
-         render() {
-           return super.render();
-         }
-       };
-     }
-     ```
+   ```jsx
+   function iiHOC(WrappedComponent) {
+     return class Enhancer extends WrappedComponent {
+       render() {
+         return super.render();
+       }
+     };
+   }
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4562,11 +4571,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the thumb rules to determine what kind of data should be put into Redux
 
-    1. Do other parts of the application care about this data?
-    2. Do you need to be able to create further derived data based on this original data?
-    3. Is the same data being used to drive multiple components?
-    4. Is there value to you in being able to restore this state to a given point in time (ie, time travel debugging)?
-    5. Do you want to cache the data (i.e, use what's in state if it's already there instead of re-requesting it)?
+1. Do other parts of the application care about this data?
+1. Do you need to be able to create further derived data based on this original data?
+1. Is the same data being used to drive multiple components?
+1. Is there value to you in being able to restore this state to a given point in time (ie, time travel debugging)?
+1. Do you want to cache the data (i.e, use what's in state if it's already there instead of re-requesting it)?
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4752,10 +4761,10 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      You need to follow two rules in order to use hooks,
 
-    1. **Call Hooks only at the top level of your react functions:** You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
-    2. **Call Hooks from React Functions only:**You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
+1. **Call Hooks only at the top level of your react functions:** You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
+1. **Call Hooks from React Functions only:**You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
 
-     The eslint plugin named **eslint-plugin-react-hooks** can be used to enforce these two rules.
+   The eslint plugin named **eslint-plugin-react-hooks** can be used to enforce these two rules.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4801,9 +4810,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the main benefits of React Router V4 module,
 
-    1. In React Router v4(version 4), the API is completely about components. A router can be visualized as a single component(`<BrowserRouter>`) which wraps specific child router components(`<Route>`).
-    2. You don't need to manually set history. The router module will take care history by wrapping routes with `<BrowserRouter>` component.
-    3. The application size is reduced by adding only the specific router module(Web, core, or native)
+1. In React Router v4(version 4), the API is completely about components. A router can be visualized as a single component(`<BrowserRouter>`) which wraps specific child router components(`<Route>`).
+1. You don't need to manually set history. The router module will take care history by wrapping routes with `<BrowserRouter>` component.
+1. The application size is reduced by adding only the specific router module(Web, core, or native)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4811,14 +4820,14 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      The **componentDidCatch** lifecycle method is invoked after an error has been thrown by a descendant component. The method receives two parameters,
 
-    1. error: - The error object which was thrown
-    2. info: - An object with a componentStack key contains the information about which component threw the error.
+1. error: - The error object which was thrown
+1. info: - An object with a componentStack key contains the information about which component threw the error.
 
-     The method structure would be as follows
+   The method structure would be as follows
 
-     ```javascript
-     componentDidCatch(error, info);
-     ```
+   ```javascript
+   componentDidCatch(error, info);
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4826,10 +4835,10 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the cases in which error boundaries doesn't work,
 
-    1. Inside Event handlers
-    2. Asynchronous code using **setTimeout or requestAnimationFrame** callbacks
-    3. During Server side rendering
-    4. When errors thrown in the error boundary code itself
+1. Inside Event handlers
+1. Asynchronous code using **setTimeout or requestAnimationFrame** callbacks
+1. During Server side rendering
+1. When errors thrown in the error boundary code itself
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4903,8 +4912,8 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
 236. ### What is the proper placement for error boundaries?
      The granularity of error boundaries usage is up to the developer based on project needs. You can follow either of these approaches,
-    1. You can wrap top-level route components to display a generic error message for the entire application.
-    2. You can also wrap individual components in an error boundary to protect them from crashing the rest of the application.
+1. You can wrap top-level route components to display a generic error message for the entire application.
+1. You can also wrap individual components in an error boundary to protect them from crashing the rest of the application.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4927,11 +4936,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the list of following types used and return from render method,
 
-    1. **React elements:** Elements that instruct React to render a DOM node. It includes html elements such as `<div/>` and user defined elements.
-    2. **Arrays and fragments:** Return multiple elements to render as Arrays and Fragments to wrap multiple elements
-    3. **Portals:** Render children into a different DOM subtree.
-    4. **String and numbers:** Render both Strings and Numbers as text nodes in the DOM
-    5. **Booleans or null:** Doesn't render anything but these types are used to conditionally render content.
+1. **React elements:** Elements that instruct React to render a DOM node. It includes html elements such as `<div/>` and user defined elements.
+1. **Arrays and fragments:** Return multiple elements to render as Arrays and Fragments to wrap multiple elements
+1. **Portals:** Render children into a different DOM subtree.
+1. **String and numbers:** Render both Strings and Numbers as text nodes in the DOM
+1. **Booleans or null:** Doesn't render anything but these types are used to conditionally render content.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4939,18 +4948,18 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      The constructor is mainly used for two purposes,
 
-    1. To initialize local state by assigning object to this.state
-    2. For binding event handler methods to the instance
-       For example, the below code covers both the above cases,
+1. To initialize local state by assigning object to this.state
+1. For binding event handler methods to the instance
+   For example, the below code covers both the above cases,
 
-     ```javascript
-     constructor(props) {
-       super(props);
-       // Don't call this.setState() here!
-       this.state = { counter: 0 };
-       this.handleClick = this.handleClick.bind(this);
-     }
-     ```
+   ```javascript
+   constructor(props) {
+     super(props);
+     // Don't call this.setState() here!
+     this.state = { counter: 0 };
+     this.handleClick = this.handleClick.bind(this);
+   }
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5031,11 +5040,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      An update can be caused by changes to props or state. The below methods are called in the following order when a component is being re-rendered.
 
-    1. static getDerivedStateFromProps()
-    2. shouldComponentUpdate()
-    3. render()
-    4. getSnapshotBeforeUpdate()
-    5. componentDidUpdate()
+1. static getDerivedStateFromProps()
+1. shouldComponentUpdate()
+1. render()
+1. getSnapshotBeforeUpdate()
+1. componentDidUpdate()
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5043,8 +5052,8 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
 
-    1. static getDerivedStateFromError()
-    2. componentDidCatch()
+1. static getDerivedStateFromError()
+1. componentDidCatch()
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5137,11 +5146,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      The <StrictMode> will be helpful in the below cases
 
-    1. Identifying components with **unsafe lifecycle methods**.
-    2. Warning about **legacy string ref** API usage.
-    3. Detecting unexpected **side effects**.
-    4. Detecting **legacy context** API.
-    5. Warning about deprecated findDOMNode usage
+1. Identifying components with **unsafe lifecycle methods**.
+1. Warning about **legacy string ref** API usage.
+1. Detecting unexpected **side effects**.
+1. Detecting **legacy context** API.
+1. Warning about deprecated findDOMNode usage
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5189,51 +5198,51 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Higher-order components come with a few caveats apart from its benefits. Below are the few listed in an order,
 
-    1. **Don’t use HOCs inside the render method:**
-       It is not recommended to apply a HOC to a component within the render method of a component.
+1. **Don’t use HOCs inside the render method:**
+   It is not recommended to apply a HOC to a component within the render method of a component.
 
-       ```javascript
-       render() {
-         // A new version of EnhancedComponent is created on every render
-         // EnhancedComponent1 !== EnhancedComponent2
-         const EnhancedComponent = enhance(MyComponent);
-         // That causes the entire subtree to unmount/remount each time!
-         return <EnhancedComponent />;
-       }
-       ```
+   ```javascript
+   render() {
+     // A new version of EnhancedComponent is created on every render
+     // EnhancedComponent1 !== EnhancedComponent2
+     const EnhancedComponent = enhance(MyComponent);
+     // That causes the entire subtree to unmount/remount each time!
+     return <EnhancedComponent />;
+   }
+   ```
 
-       The above code impacts on performance by remounting a component that causes the state of that component and all of its children to be lost. Instead, apply HOCs outside the component definition so that the resulting component is created only once.
+   The above code impacts on performance by remounting a component that causes the state of that component and all of its children to be lost. Instead, apply HOCs outside the component definition so that the resulting component is created only once.
 
-    2. **Static methods must be copied over:**
-       When you apply a HOC to a component the new component does not have any of the static methods of the original component
+1. **Static methods must be copied over:**
+   When you apply a HOC to a component the new component does not have any of the static methods of the original component
 
-       ```javascript
-       // Define a static method
-       WrappedComponent.staticMethod = function () {
-         /*...*/
-       };
-       // Now apply a HOC
-       const EnhancedComponent = enhance(WrappedComponent);
+   ```javascript
+   // Define a static method
+   WrappedComponent.staticMethod = function () {
+     /*...*/
+   };
+   // Now apply a HOC
+   const EnhancedComponent = enhance(WrappedComponent);
 
-       // The enhanced component has no static method
-       typeof EnhancedComponent.staticMethod === "undefined"; // true
-       ```
+   // The enhanced component has no static method
+   typeof EnhancedComponent.staticMethod === "undefined"; // true
+   ```
 
-       You can overcome this by copying the methods onto the container before returning it,
+   You can overcome this by copying the methods onto the container before returning it,
 
-       ```javascript
-       function enhance(WrappedComponent) {
-         class Enhance extends React.Component {
-           /*...*/
-         }
-         // Must know exactly which method(s) to copy :(
-         Enhance.staticMethod = WrappedComponent.staticMethod;
-         return Enhance;
-       }
-       ```
+   ```javascript
+   function enhance(WrappedComponent) {
+     class Enhance extends React.Component {
+       /*...*/
+     }
+     // Must know exactly which method(s) to copy :(
+     Enhance.staticMethod = WrappedComponent.staticMethod;
+     return Enhance;
+   }
+   ```
 
-    3. **Refs aren’t passed through:**
-       For HOCs you need to pass through all props to the wrapped component but this does not work for refs. This is because ref is not really a prop similar to key. In this case you need to use the React.forwardRef API
+1. **Refs aren’t passed through:**
+   For HOCs you need to pass through all props to the wrapped component but this does not work for refs. This is because ref is not really a prop similar to key. In this case you need to use the React.forwardRef API
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5300,12 +5309,12 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Next.js is a popular and lightweight framework for static and server‑rendered applications built with React. It also provides styling and routing solutions. Below are the major features provided by NextJS,
 
-    1. Server-rendered by default
-    2. Automatic code splitting for faster page loads
-    3. Simple client-side routing (page based)
-    4. Webpack-based dev environment which supports (HMR)
-    5. Able to implement with Express or any other Node.js HTTP server
-    6. Customizable with your own Babel and Webpack configurations
+1. Server-rendered by default
+1. Automatic code splitting for faster page loads
+1. Simple client-side routing (page based)
+1. Webpack-based dev environment which supports (HMR)
+1. Able to implement with Express or any other Node.js HTTP server
+1. Customizable with your own Babel and Webpack configurations
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5342,9 +5351,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      If you use an event handler such as **onClick or onScroll** and want to prevent the callback from being fired too quickly, then you can limit the rate at which callback is executed. This can be achieved in the below possible ways,
 
-    1. **Throttling:** Changes based on a time based frequency. For example, it can be used using \_.throttle lodash function
-    2. **Debouncing:** Publish changes after a period of inactivity. For example, it can be used using \_.debounce lodash function
-    3. **RequestAnimationFrame throttling:** Changes based on requestAnimationFrame. For example, it can be used using raf-schd lodash function
+1. **Throttling:** Changes based on a time based frequency. For example, it can be used using \_.throttle lodash function
+1. **Debouncing:** Publish changes after a period of inactivity. For example, it can be used using \_.debounce lodash function
+1. **RequestAnimationFrame throttling:** Changes based on requestAnimationFrame. For example, it can be used using raf-schd lodash function
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5494,9 +5503,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      There are three conditions to make sure, it is safe use the index as a key.
 
-    1. The list and items are static– they are not computed and do not change
-    2. The items in the list have no ids
-    3. The list is never reordered or filtered.
+1. The list and items are static– they are not computed and do not change
+1. The items in the list have no ids
+1. The list is never reordered or filtered.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5540,11 +5549,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      In detail, You can categorize them as follows,
 
-    1. Getting values in and out of form state
-    2. Validation and error messages
-    3. Handling form submission
+1. Getting values in and out of form state
+1. Validation and error messages
+1. Handling form submission
 
-     It is used to create a scalable, performant, form helper with a minimal API to solve annoying stuff.
+   It is used to create a scalable, performant, form helper with a minimal API to solve annoying stuff.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5552,9 +5561,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the main reasons to recommend formik over redux form library,
 
-    1. The form state is inherently short-term and local, so tracking it in Redux (or any kind of Flux library) is unnecessary.
-    2. Redux-Form calls your entire top-level Redux reducer multiple times ON EVERY SINGLE KEYSTROKE. This way it increases input latency for large apps.
-    3. Redux-Form is 22.5 kB minified gzipped whereas Formik is 12.7 kB
+1. The form state is inherently short-term and local, so tracking it in Redux (or any kind of Flux library) is unnecessary.
+1. Redux-Form calls your entire top-level Redux reducer multiple times ON EVERY SINGLE KEYSTROKE. This way it increases input latency for large apps.
+1. Redux-Form is 22.5 kB minified gzipped whereas Formik is 12.7 kB
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5594,20 +5603,20 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Let's take an example of addition,
 
-    1. **Normal Import**
+1. **Normal Import**
 
-     ```javascript
-     import { add } from "./math";
-     console.log(add(10, 20));
-     ```
+   ```javascript
+   import { add } from "./math";
+   console.log(add(10, 20));
+   ```
 
-    2. **Dynamic Import**
+1. **Dynamic Import**
 
-     ```javascript
-     import("./math").then((math) => {
-       console.log(math.add(10, 20));
-     });
-     ```
+   ```javascript
+   import("./math").then((math) => {
+     console.log(math.add(10, 20));
+   });
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5742,45 +5751,45 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      ContextType is used to consume the context object. The contextType property can be used in two ways,
 
-    1. **contextType as property of class:**
-       The contextType property on a class can be assigned a Context object created by React.createContext(). After that, you can consume the nearest current value of that Context type using this.context in any of the lifecycle methods and render function.
+1. **contextType as property of class:**
+   The contextType property on a class can be assigned a Context object created by React.createContext(). After that, you can consume the nearest current value of that Context type using this.context in any of the lifecycle methods and render function.
 
-       Lets assign contextType property on MyClass as below,
+   Lets assign contextType property on MyClass as below,
 
-       ```javascript
-       class MyClass extends React.Component {
-         componentDidMount() {
-           let value = this.context;
-           /* perform a side-effect at mount using the value of MyContext */
-         }
-         componentDidUpdate() {
-           let value = this.context;
-           /* ... */
-         }
-         componentWillUnmount() {
-           let value = this.context;
-           /* ... */
-         }
-         render() {
-           let value = this.context;
-           /* render something based on the value of MyContext */
-         }
-       }
-       MyClass.contextType = MyContext;
-       ```
+   ```javascript
+   class MyClass extends React.Component {
+     componentDidMount() {
+       let value = this.context;
+       /* perform a side-effect at mount using the value of MyContext */
+     }
+     componentDidUpdate() {
+       let value = this.context;
+       /* ... */
+     }
+     componentWillUnmount() {
+       let value = this.context;
+       /* ... */
+     }
+     render() {
+       let value = this.context;
+       /* render something based on the value of MyContext */
+     }
+   }
+   MyClass.contextType = MyContext;
+   ```
 
-    2. **Static field**
-       You can use a static class field to initialize your contextType using public class field syntax.
+1. **Static field**
+   You can use a static class field to initialize your contextType using public class field syntax.
 
-       ```javascript
-       class MyClass extends React.Component {
-         static contextType = MyContext;
-         render() {
-           let value = this.context;
-           /* render something based on the value */
-         }
-       }
-       ```
+   ```javascript
+   class MyClass extends React.Component {
+     static contextType = MyContext;
+     render() {
+       let value = this.context;
+       /* render something based on the value */
+     }
+   }
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5971,8 +5980,8 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      In this case, displaying 1000 elements would require in the order of one billion comparisons. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
 
-    1. Two elements of different types will produce different trees.
-    2. The developer can hint at which child elements may be stable across different renders with a key prop.
+1. Two elements of different types will produce different trees.
+1. The developer can hint at which child elements may be stable across different renders with a key prop.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5980,60 +5989,61 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements. It covers the below rules during reconciliation algorithm,
 
-    1. **Elements Of Different Types:**
-       Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. For example, elements <a> to <img>, or from <Article> to <Comment> of different types lead a full rebuild.
-    2. **DOM Elements Of The Same Type:**
-       When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. Lets take an example with same DOM elements except className attribute,
+1. **Elements Of Different Types:**
+   Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. For example, elements <a> to <img>, or from <Article> to <Comment> of different types lead a full rebuild.
+1. **DOM Elements Of The Same Type:**
+   When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. Lets take an example with same DOM elements except className attribute,
 
-       ```javascript
-       <div className="show" title="ReactJS" />
+   ```javascript
+   <div className="show" title="ReactJS" />
 
-       <div className="hide" title="ReactJS" />
-       ```
+   <div className="hide" title="ReactJS" />
+   ```
 
-    3. **Component Elements Of The Same Type:**
-       When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls componentWillReceiveProps() and componentWillUpdate() on the underlying instance. After that, the render() method is called and the diff algorithm recurses on the previous result and the new result.
-    4. **Recursing On Children:**
-       when recursing on the children of a DOM node, React just iterates over both lists of children at the same time and generates a mutation whenever there’s a difference. For example, when adding an element at the end of the children, converting between these two trees works well.
+1. **Component Elements Of The Same Type:**
+   When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls componentWillReceiveProps() and componentWillUpdate() on the underlying instance. After that, the render() method is called and the diff algorithm recurses on the previous result and the new result.
+1. **Recursing On Children:**
+   when recursing on the children of a DOM node, React just iterates over both lists of children at the same time and generates a mutation whenever there’s a difference. For example, when adding an element at the end of the children, converting between these two trees works well.
 
-       ```javascript
-       <ul>
-         <li>first</li>
-         <li>second</li>
-       </ul>
+   ```javascript
+   <ul>
+     <li>first</li>
+     <li>second</li>
+   </ul>
 
-       <ul>
-         <li>first</li>
-         <li>second</li>
-         <li>third</li>
-       </ul>
+   <ul>
+     <li>first</li>
+     <li>second</li>
+     <li>third</li>
+   </ul>
 
-       ```
+   ```
 
-    5. **Handling keys:**
-       React supports a key attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a key can make the tree conversion efficient,
+1. **Handling keys:**
+   React supports a key attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a key can make the tree conversion efficient,
 
-     ```javascript
-     <ul>
-       <li key="2015">Duke</li>
-       <li key="2016">Villanova</li>
-     </ul>
+   ```javascript
+   <ul>
+     <li key="2015">Duke</li>
+     <li key="2016">Villanova</li>
+   </ul>
 
-     <ul>
-       <li key="2014">Connecticut</li>
-       <li key="2015">Duke</li>
-       <li key="2016">Villanova</li>
-     </ul>
-     ```
+   <ul>
+     <li key="2014">Connecticut</li>
+     <li key="2015">Duke</li>
+     <li key="2016">Villanova</li>
+   </ul>
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
 289. ### When do you need to use refs?
 
      There are few use cases to go for refs,
-     1. Managing focus, text selection, or media playback.
-     2. Triggering imperative animations.
-     3. Integrating with third-party DOM libraries.
+
+    1. Managing focus, text selection, or media playback.
+    2. Triggering imperative animations.
+    3. Integrating with third-party DOM libraries.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6172,17 +6182,17 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Bootstrap can be added to your React app in a three possible ways,
 
-    1. Using the Bootstrap CDN:
-       This is the easiest way to add bootstrap. Add both bootstrap CSS and JS resources in a head tag.
-    2. Bootstrap as Dependency:
-       If you are using a build tool or a module bundler such as Webpack, then this is the preferred option for adding Bootstrap to your React application
-       ```javascript
-       npm install bootstrap
-       ```
-    3. React Bootstrap Package:
-       In this case, you can add Bootstrap to our React app is by using a package that has rebuilt Bootstrap components to work particularly as React components. Below packages are popular in this category,
-        1. react-bootstrap
-        2. reactstrap
+1. Using the Bootstrap CDN:
+   This is the easiest way to add bootstrap. Add both bootstrap CSS and JS resources in a head tag.
+1. Bootstrap as Dependency:
+   If you are using a build tool or a module bundler such as Webpack, then this is the preferred option for adding Bootstrap to your React application
+   ```javascript
+   npm install bootstrap
+   ```
+1. React Bootstrap Package:
+   In this case, you can add Bootstrap to our React app is by using a package that has rebuilt Bootstrap components to work particularly as React components. Below packages are popular in this category,
+    1. react-bootstrap
+    2. reactstrap
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6190,16 +6200,16 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the `top 10 websites` using React as their front-end framework,
 
-    1. Facebook
-    2. Uber
-    3. Instagram
-    4. WhatsApp
-    5. Khan Academy
-    6. Airbnb
-    7. Dropbox
-    8. Flipboard
-    9. Netflix
-    10. PayPal
+1. Facebook
+1. Uber
+1. Instagram
+1. WhatsApp
+1. Khan Academy
+1. Airbnb
+1. Dropbox
+1. Flipboard
+1. Netflix
+1. PayPal
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6260,10 +6270,10 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      React includes a stable implementation of React Hooks in 16.8 release for below packages
 
-    1. React DOM
-    2. React DOM Server
-    3. React Test Renderer
-    4. React Shallow Renderer
+1. React DOM
+1. React DOM Server
+1. React Test Renderer
+1. React Shallow Renderer
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6291,11 +6301,11 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Hooks got the ideas from several different sources. Below are some of them,
 
-    1. Previous experiments with functional APIs in the react-future repository
-    2. Community experiments with render prop APIs such as Reactions Component
-    3. State variables and state cells in DisplayScript.
-    4. Subscriptions in Rx.
-    5. Reducer components in ReasonReact.
+308. Previous experiments with functional APIs in the react-future repository
+309. Community experiments with render prop APIs such as Reactions Component
+310. State variables and state cells in DisplayScript.
+311. Subscriptions in Rx.
+312. Reducer components in ReasonReact.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6308,9 +6318,9 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Formik is a small react form library that helps you with the three major problems,
 
-    1. Getting values in and out of form state
-    2. Validation and error messages
-    3. Handling form submission
+1. Getting values in and out of form state
+1. Validation and error messages
+1. Handling form submission
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6338,13 +6348,13 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are the list of some of the features provided by create react app.
 
-    1. React, JSX, ES6, Typescript and Flow syntax support.
-    2. Autoprefixed CSS
-    3. CSS Reset/Normalize
-    4. A live development server
-    5. A fast interactive unit test runner with built-in support for coverage reporting
-    6. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
-    7. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
+1. React, JSX, ES6, Typescript and Flow syntax support.
+1. Autoprefixed CSS
+1. CSS Reset/Normalize
+1. A live development server
+1. A fast interactive unit test runner with built-in support for coverage reporting
+1. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
+1. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6382,36 +6392,36 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      No, you don’t have to learn es2015/es6 to learn react. But you may find many resources or React ecosystem uses ES6 extensively. Let's see some of the frequently used ES6 features,
 
-    1. **Destructuring:** To get props and use them in a component
+1. **Destructuring:** To get props and use them in a component
 
-       ```javascript
-       // in es 5
-       var someData = this.props.someData;
-       var dispatch = this.props.dispatch;
+   ```javascript
+   // in es 5
+   var someData = this.props.someData;
+   var dispatch = this.props.dispatch;
 
-       // in es6
-       const { someData, dispatch } = this.props;
-       ```
+   // in es6
+   const { someData, dispatch } = this.props;
+   ```
 
-    2. Spread operator: Helps in passing props down into a component
+1. Spread operator: Helps in passing props down into a component
 
-       ```javascript
-       // in es 5
-       <SomeComponent someData={this.props.someData} dispatch={this.props.dispatch} />
+   ```javascript
+   // in es 5
+   <SomeComponent someData={this.props.someData} dispatch={this.props.dispatch} />
 
-       // in es6
-       <SomeComponent {...this.props} />
-       ```
+   // in es6
+   <SomeComponent {...this.props} />
+   ```
 
-    3. Arrow functions: Makes compact syntax
-       ```javascript
-       // es 5
-       var users = usersList.map(function (user) {
-         return <li>{user.name}</li>;
-       });
-       // es 6
-       const users = usersList.map((user) => <li>{user.name}</li>);
-       ```
+1. Arrow functions: Makes compact syntax
+   ```javascript
+   // es 5
+   var users = usersList.map(function (user) {
+     return <li>{user.name}</li>;
+   });
+   // es 6
+   const users = usersList.map((user) => <li>{user.name}</li>);
+   ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6456,8 +6466,8 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      The ESLint plugin enforces rules of Hooks to avoid bugs. It assumes that any function starting with ”use” and a capital letter right after it is a Hook. In particular, the rule enforces that,
 
-    1. Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
-    2. Hooks are called in the same order on every render.
+1. Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
+1. Hooks are called in the same order on every render.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6499,15 +6509,15 @@ It is also possible to render list of fragments inside a loop with the mandatory
 
      Below are some of the benefits of using typescript with Reactjs,
 
-    1. It is possible to use latest JavaScript features
-    2. Use of interfaces for complex type definitions
-    3. IDEs such as VS Code was made for TypeScript
-    4. Avoid bugs with the ease of readability and Validation
+1. It is possible to use latest JavaScript features
+1. Use of interfaces for complex type definitions
+1. IDEs such as VS Code was made for TypeScript
+1. Avoid bugs with the ease of readability and Validation
 
-     **[⬆ Back to Top](#table-of-contents)**
+   **[⬆ Back to Top](#table-of-contents)**
 
-325. ### How do you make sure that user remains authenticated on page refresh while using Context API State Management?
-     When a user logs in and reload, to persist the state generally we add the load user action in the useEffect hooks in the main App.js. While using Redux, loadUser action can be easily accessed.
+1. ### How do you make sure that user remains authenticated on page refresh while using Context API State Management?
+   When a user logs in and reload, to persist the state generally we add the load user action in the useEffect hooks in the main App.js. While using Redux, loadUser action can be easily accessed.
 
 **App.js**
 
@@ -6580,9 +6590,9 @@ const loadUser = async () => {
 
      There are three major benefits of new JSX transform,
 
-    1. It is possible to use JSX without importing React packages
-    2. The compiled output might improve the bundle size in a small amount
-    3. The future improvements provides the flexibility to reduce the number of concepts to learn React.
+1. It is possible to use JSX without importing React packages
+1. The compiled output might improve the bundle size in a small amount
+1. The future improvements provides the flexibility to reduce the number of concepts to learn React.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6638,25 +6648,25 @@ const loadUser = async () => {
 
 328. ### How do you get redux scaffolding using create-react-app?
      Redux team has provided official redux+js or redux+typescript templates for create-react-app project. The generated project setup includes,
-    1. Redux Toolkit and React-Redux dependencies
-    2. Create and configure Redux store
-    3. React-Redux `<Provider>` passing the store to React components
-    4. Small "counter" example to demo how to add redux logic and React-Redux hooks API to interact with the store from components
-       The below commands need to be executed along with template option as below,
-    5. **Javascript template:**
-     ```js
-     npx create-react-app my-app --template redux
-     ```
-    2. **Typescript template:**
-     ```js
-     npx create-react-app my-app --template redux-typescript
-     ```
-     **[⬆ Back to Top](#table-of-contents)**
-329. ### What are React Server components?
+1. Redux Toolkit and React-Redux dependencies
+1. Create and configure Redux store
+1. React-Redux `<Provider>` passing the store to React components
+1. Small "counter" example to demo how to add redux logic and React-Redux hooks API to interact with the store from components
+   The below commands need to be executed along with template option as below,
+1. **Javascript template:**
+   ```js
+   npx create-react-app my-app --template redux
+   ```
+1. **Typescript template:**
+   ```js
+   npx create-react-app my-app --template redux-typescript
+   ```
+   **[⬆ Back to Top](#table-of-contents)**
+1. ### What are React Server components?
 
-     React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend.
+   React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend.
 
-     **Note:** React Server Components is still under development and not recommended for production yet.
+   **Note:** React Server Components is still under development and not recommended for production yet.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6694,9 +6704,9 @@ const loadUser = async () => {
 **[⬆ Back to Top](#table-of-contents)**
 
 332. ### What is the difference between useState and useRef hook?
-     1. useState causes components to re-render after state updates whereas useRef doesn’t cause a component to re-render when the value or state changes.
+    1. useState causes components to re-render after state updates whereas useRef doesn’t cause a component to re-render when the value or state changes.
        Essentially, useRef is like a “box” that can hold a mutable value in its (.current) property.
-     2. useState allows us to update the state inside components. While useRef allows referencing DOM elements.
+    2. useState allows us to update the state inside components. While useRef allows referencing DOM elements.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6757,6 +6767,7 @@ const loadUser = async () => {
 
      useEffect and useLayoutEffect are both React hooks that can be used to synchronize a component with an external system, such as a browser API or a third-party library. However, there are some key differences between the two:
 
+
     - Timing: useEffect runs after the browser has finished painting, while useLayoutEffect runs synchronously before the browser paints. This means that useLayoutEffect can be used to measure and update layout in a way that feels more synchronous to the user.
 
     - Browser Paint: useEffect allows browser to paint the changes before running the effect, hence it may cause some visual flicker. useLayoutEffect synchronously runs the effect before browser paints and hence it will avoid visual flicker.
@@ -6773,31 +6784,32 @@ const loadUser = async () => {
 
      There are two different ways to create components in ReactJS. The main differences are listed down as below,
 
-     ## 1.  Syntax:
+     ## 1. Syntax:
 
      The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
 
      The syntax for class component looks like as below.
-        ```js
-        class App extends Reacts.Component {
-          render(){
-            return <h1>This is a class component</h1>}
-          }
 
-        ```
+     ```js
+     class App extends Reacts.Component {
+       render(){
+         return <h1>This is a class component</h1>}
+       }
+
+     ```
 
      **Note:** The **Pascal Case** is the recommended approach to provide naming to a component.
 
      Functional component has been improved over the years with some added features like Hooks. Here is a syntax for functional component.
 
-      ```js
-      function App(){
-        return <div className="App">
-          <h1>Hello, I'm a function component</h1>
-          </div>
-      }
+     ```js
+     function App(){
+       return <div className="App">
+         <h1>Hello, I'm a function component</h1>
+         </div>
+     }
 
-      ```
+     ```
 
      ## 2. State:
 
@@ -6806,35 +6818,35 @@ const loadUser = async () => {
      In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
      **A simple example showing how we use the setState() and constructor()**
 
-      ```js
-      class App extends Component {
-        constructor() {
-          super();
-          this.state = {
-            message: "This is a class component",
-          };
-        }
-        updateMessage() {
-          this.setState({t
-            message: "Updating the class component",
-          });
-        }
-        render() {
-          return (
-            <>
-              <h1>{this.state.message}</h1>
-              <button
-                onClick={() => {
-                  this.updateMessage();
-                }}>
-                Click!!
-              </button>
-            </>
-          );
-        }
-      }
+     ```js
+     class App extends Component {
+       constructor() {
+         super();
+         this.state = {
+           message: "This is a class component",
+         };
+       }
+       updateMessage() {
+         this.setState({t
+           message: "Updating the class component",
+         });
+       }
+       render() {
+         return (
+           <>
+             <h1>{this.state.message}</h1>
+             <button
+               onClick={() => {
+                 this.updateMessage();
+               }}>
+               Click!!
+             </button>
+           </>
+         );
+       }
+     }
 
-      ```
+     ```
 
      You not use state in functional components because it was only supported in class components. But over the years hooks have been implemented in functional component which enable to use state in functional component too.
 
@@ -6842,89 +6854,93 @@ const loadUser = async () => {
 
      Let's see an example to demonstrate the state in functional components,
 
-      ```js
-      function App() {
-        const [message, setMessage] = useState("This is a functional component");
-        const updateMessage = () => {
-          setCountry("Updating the functional component");
-        };
-        return (
-          <div className="App">
-            <h1>{message} </h1>
-            <button onClick={updateMessage}>Click me!!</button>
-          </div>
-        );
-      }
-      ```
+     ```js
+     function App() {
+       const [message, setMessage] = useState("This is a functional component");
+       const updateMessage = () => {
+         setCountry("Updating the functional component");
+       };
+       return (
+         <div className="App">
+           <h1>{message} </h1>
+           <button onClick={updateMessage}>Click me!!</button>
+         </div>
+       );
+     }
+     ```
 
      ## 4. Props:
+
      Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords, they are similar to HTML attributes.
 
      The props are accessible in child class component using `this.props` as shown in below example,
-      ```js
-      class Child extends React.Component {
-        render() {
-          return <h1> This is a functional component and component name is {this.props.name} </h1>;
-        }
-      }
 
-      class Parent extends React.Component {
-        render() {
-               return (
-                  <div className="Parent">
-                  <Child name="First child component" />
-                  <Child name="Second child component" />
-                  </div>
-                );
-         }
-      }
-      ```
+     ```js
+     class Child extends React.Component {
+       render() {
+         return <h1> This is a functional component and component name is {this.props.name} </h1>;
+       }
+     }
+
+     class Parent extends React.Component {
+       render() {
+              return (
+                 <div className="Parent">
+                 <Child name="First child component" />
+                 <Child name="Second child component" />
+                 </div>
+               );
+        }
+     }
+     ```
 
      Props in functional components are similar to that of the class components but the difference is the absence of 'this' keyword.
 
-      ```js
-      function Child(props) {
-        return <h1>This is a child component and the component name is{props.name}</h1>;
-      }
+     ```js
+     function Child(props) {
+       return <h1>This is a child component and the component name is{props.name}</h1>;
+     }
 
-      function Parent() {
-        return (
-          <div className="Parent">
-                <Child name="First child component" />
-                <Child name="Second child component" />
-          </div>
-        );
-      }
-      ```
+     function Parent() {
+       return (
+         <div className="Parent">
+               <Child name="First child component" />
+               <Child name="Second child component" />
+         </div>
+       );
+     }
+     ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
 336. ### Why does strict mode render twice in React?
-     StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
 
-      ```js
-      ReactDOM.render(
-        <React.StrictMode>
-          {App}
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-      ```
+     StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase. If you used `create-react-app` development tool then it automatically enables StrictMode by default.
+
+     ```js
+     ReactDOM.render(
+       <React.StrictMode>
+         {App}
+       </React.StrictMode>,
+       document.getElementById('root')
+     );
+     ```
 
      If you want to disable this behavior then you can remove `strict` mode.
-      ```js
-      ReactDOM.render(
-        {App}, 
-        document.getElementById('root')
-      );
-      ```
+
+     ```js
+     ReactDOM.render(
+       {App},
+       document.getElementById('root')
+     );
+     ```
 
      To detect side effects the following functions are invoked twice:
 
-    1. Class component constructor, render, and shouldComponentUpdate methods
-    2. Class component static getDerivedStateFromProps method
-    3. Function component bodies
-    4. State updater functions
-    5. Functions passed to useState, useMemo, or useReducer (any Hook)
+1. Class component constructor, render, and shouldComponentUpdate methods
+1. Class component static getDerivedStateFromProps method
+1. Function component bodies
+1. State updater functions
+1. Functions passed to useState, useMemo, or useReducer (any Hook)
 
 **[⬆ Back to Top](#table-of-contents)**

@@ -12,7 +12,7 @@ type rawStringArray = { raw: string[] };
 export interface QuestionWithRaw {
   id?: rawString;
   question: rawString;
-  answer: rawStringArray | rawString;
+  answer: rawStringArray;
   question_type?: rawString;
   language?: rawString;
   tags?: rawStringArray;
