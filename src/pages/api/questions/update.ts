@@ -10,7 +10,7 @@ const client = new Client({
 
 interface QuestionAndAnswer {
   id: string;
-  language?: string;
+  domain?: string;
   question?: string;
   question_type?: string;
   answer?: string[];

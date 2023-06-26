@@ -15,7 +15,7 @@ export default function CreateQuestion() {
       question: "",
       answer: "",
       question_type: "definition",
-      language: "",
+      domain: "",
       otherLanguage: "",
       tags: ""
     }
@@ -24,8 +24,8 @@ export default function CreateQuestion() {
 
   const { register, watch, handleSubmit, reset } = methods;
 
-  const { data: technologies } = useQuery({
-    queryKey: ["technologies"],
+  const { data: domains } = useQuery({
+    queryKey: ["domains"],
     queryFn: async ({ signal }) => {
       const res = await axios({
         method: "POST",
@@ -33,7 +33,7 @@ export default function CreateQuestion() {
         data: {
           query: "",
           facets: {
-            language: [
+            domain: [
               {
                 type: "value",
                 sort: {
@@ -51,7 +51,7 @@ export default function CreateQuestion() {
         },
         signal
       });
-      return res.data.facets.language[0].data;
+      return res.data.facets.domain[0].data;
     },
     keepPreviousData: true,
     staleTime: 20 * 1000,
@@ -67,19 +67,19 @@ export default function CreateQuestion() {
       });
     },
     onSuccess: async (data, variables) => {
-      queryClient.setQueryData<Array<{ value: string; count: number }>>(["technologies"], (oldData) => {
-        const { language } = variables;
+      queryClient.setQueryData<Array<{ value: string; count: number }>>(["domains"], (oldData) => {
+        const { domain } = variables;
 
         if (oldData) {
-          const foundTechnology = oldData.find((technology) => technology.value === language);
+          const foundTechnology = oldData.find((domain) => domain.value === domain);
           if (foundTechnology) {
             foundTechnology.count++;
           } else {
-            oldData.push({ value: language as string, count: 1 });
+            oldData.push({ value: domain as string, count: 1 });
           }
           return oldData;
         }
-        return [{ value: language as string, count: 1 }];
+        return [{ value: domain as string, count: 1 }];
       });
       reset();
     },
@@ -91,7 +91,7 @@ export default function CreateQuestion() {
   const onSubmit = (question: Record<string, string>) => {
     const questionData = {
       question_type: question.question_type,
-      language: question.otherLanguage.trim() !== "" ? question.otherLanguage.trim() : question.language,
+      domain: question.otherLanguage.trim() !== "" ? question.otherLanguage.trim() : question.domain,
       question: question.question.trim(),
       answer: question.answer.trim().split("-*-"),
       tags: question.tags.split(",").map((tag) => tag.trim())
@@ -171,30 +171,30 @@ export default function CreateQuestion() {
 
                     <div className={"grid grid-cols-1 gap-0.5"}>
                       <label
-                        htmlFor="language"
+                        htmlFor="domain"
                         className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}
                       >
-                        Language
+                        domain
                       </label>
                       <select
-                        id="language"
+                        id="domain"
                         className={
                           "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm capitalize tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
                         }
-                        {...(watch().language === "" && watch().otherLanguage.trim() === "" && { required: true })}
-                        {...register("language")}
+                        {...(watch().domain === "" && watch().otherLanguage.trim() === "" && { required: true })}
+                        {...register("domain")}
                       >
-                        {technologies &&
-                          technologies.map((technology: { value: string; count: number }) => {
+                        {domains &&
+                          domains.map((domain: { value: string; count: number }) => {
                             return (
-                              <option className="capitalize" key={technology.value} value={technology.value}>
-                                {technology.value}
+                              <option className="capitalize" key={domain.value} value={domain.value}>
+                                {domain.value}
                               </option>
                             );
                           })}
                         <option value="">Other</option>
                       </select>
-                      {watch().language === "" && (
+                      {watch().domain === "" && (
                         <div className={"mt-2"}>
                           <input
                             className={

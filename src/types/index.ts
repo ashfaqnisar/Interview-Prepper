@@ -3,7 +3,7 @@ export interface Question {
   question: string;
   answer: string[];
   question_type?: string;
-  language?: string;
+  domain?: string;
   tags?: string[];
 }
 
@@ -14,7 +14,7 @@ export interface QuestionWithRaw {
   question: rawString;
   answer: rawStringArray;
   question_type?: rawString;
-  language?: rawString;
+  domain?: rawString;
   tags?: rawStringArray;
 }
 

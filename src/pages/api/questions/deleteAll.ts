@@ -12,7 +12,7 @@ const client = new Client({
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
-      const { technology } = req.body;
+      const { domain } = req.body;
 
       const { results }: ListDocumentsResponse = await client.app.search({
         engine_name: process.env.ELASTIC_ENGINE_NAME as string,
@@ -26,9 +26,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               raw: {}
             }
           },
-          ...(technology && {
+          ...(domain && {
             filters: {
-              language: [technology.toLowerCase()]
+              domain: [domain.toLowerCase()]
             }
           })
         }

@@ -29,7 +29,7 @@ function transformData<T extends Record<string, any>>(data: T[]): T[] {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
-      const { query = "", language } = req.body;
+      const { query = "", domain } = req.body;
       const pageSize = 1000;
 
       const backupPath = path.join(process.cwd(), "data", "backup", new Date().toISOString().replace(/:/g, ""));
@@ -42,9 +42,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           body: {
             query,
             page: { size: pageSize, current: page },
-            ...(language && {
+            ...(domain && {
               filters: {
-                language: [language]
+                domain: [domain]
               }
             })
           }
@@ -60,9 +60,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           page: {
             size: pageSize
           },
-          ...(language && {
+          ...(domain && {
             filters: {
-              language: [language]
+              domain: [domain]
             }
           })
         }

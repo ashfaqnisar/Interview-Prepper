@@ -19,11 +19,11 @@ const TechnologyFilterTags = ({
   updateTechnologyFilters: (technologyFilters: string[]) => void;
 }) => {
   const {
-    data: technologies,
+    data: domains,
     isSuccess,
     isLoading
   } = useQuery<{ value: string; count: number }[]>({
-    queryKey: ["technologies"],
+    queryKey: ["domains"],
     queryFn: async ({ signal }) => {
       const res = await axios({
         method: "POST",
@@ -31,7 +31,7 @@ const TechnologyFilterTags = ({
         data: {
           query: "",
           facets: {
-            language: [
+            domain: [
               {
                 type: "value",
                 sort: {
@@ -49,7 +49,7 @@ const TechnologyFilterTags = ({
         },
         signal
       });
-      return res.data.facets.language[0].data;
+      return res.data.facets.domain[0].data;
     },
     keepPreviousData: true,
     staleTime: 20 * 1000,
@@ -91,25 +91,25 @@ const TechnologyFilterTags = ({
         >
           <p className={"capitalize"}>All</p>
         </div>
-        {technologies.map((technology: { value: string; count: number }) => (
+        {domains.map((domain: { value: string; count: number }) => (
           <div
-            key={`${technology.value}`}
+            key={`${domain.value}`}
             className={classNames(
               "cursor-pointer rounded p-1 px-2 text-xs font-medium ring-1 duration-150 2xl:text-sm",
-              technologyFilters.includes(technology.value)
+              technologyFilters.includes(domain.value)
                 ? "bg-neutral-100 font-semibold text-neutral-900 ring-neutral-900"
                 : "text-zinc-50 ring-neutral-400"
             )}
             onClick={() => {
-              if (technologyFilters.includes(technology.value)) {
-                updateTechnologyFilters(technologyFilters.filter((t) => t !== technology.value));
+              if (technologyFilters.includes(domain.value)) {
+                updateTechnologyFilters(technologyFilters.filter((t) => t !== domain.value));
               } else {
-                updateTechnologyFilters([...technologyFilters, technology.value]);
+                updateTechnologyFilters([...technologyFilters, domain.value]);
               }
             }}
           >
             <p className={"capitalize"}>
-              {technology.value} | {technology.count}
+              {domain.value} | {domain.count}
             </p>
           </div>
         ))}
@@ -131,7 +131,7 @@ const Page = () => {
         method: "POST",
         url: "/api/exam",
         ...(technologyFilters.length > 0 && {
-          data: { technologies: technologyFilters }
+          data: { domains: technologyFilters }
         })
       });
     },

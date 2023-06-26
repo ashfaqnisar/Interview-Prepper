@@ -68,20 +68,20 @@ const DEFAULT_QUERY_SEARCH_STATE: QuerySearchStateType = {
   }
 };
 
-const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) => {
+const SearchAndResults = ({ domainFilter }: { domainFilter: string }) => {
   const [querySearchState, setQuerySearchState] = useState<QuerySearchStateType>(DEFAULT_QUERY_SEARCH_STATE);
 
   const { data: questions, isLoading } = useQuery({
-    queryKey: ["questions", { technologyFilter }, querySearchState],
+    queryKey: ["questions", { domainFilter }, querySearchState],
     queryFn: async ({ signal }) => {
       const res = await axios({
         method: "POST",
         url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
         data: {
           query: querySearchState.query,
-          ...(technologyFilter && {
+          ...(domainFilter && {
             filters: {
-              language: [technologyFilter]
+              domain: [domainFilter]
             }
           }),
           ...(querySearchState.sort.field !== "relevance" && {
@@ -244,80 +244,6 @@ const SearchAndResults = ({ technologyFilter }: { technologyFilter: string }) =>
           />
         </>
       )}
-      {/*<div
-        className={
-          "relative hidden w-fit rounded-md bg-zinc-900 px-2 py-1.5 pr-10 text-xs ring-2 ring-zinc-600 duration-150 hover:bg-zinc-800 md:text-sm"
-        }
-      >
-        <span className="block truncate capitalize">None</span>
-        <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
-          <HiChevronDown size={20} className="h-5 w-5 text-gray-400" aria-hidden="true" />
-        </span>
-      </div>
-      <div className={"hidden w-fit bg-zinc-900"}>
-        <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-          <a
-            href="#"
-            className={classNames(
-              "relative inline-flex items-center rounded-l-md px-2 py-2 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0",
-              questions?.meta?.page.current === 1
-                ? "pointer-events-none text-zinc-400"
-                : "text-zinc-200 hover:bg-zinc-800"
-            )}
-            {...(questions?.meta?.page.current === 1 && { "aria-disabled": "true" })}
-            onClick={(event) => {
-              event.preventDefault();
-              if (questions?.meta?.page.current !== 1) {
-                updatePage(questions?.meta?.page.current - 1);
-              }
-            }}
-          >
-            <span className="sr-only">Previous</span>
-            <HiChevronLeft className="h-5 w-5" aria-hidden="true" />
-          </a>
-          {[1, 2, 3].map((pageNumber, index) => {
-            return (
-              <a
-                href={"#"}
-                key={index}
-                className={classNames(
-                  "z-10 inline-flex w-fit items-center px-3 py-2 text-sm focus:z-20",
-                  1 === questions?.meta?.page.current
-                    ? "bg-zinc-100 font-semibold text-zinc-900"
-                    : "font-semibold text-zinc-200 ring-1 ring-inset ring-gray-300 hover:bg-zinc-800 focus:outline-offset-0"
-                )}
-                onClick={(event) => {
-                  event.preventDefault();
-                  if (typeof 1 === "number") {
-                    updatePage(1);
-                  }
-                }}
-              >
-                {Number(1) < 10 ? `0${1}` : 11}
-              </a>
-            );
-          })}
-          <a
-            href="#"
-            className={classNames(
-              "relative inline-flex items-center rounded-r-md px-2 py-2 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0",
-              questions?.meta?.page.current === questions?.meta?.page.total_pages
-                ? "pointer-events-none text-zinc-400"
-                : "text-zinc-200 hover:bg-zinc-800"
-            )}
-            {...(questions?.meta?.page.current === questions?.meta?.page.current && { "aria-disabled": "true" })}
-            onClick={(event) => {
-              event.preventDefault();
-              if (questions?.meta?.page.current !== questions?.meta?.page.total_pages) {
-                updatePage(questions?.meta?.page.current + 1);
-              }
-            }}
-          >
-            <span className="sr-only">Next</span>
-            <HiChevronRight className="h-5 w-5" aria-hidden="true" />
-          </a>
-        </nav>
-      </div>*/}
     </>
   );
 };

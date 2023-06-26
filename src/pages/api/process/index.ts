@@ -28,7 +28,7 @@ interface QuestionAndAnswer {
   id?: string;
   sid?: string;
   date?: string;
-  language?: string;
+  domain?: string;
   question?: string;
   question_type?: string;
   answer?: string[];
@@ -101,7 +101,7 @@ const processReactMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
             date: new Date().toISOString(),
             ...singleQuestion,
             question_type: "",
-            language: "react",
+            domain: "react",
             tags: []
           });
           break;
@@ -181,7 +181,7 @@ const processJSMarkdown = (parsedTokens: Token[]): QuestionAndAnswer[] => {
             date: new Date().toISOString(),
             ...singleQuestion,
             question_type: "",
-            language: "javascript",
+            domain: "javascript",
             tags: []
           });
           break;
@@ -228,23 +228,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
     try {
-      const { technology } = req.body;
-      const fileName = technology.toLowerCase();
+      const { domain } = req.body;
+      const fileName = domain.toLowerCase();
       const dataPath = path.join(process.cwd(), "data", fileName);
 
-      // Check whether the technology is present in the file system or not.
+      // Check whether the domain is present in the file system or not.
       if (!fs.existsSync(dataPath)) {
-        return res.status(404).json({ error: "Technology not found" });
+        return res.status(404).json({ error: "domain not found" });
       }
 
-      // If there is no Markdown processor present for the technology then return an error.
-      if (!markdownProcessor[technology]) {
+      // If there is no Markdown processor present for the domain then return an error.
+      if (!markdownProcessor[domain]) {
         return res.status(404).json({ error: "Markdown processor not found" });
       }
 
       const markdown = readMarkdownFile(path.join(dataPath, `${fileName}.md`));
 
-      const results = markdownProcessor[technology](md.parse(markdown, {}));
+      const results = markdownProcessor[domain](md.parse(markdown, {}));
 
       console.log(`Processing ${results.length} documents...`);
       // Group the processed data into chunks of 100.

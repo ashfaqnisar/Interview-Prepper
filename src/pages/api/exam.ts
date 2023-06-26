@@ -12,14 +12,14 @@ const client = new Client({
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
-      const { technologies } = req.body;
+      const { domains } = req.body;
 
       const querySearch = {
         query: "",
-        ...(technologies &&
-          technologies.length > 0 && {
+        ...(domains &&
+          domains.length > 0 && {
             filters: {
-              language: technologies
+              domain: domains
             }
           }),
         page: {
@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           id: { raw: {} },
           question: { raw: {} },
           answer: { raw: {} },
-          language: { raw: {} }
+          domain: { raw: {} }
         }
       };
 

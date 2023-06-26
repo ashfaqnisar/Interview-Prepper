@@ -9,9 +9,9 @@ import classNames from "classnames";
 import SearchAndResults from "@/app/questions/components/SearchAndResults";
 
 const Page = () => {
-  const [technologyFilter, setTechnologyFilter] = useState("");
-  const { data: technologies } = useQuery({
-    queryKey: ["technologies"],
+  const [domainFilter, setDomainFilter] = useState("");
+  const { data: domains } = useQuery({
+    queryKey: ["domains"],
     queryFn: async ({ signal }) => {
       const res = await axios({
         method: "POST",
@@ -19,7 +19,7 @@ const Page = () => {
         data: {
           query: "",
           facets: {
-            language: [
+            domain: [
               {
                 type: "value",
                 sort: {
@@ -37,7 +37,7 @@ const Page = () => {
         },
         signal
       });
-      return res.data.facets.language[0].data;
+      return res.data.facets.domain[0].data;
     },
     keepPreviousData: true,
     staleTime: 20 * 1000,
@@ -56,42 +56,42 @@ const Page = () => {
             >
               Questions
             </h1>
-            {technologies && (
+            {domains && (
               <div className={"flex flex-wrap gap-2"}>
                 <div
                   className={classNames(
                     "cursor-pointer rounded p-1 px-2 text-xs font-medium ring-1 duration-150 2xl:text-sm",
-                    technologyFilter === ""
+                    domainFilter === ""
                       ? "bg-neutral-100 text-neutral-900 ring-neutral-900"
                       : "text-zinc-50 ring-neutral-400"
                   )}
                   onClick={() => {
-                    setTechnologyFilter("");
+                    setDomainFilter("");
                   }}
                 >
                   <p className={"capitalize"}>All</p>
                 </div>
-                {technologies.map((technology: { value: string; count: number }) => (
+                {domains.map((domain: { value: string; count: number }) => (
                   <div
-                    key={`${technology.value}`}
+                    key={`${domain.value}`}
                     className={classNames(
                       "cursor-pointer rounded p-1 px-2 text-xs font-medium ring-1 duration-150 2xl:text-sm",
-                      technology.value === technologyFilter
+                      domain.value === domainFilter
                         ? "bg-neutral-100 font-semibold text-neutral-900 ring-neutral-900"
                         : "text-zinc-50 ring-neutral-400"
                     )}
                     onClick={() => {
-                      setTechnologyFilter(technology.value);
+                      setDomainFilter(domain.value);
                     }}
                   >
                     <p className={"capitalize"}>
-                      {technology.value} | {technology.count}
+                      {domain.value} | {domain.count}
                     </p>
                   </div>
                 ))}
               </div>
             )}
-            <SearchAndResults technologyFilter={technologyFilter} />
+            <SearchAndResults domainFilter={domainFilter} />
           </div>
         </div>
       </div>
