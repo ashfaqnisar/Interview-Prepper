@@ -24,7 +24,7 @@ export default function CreateQuestion() {
 
   const { register, watch, handleSubmit, reset } = methods;
 
-  const { data: domains } = useQuery({
+  const { data: domains } = useQuery<{ value: string; count: number }[]>({
     queryKey: ["domains"],
     queryFn: async ({ signal }) => {
       const res = await axios({
@@ -71,7 +71,7 @@ export default function CreateQuestion() {
         const { domain } = variables;
 
         if (oldData) {
-          const foundTechnology = oldData.find((domain) => domain.value === domain);
+          const foundTechnology = oldData.find((item) => item.value === domain);
           if (foundTechnology) {
             foundTechnology.count++;
           } else {
@@ -170,10 +170,7 @@ export default function CreateQuestion() {
                     </div>
 
                     <div className={"grid grid-cols-1 gap-0.5"}>
-                      <label
-                        htmlFor="domain"
-                        className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}
-                      >
+                      <label htmlFor="domain" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
                         domain
                       </label>
                       <select
