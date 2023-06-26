@@ -12,13 +12,13 @@ const IndexPage = () => {
   });
 
   return (
-    <section className="container grid items-center gap-4 pb-8 pt-6">
+    <section className="container grid items-center gap-4 px-4 pb-8 pt-6 sm:px-[2rem]">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
         <div>
           <h1 className="scroll-m-20 text-2xl font-extrabold tracking-tight 2xl:text-3xl">
             Questions
           </h1>
-          <p className="text-sm leading-5 text-muted-foreground 2xl:text-base 2xl:tracking-tight">
+          <p className="text-sm leading-7 text-muted-foreground 2xl:text-base 2xl:tracking-tight">
             Explore the questions of different technical domains.
           </p>
         </div>

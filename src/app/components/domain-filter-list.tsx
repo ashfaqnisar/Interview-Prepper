@@ -23,7 +23,7 @@ const DomainBadge = ({ text, isActive, ...props }: DomainBadgeProps) => {
 };
 
 const DomainFilterList = ({ updateDomain }: { updateDomain: (domain: string) => void }) => {
-  const [filter, setFilter] = useState("javascript");
+  const [filter, setFilter] = useState("");
 
   const { data: domains, isSuccess } = useQuery<{ value: string; count: string }[]>({
     queryKey: ["domains"],

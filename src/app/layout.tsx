@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 
+import { Suspense } from "react";
 import { Metadata } from "next";
 
 import { siteConfig } from "@/config/site";
@@ -9,6 +10,7 @@ import ReactQueryProvider from "@/providers/react-query-provider";
 import ThemeProvider from "@/providers/theme-provider";
 import { TailwindIndicator } from "@/app/components/tailwind-indicator";
 import { SiteHeader } from "@/app/components/topbar/site-header";
+import Loading from "@/app/loading";
 
 export const metadata: Metadata = {
   title: {
@@ -42,15 +44,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontMono.variable
           )}
         >
-          <ReactQueryProvider>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <div className="relative flex min-h-screen flex-col">
-                <SiteHeader />
-                <div className="flex-1">{children}</div>
-              </div>
-              <TailwindIndicator />
-            </ThemeProvider>
-          </ReactQueryProvider>
+          <Suspense fallback={<Loading />}>
+            <ReactQueryProvider>
+              <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                <div className="relative flex min-h-screen flex-col">
+                  <SiteHeader />
+                  <div className="flex-1">{children}</div>
+                </div>
+                <TailwindIndicator />
+              </ThemeProvider>
+            </ReactQueryProvider>
+          </Suspense>
         </body>
       </html>
     </>

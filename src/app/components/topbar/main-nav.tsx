@@ -34,7 +34,10 @@ export function MainNav({ items }: MainNavProps) {
               <span className="sr-only">Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side={"left"} className="w-[335px] sm:w-[540px]">
+          <SheetContent
+            side={"left"}
+            className="w-[335px] data-[state=open]:duration-300 sm:w-[540px]"
+          >
             <SheetHeader className={"mb-4"}>
               <SheetTitle asChild>
                 <div className={"flex items-center gap-2"}>
