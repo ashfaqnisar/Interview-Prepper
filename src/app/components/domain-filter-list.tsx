@@ -59,8 +59,6 @@ const DomainFilterList = ({ updateDomain }: { updateDomain: (domain: string) => 
     initialDataUpdatedAt: Date.now(),
   });
 
-  console.log("I am rendering");
-
   return (
     isSuccess && (
       <div className={"flex flex-wrap gap-2"}>
