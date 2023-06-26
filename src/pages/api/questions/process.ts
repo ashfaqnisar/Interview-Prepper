@@ -99,13 +99,19 @@ const processSudheerjQuestions = (parsedTokens: Token[], domain: string): Questi
   return processedQuestions;
 };
 
-const markdownProcessor: Record<string, (parsedTokens: Token[], domain: string) => QuestionAndAnswer[]> = {
+const markdownProcessor: Record<
+  string,
+  (parsedTokens: Token[], domain: string) => QuestionAndAnswer[]
+> = {
   react: processSudheerjQuestions,
   javascript: processSudheerjQuestions,
 };
 
 const md = new MarkdownIt();
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Record<"message", string>>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Record<"message", string>>
+) {
   if (req.method === "POST" && process.env.NODE_ENV !== "production") {
     let { domain, fileName } = req.body;
     if (!domain) {
@@ -143,7 +149,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       console.log(`Processed ${domain} questions.`);
 
       // Store the processed data in a file.
-      const processedFilePath = path.join(process.cwd(), "data", domain, `${domain}-processed.json`);
+      const processedFilePath = path.join(
+        process.cwd(),
+        "data",
+        domain,
+        `${domain}-processed.json`
+      );
       fs.writeFileSync(processedFilePath, JSON.stringify(resultGroup.flat(), null, 2));
 
       return res.send({ message: `Successfully processed & indexed the ${domain} domain.` });

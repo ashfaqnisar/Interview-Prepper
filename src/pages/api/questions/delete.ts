@@ -4,7 +4,10 @@ import { ListDocumentsResponse } from "@elastic/enterprise-search/lib/api/app/ty
 
 import { elasticClient, splitToChunks } from "@/utils/api";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Record<"message", string>>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Record<"message", string>>
+) {
   if (req.method === "POST") {
     const { id } = req.body;
     if (id) {

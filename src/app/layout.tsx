@@ -5,7 +5,8 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/providers/theme-provider";
+import ReactQueryProvider from "@/providers/react-query-provider";
+import ThemeProvider from "@/providers/theme-provider";
 import { TailwindIndicator } from "@/app/components/tailwind-indicator";
 import { SiteHeader } from "@/app/components/topbar/site-header";
 
@@ -41,13 +42,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontMono.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-            </div>
-            <TailwindIndicator />
-          </ThemeProvider>
+          <ReactQueryProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="relative flex min-h-screen flex-col">
+                <SiteHeader />
+                <div className="flex-1">{children}</div>
+              </div>
+              <TailwindIndicator />
+            </ThemeProvider>
+          </ReactQueryProvider>
         </body>
       </html>
     </>

@@ -3,7 +3,8 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "Interview Prepper",
   shortName: "IN-PREP",
-  description: "Interview Prepper is a open source tool to help you prepare for your next interview.",
+  description:
+    "Interview Prepper is a open source tool to help you prepare for your next interview.",
   mainNav: [
     {
       title: "Home",
@@ -16,6 +17,10 @@ export const siteConfig = {
     {
       title: "Exam",
       href: "/exam",
+    },
+    {
+      title: "Test",
+      href: "/test",
     },
   ],
   links: {

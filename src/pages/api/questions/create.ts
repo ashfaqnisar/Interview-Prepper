@@ -3,7 +3,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { elasticClient, idGenerator } from "@/utils/api";
 
 // Create a next js request which takes in a post request and creates a question in elastic search
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Record<"message", string>>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Record<"message", string>>
+) {
   if (req.method === "POST") {
     try {
       const question: { [k: string]: unknown } = req.body;

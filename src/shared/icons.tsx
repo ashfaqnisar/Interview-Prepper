@@ -1,4 +1,6 @@
 import {
+  ChevronLeft,
+  ChevronRight,
   GraduationCap,
   LucideProps,
   Menu,
@@ -15,6 +17,8 @@ export const Icons = {
   moon: Moon,
   menu: Menu,
   twitter: Twitter,
+  rightArrow: ChevronRight,
+  leftArrow: ChevronLeft,
   graduation: GraduationCap,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>

@@ -3,7 +3,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { QuestionAndAnswer } from "@/types/question";
 import { elasticClient } from "@/utils/api";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Record<"message", string>>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Record<"message", string>>
+) {
   if (req.method === "PATCH") {
     try {
       // Get the data from the request body.

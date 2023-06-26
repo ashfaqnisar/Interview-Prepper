@@ -12,7 +12,6 @@ const CustomMarkdown = ({ value }: { value: string }) => {
           const match = /language-(\w+)/.exec(className || "");
           return !inline && match ? (
             <SyntaxHighlighter
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               style={dracula}
               language={match[1]?.replace(/^(.+?)import$/, "$1") ?? "javascript"}
@@ -20,13 +19,13 @@ const CustomMarkdown = ({ value }: { value: string }) => {
               CodeTag={"code"}
               codeTagProps={{
                 style: {
-                  fontFamily: "inherit"
-                }
+                  fontFamily: "inherit",
+                },
               }}
               customStyle={{
                 fontSize: "inherit",
                 fontFamily: "inherit",
-                margin: 0
+                margin: 0,
               }}
               wrapLongLines={true}
               {...props}
@@ -38,7 +37,7 @@ const CustomMarkdown = ({ value }: { value: string }) => {
               {children}
             </code>
           );
-        }
+        },
       }}
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
