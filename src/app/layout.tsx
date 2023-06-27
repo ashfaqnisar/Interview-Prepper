@@ -44,17 +44,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontMono.variable
           )}
         >
-          <Suspense fallback={<Loading />}>
-            <ReactQueryProvider>
-              <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                <div className="relative flex min-h-screen flex-col">
-                  <SiteHeader />
+          <ReactQueryProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="relative flex min-h-screen flex-col">
+                <SiteHeader />
+                <Suspense fallback={<Loading />}>
                   <div className="flex-1">{children}</div>
-                </div>
-                <TailwindIndicator />
-              </ThemeProvider>
-            </ReactQueryProvider>
-          </Suspense>
+                </Suspense>
+              </div>
+              <TailwindIndicator />
+            </ThemeProvider>
+          </ReactQueryProvider>
         </body>
       </html>
     </>

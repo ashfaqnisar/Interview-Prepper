@@ -14,7 +14,10 @@ const DomainBadge = ({ text, isActive, ...props }: DomainBadgeProps) => {
   return (
     <Badge
       variant={isActive ? "default" : "outline"}
-      className={cn("cursor-pointer capitalize 2xl:text-sm", !isActive && "hover:bg-secondary")}
+      className={cn(
+        "cursor-pointer capitalize focus:ring-0 2xl:text-sm",
+        !isActive && "hover:bg-secondary"
+      )}
       {...props}
     >
       {text}
@@ -59,6 +62,11 @@ const DomainFilterList = ({ updateDomain }: { updateDomain: (domain: string) => 
     initialDataUpdatedAt: Date.now(),
   });
 
+  const handleDomainUpdate = (newDomainValue: string) => {
+    setFilter(newDomainValue);
+    updateDomain(newDomainValue);
+  };
+
   return (
     isSuccess && (
       <div className={"flex flex-wrap gap-2"}>
@@ -66,17 +74,16 @@ const DomainFilterList = ({ updateDomain }: { updateDomain: (domain: string) => 
           isActive={filter === ""}
           text={"all"}
           onClick={() => {
-            updateDomain("");
-            setFilter("");
+            handleDomainUpdate("");
           }}
         />
         {domains.map((domain) => (
           <DomainBadge
+            key={domain.value}
             text={`${domain.value} | ${domain.count}`}
             isActive={domain.value === filter}
             onClick={() => {
-              updateDomain(domain.value);
-              setFilter(domain.value);
+              handleDomainUpdate(domain.value);
             }}
           />
         ))}

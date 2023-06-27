@@ -2,17 +2,25 @@
 
 import { useState } from "react";
 
+import { SearchOptions, SearchState } from "@/types/search";
 import DomainFilterList from "@/app/components/domain-filter-list";
-import SearchBar from "@/app/components/search-bar";
+import QueryBar from "@/app/components/query-bar";
+
+const defaultQueryState: SearchState = {
+  query: "",
+  page: {
+    size: "25",
+  },
+  sort: {
+    field: "relevance",
+  },
+};
 
 const IndexPage = () => {
-  const [queryState, setQueryState] = useState({
-    domain: "",
-    query: "",
-  });
+  const [queryState, setQueryState] = useState<SearchState>(defaultQueryState);
 
   return (
-    <section className="container grid items-center gap-4 px-4 pb-8 pt-6 sm:px-[2rem]">
+    <section className="container grid max-w-4xl items-center gap-4 px-4 pb-8 pt-6 sm:px-[2rem]">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
         <div>
           <h1 className="scroll-m-20 text-2xl font-extrabold tracking-tight 2xl:text-3xl">
@@ -25,21 +33,32 @@ const IndexPage = () => {
       </div>
       <DomainFilterList
         updateDomain={(domain) => {
-          setQueryState({
-            ...queryState,
-            domain,
-          });
+          if (!domain || domain === "") {
+            //Remove the filter if the domain is empty
+            const { filter, ...rest } = queryState;
+            setQueryState(rest);
+          } else {
+            setQueryState({
+              ...queryState,
+              filter: {
+                domain: [domain],
+              },
+            });
+          }
         }}
       />
-      <SearchBar
-        updateQuery={(query: string) => {
-          console.log("update query");
+      <QueryBar
+        updateQuery={(newQueryState: SearchOptions) => {
           setQueryState({
             ...queryState,
-            query,
+            ...newQueryState,
           });
         }}
+        defaultState={defaultQueryState}
       />
+      <pre>
+        <code>{JSON.stringify(queryState, null, 2)}</code>
+      </pre>
       <h3>Results</h3>
       <h3>Pagination</h3>
     </section>
