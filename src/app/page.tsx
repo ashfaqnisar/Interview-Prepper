@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { SearchOptions, SearchState } from "@/types/search";
 import DomainFilterList from "@/app/components/domain-filter-list";
@@ -18,6 +18,16 @@ const defaultQueryState: SearchState = {
 
 const IndexPage = () => {
   const [queryState, setQueryState] = useState<SearchState>(defaultQueryState);
+
+  const updateQueryState = useCallback(
+    (newQueryState: SearchOptions) => {
+      setQueryState({
+        ...queryState,
+        ...newQueryState,
+      });
+    },
+    [queryState]
+  );
 
   return (
     <section className="container grid max-w-4xl items-center gap-4 px-4 pb-8 pt-6 sm:px-[2rem]">
@@ -47,15 +57,8 @@ const IndexPage = () => {
           }
         }}
       />
-      <QueryBar
-        updateQuery={(newQueryState: SearchOptions) => {
-          setQueryState({
-            ...queryState,
-            ...newQueryState,
-          });
-        }}
-        defaultState={defaultQueryState}
-      />
+      <QueryBar updateQuery={updateQueryState} queryState={queryState} />
+      {/*<Results queryState={queryState} />*/}
       <pre>
         <code>{JSON.stringify(queryState, null, 2)}</code>
       </pre>

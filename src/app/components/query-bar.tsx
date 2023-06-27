@@ -32,26 +32,23 @@ const sortOptionsList: SearchOptions["sort"][] = [
 const QueryBar = memo(
   ({
     updateQuery,
-    defaultState,
+    queryState: searchState,
   }: {
     updateQuery: (queryState: SearchOptions) => void;
-    defaultState: SearchOptions;
+    queryState: SearchOptions;
   }) => {
-    const [searchState, setSearchState] = useState<SearchOptions>(defaultState);
-
     const handleSearchTextUpdate = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       const searchTextArea = event.target as HTMLFormElement;
       const query = searchTextArea["search-textarea"].value;
-      setSearchState({ ...searchState, query });
+      updateQuery({ ...searchState, query });
     };
 
     const [renderCount, setRenderCount] = useState(1);
 
     useEffect(() => {
       setRenderCount((prev) => prev + 1);
-      updateQuery(searchState);
-    }, [searchState]);
+    }, []);
 
     return (
       <>
@@ -109,7 +106,7 @@ const QueryBar = memo(
                       "cursor-pointer text-sm font-medium text-secondary-foreground hover:bg-destructive hover:text-destructive-foreground"
                     }
                     onClick={() => {
-                      setSearchState({ ...searchState, query: "" });
+                      updateQuery({ ...searchState, query: "" });
                     }}
                   >
                     {searchState.query.length > 25
@@ -129,7 +126,7 @@ const QueryBar = memo(
                 <Select
                   value={searchState?.page?.size}
                   onValueChange={(value) => {
-                    setSearchState({
+                    updateQuery({
                       ...searchState,
                       page: {
                         ...searchState.page,
@@ -164,7 +161,7 @@ const QueryBar = memo(
                 onValueChange={(value) => {
                   const [field, direction] = value.split("-");
                   value.split("-");
-                  setSearchState({
+                  updateQuery({
                     ...searchState,
                     sort: {
                       field,
