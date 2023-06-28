@@ -71,7 +71,7 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
     } else {
       setNewAnswer("");
     }
-  }, [isEditable]);
+  }, [data.answer.raw, isEditable]);
 
   return (
     <Card className={"border-primary"}>
@@ -233,8 +233,6 @@ const Results = memo(
     queryState: SearchState;
     updatePage: (newPage: number) => void;
   }) => {
-    const [currentEditableId, setCurrentEditableId] = useState("");
-
     const { data, isLoading } = useQuery({
       queryKey: ["questions", queryState],
       queryFn: async ({ signal }) => {
@@ -261,13 +259,6 @@ const Results = memo(
       staleTime: 20 * 1000,
       initialDataUpdatedAt: Date.now(),
     });
-
-    const updateEditableId = useCallback(
-      (editableId: string) => {
-        setCurrentEditableId(editableId);
-      },
-      [currentEditableId]
-    );
 
     if (isLoading) {
       return <div>Loading...</div>;

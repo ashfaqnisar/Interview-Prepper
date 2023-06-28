@@ -21,12 +21,9 @@ const defaultQueryState: SearchState = {
 const IndexPage = () => {
   const [queryState, setQueryState] = useState<SearchState>(defaultQueryState);
 
-  const updateQueryState = useCallback(
-    (newQueryState: SearchOptions) => {
-      setQueryState(newQueryState);
-    },
-    [queryState]
-  );
+  const updateQueryState = useCallback((newQueryState: SearchOptions) => {
+    setQueryState(newQueryState);
+  }, []);
   const updateCurrentPage = useCallback(
     (newPage: number) => {
       setQueryState({
