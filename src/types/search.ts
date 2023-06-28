@@ -1,17 +1,17 @@
 export interface SearchOptions {
   query: string;
   page: {
-    size: string;
-    current?: string;
+    size: number;
+    current?: number;
   };
-  sort: {
+  sort?: {
     field: string;
-    direction?: "asc" | "desc";
+    order?: "asc" | "desc";
   };
 }
 export interface SearchState extends SearchOptions {
   query: string;
-  filter?: {
+  filters?: {
     [key: string]: string[];
   };
 }

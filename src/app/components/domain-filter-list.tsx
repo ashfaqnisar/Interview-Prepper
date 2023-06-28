@@ -15,7 +15,7 @@ const DomainBadge = ({ text, isActive, ...props }: DomainBadgeProps) => {
     <Badge
       variant={isActive ? "default" : "outline"}
       className={cn(
-        "cursor-pointer capitalize focus:ring-0 2xl:text-sm",
+        "cursor-pointer capitalize shadow-md focus:ring-0 2xl:text-sm",
         !isActive && "hover:bg-secondary"
       )}
       {...props}
