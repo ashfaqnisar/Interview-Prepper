@@ -26,10 +26,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       domain = domain.toLowerCase();
     }
     try {
-<<<<<<< HEAD:src/pages/api/questions/storeAll.ts
-      const { query = "", domain } = req.body;
-=======
->>>>>>> dev:src/pages/api/questions/backup.ts
       const pageSize = 1000;
 
       const searchQuery = {
@@ -69,40 +65,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           body: {
             ...searchQuery,
             page: { size: pageSize, current: page },
-<<<<<<< HEAD:src/pages/api/questions/storeAll.ts
-            ...(domain && {
-              filters: {
-                domain: [domain]
-              }
-            })
-          }
-=======
           },
->>>>>>> dev:src/pages/api/questions/backup.ts
         });
         const jsonFileName = `${backupPath}/doc_${page}.json`;
         fs.writeFileSync(jsonFileName, JSON.stringify(transformData(response.results)));
       };
 
-<<<<<<< HEAD:src/pages/api/questions/storeAll.ts
-      const docs = await client.app.search({
-        engine_name: process.env.ELASTIC_ENGINE_NAME as string,
-        body: {
-          query,
-          page: {
-            size: pageSize
-          },
-          ...(domain && {
-            filters: {
-              domain: [domain]
-            }
-          })
-        }
-      });
-      fs.writeFileSync(`${backupPath}/doc_1.json`, JSON.stringify(transformData(docs.results)));
-
-=======
->>>>>>> dev:src/pages/api/questions/backup.ts
       await Promise.all(
         Array.from({ length: docs.meta.page.total_pages - 1 }, async (_, index) =>
           fetchAndWriteDocuments(index + 2)
