@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
+import clsx from "clsx";
 
-import classNames from "classnames";
-import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { Icons } from "@/shared/icons";
 
 const CustomPagination = ({
   currentPage,
   totalPages,
-  updatePage
+  updatePage,
 }: {
   totalPages: number;
   currentPage: number;
@@ -63,9 +63,11 @@ const CustomPagination = ({
       <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
         <a
           href="#"
-          className={classNames(
-            "relative inline-flex items-center rounded-l-md px-2 py-2 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0",
-            currentPage === 1 ? "pointer-events-none text-zinc-400" : "text-zinc-200 hover:bg-zinc-800"
+          className={clsx(
+            "relative inline-flex items-center rounded-l-md p-2 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0",
+            currentPage === 1
+              ? "pointer-events-none text-zinc-400"
+              : "text-zinc-200 hover:bg-zinc-800"
           )}
           {...(currentPage === 1 && { "aria-disabled": "true" })}
           onClick={(event) => {
@@ -76,14 +78,14 @@ const CustomPagination = ({
           }}
         >
           <span className="sr-only">Previous</span>
-          <HiChevronLeft className="h-5 w-5" aria-hidden="true" />
+          <Icons.leftArrow className="h-5 w-5" aria-hidden="true" />
         </a>
         {pageNumbers.map((pageNumber, index) => {
           return (
             <a
               href={"#"}
               key={index}
-              className={classNames(
+              className={clsx(
                 "z-10 inline-flex w-fit items-center px-3 py-2 text-sm focus:z-20",
                 pageNumber === currentPage
                   ? "bg-zinc-100 font-semibold text-zinc-900"
@@ -102,9 +104,11 @@ const CustomPagination = ({
         })}
         <a
           href="#"
-          className={classNames(
-            "relative inline-flex items-center rounded-r-md px-2 py-2 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0",
-            currentPage === totalPages ? "pointer-events-none text-zinc-400" : "text-zinc-200 hover:bg-zinc-800"
+          className={clsx(
+            "relative inline-flex items-center rounded-r-md p-2 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0",
+            currentPage === totalPages
+              ? "pointer-events-none text-zinc-400"
+              : "text-zinc-200 hover:bg-zinc-800"
           )}
           {...(currentPage === totalPages && { "aria-disabled": "true" })}
           onClick={(event) => {
@@ -115,7 +119,7 @@ const CustomPagination = ({
           }}
         >
           <span className="sr-only">Next</span>
-          <HiChevronRight className="h-5 w-5" aria-hidden="true" />
+          <Icons.rightArrow className="h-5 w-5" aria-hidden="true" />
         </a>
       </nav>
     </div>

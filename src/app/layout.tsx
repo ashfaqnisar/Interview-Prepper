@@ -1,45 +1,62 @@
-import { ReactNode } from "react";
+import "@/styles/globals.css";
 
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Suspense } from "react";
+import { Metadata } from "next";
 
-import "./globals.css";
-import { Providers } from "./providers";
-import TopBar from "./topbar";
+import { siteConfig } from "@/config/site";
+import { fontMono, fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import ReactQueryProvider from "@/providers/react-query-provider";
+import ThemeProvider from "@/providers/theme-provider";
+import { TailwindIndicator } from "@/app/components/tailwind-indicator";
+import { SiteHeader } from "@/app/components/topbar/site-header";
+import Loading from "@/app/loading";
 
-const inter = Inter({
-  variable: "--font-inter",
-  display: "swap",
-  subsets: ["latin"]
-});
-
-const roboto_mono = Roboto_Mono({
-  variable: "--font-roboto-mono",
-  display: "swap",
-  subsets: ["latin"]
-});
-
-export const metadata = {
-  title: "Interview Prepper",
-  openGraph: {
-    title: "Interview Prepper",
-    description: "Interview Prepper is a open source tool to help you prepare for your next interview."
-  }
+export const metadata: Metadata = {
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" className={`${inter.variable} ${roboto_mono.variable}`}>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
 
-      <body className={"bg-black/60"}>
-        <TopBar />
-        <main>
-          <Providers>{children}</Providers>
-        </main>
-      </body>
-    </html>
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable,
+            fontMono.variable
+          )}
+        >
+          <ReactQueryProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="relative flex min-h-screen flex-col">
+                <SiteHeader />
+                <Suspense fallback={<Loading />}>
+                  <div className="flex-1">{children}</div>
+                </Suspense>
+              </div>
+              <TailwindIndicator />
+            </ThemeProvider>
+          </ReactQueryProvider>
+        </body>
+      </html>
+    </>
   );
 }

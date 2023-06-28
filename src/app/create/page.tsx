@@ -1,28 +1,49 @@
 "use client";
 
 import { Fragment } from "react";
-
+import * as React from "react";
+import Link from "next/link";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { Plus } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { BiPlus } from "react-icons/bi";
 
+import { Button } from "@/shared/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+} from "@/shared/ui/form";
+import { Input } from "@/shared/ui/input";
+import { Label } from "@/shared/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/shared/ui/select";
+import { Textarea } from "@/shared/ui/textarea";
 import CustomMarkdown from "@/shared/CustomMarkdown";
 
-export default function CreateQuestion() {
-  const methods = useForm({
+const CreatePage = () => {
+  const queryClient = useQueryClient();
+
+  const formMethods = useForm({
     defaultValues: {
       question: "",
       answer: "",
       question_type: "definition",
       domain: "",
       otherLanguage: "",
-      tags: ""
-    }
+      tags: "",
+    },
   });
-  const queryClient = useQueryClient();
-
-  const { register, watch, handleSubmit, reset } = methods;
+  const { register, watch, handleSubmit, reset } = formMethods;
 
   const { data: domains } = useQuery<{ value: string; count: number }[]>({
     queryKey: ["domains"],
@@ -37,25 +58,25 @@ export default function CreateQuestion() {
               {
                 type: "value",
                 sort: {
-                  count: "desc"
-                }
-              }
-            ]
+                  count: "desc",
+                },
+              },
+            ],
           },
           page: {
-            size: 0
-          }
+            size: 0,
+          },
         },
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_SEARCH_KEY}`
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_SEARCH_KEY}`,
         },
-        signal
+        signal,
       });
       return res.data.facets.domain[0].data;
     },
     keepPreviousData: true,
     staleTime: 20 * 1000,
-    initialDataUpdatedAt: Date.now()
+    initialDataUpdatedAt: Date.now(),
   });
 
   const mutation = useMutation({
@@ -63,7 +84,7 @@ export default function CreateQuestion() {
       return axios({
         method: "POST",
         url: "/api/questions/create",
-        data: newQuestion
+        data: newQuestion,
       });
     },
     onSuccess: async (data, variables) => {
@@ -85,45 +106,35 @@ export default function CreateQuestion() {
     },
     onError: (error) => {
       console.log(error);
-    }
+    },
   });
 
   const onSubmit = (question: Record<string, string>) => {
     const questionData = {
       question_type: question.question_type,
-      domain: question.otherLanguage.trim() !== "" ? question.otherLanguage.trim() : question.domain,
+      domain:
+        question.otherLanguage.trim() !== "" ? question.otherLanguage.trim() : question.domain,
       question: question.question.trim(),
-      answer: question.answer.trim().split("-*-"),
-      tags: question.tags.split(",").map((tag) => tag.trim())
+      answer: question.answer.trim().split("=*="),
+      tags: question.tags.split(",").map((tag) => tag.trim()),
     };
 
     mutation.mutate(questionData);
   };
-
   return (
-    <div className={"w-full px-4 pb-8 sm:pt-16"}>
-      <div className={"md:container md:mx-auto"}>
-        <div className={"flex justify-center"}>
-          <div className={"w-full"}>
-            <h1
-              className={
-                "py-4 text-center text-lg font-bold tracking-tight duration-150 sm:text-left sm:text-xl md:text-2xl"
-              }
-            >
-              Create
-            </h1>
-            <div className={"grid grid-cols-1 gap-2 lg:grid-cols-2"}>
-              <div>
-                <h5 className={"mb-2 text-base font-semibold"}>New Question</h5>
+    <div>
+      <section className="container grid items-center gap-6 pb-8 pt-6 md:pb-10">
+        <div className="flex flex-col items-start gap-2">
+          <h2 className={"text-2xl font-bold"}>Create</h2>
+          <div className={"grid w-full grid-cols-1 gap-2 lg:grid-cols-2"}>
+            <div>
+              <h5 className={"mb-2 text-base font-semibold"}>New Question</h5>
+              <Form {...formMethods}>
                 <form onSubmit={handleSubmit(onSubmit)} className={"grid grid-cols-1 gap-4"}>
-                  <div className={"grid grid-cols-1 gap-0.5"}>
-                    <label htmlFor="question" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
-                      Question
-                    </label>
-                    <textarea
-                      className={
-                        "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
-                      }
+                  <div className={"grid grid-cols-1 gap-1.5"}>
+                    <Label htmlFor="question">Question</Label>
+                    <Textarea
+                      className={"text-sm md:text-base"}
                       id="question"
                       placeholder={"Ex: What is a variable?"}
                       required
@@ -131,174 +142,160 @@ export default function CreateQuestion() {
                     />
                   </div>
 
-                  <div className={"grid grid-cols-1 gap-0.5"}>
-                    <label htmlFor="answer" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
-                      Answer
-                    </label>
-                    <textarea
+                  <div className={"grid grid-cols-1 gap-1.5"}>
+                    <Label htmlFor="answer">Answer</Label>
+                    <Textarea
                       id="answer"
                       placeholder={"Ex: A variable is a container for a value."}
-                      className={
-                        "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
-                      }
+                      className={"text-sm md:text-base"}
                       required
                       {...register("answer", { required: true })}
                     />
                   </div>
 
                   <div className="grid grid-cols-1 items-start gap-3 lg:grid-cols-2">
-                    <div className={"grid grid-cols-1 gap-0.5"}>
-                      <label
-                        htmlFor="question_type"
-                        className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}
-                      >
-                        Question Type
-                      </label>
-                      <select
-                        id="question_type"
-                        className={
-                          "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
-                        }
-                        required
-                        {...register("question_type")}
-                      >
-                        <option value="definition">Definition</option>
-                        <option value="concept">Concept</option>
-                        <option value="code">Code</option>
-                        <option value="comparison">Comparison</option>
-                      </select>
-                    </div>
-
-                    <div className={"grid grid-cols-1 gap-0.5"}>
-                      <label htmlFor="domain" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
-                        domain
-                      </label>
-                      <select
-                        id="domain"
-                        className={
-                          "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm capitalize tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
-                        }
-                        {...(watch().domain === "" && watch().otherLanguage.trim() === "" && { required: true })}
-                        {...register("domain")}
-                      >
-                        {domains &&
-                          domains.map((domain: { value: string; count: number }) => {
-                            return (
-                              <option className="capitalize" key={domain.value} value={domain.value}>
-                                {domain.value}
-                              </option>
-                            );
-                          })}
-                        <option value="">Other</option>
-                      </select>
-                      {watch().domain === "" && (
-                        <div className={"mt-2"}>
-                          <input
-                            className={
-                              "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
-                            }
-                            placeholder={"Ex: Python"}
-                            required
-                            {...register("otherLanguage")}
-                          />
-                        </div>
+                    <FormField
+                      control={formMethods.control}
+                      name="question_type"
+                      render={({ field }) => (
+                        <FormItem className={"space-y-1"}>
+                          <FormLabel>Question Type</FormLabel>
+                          <Select
+                            value={field.value}
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select a verified email to display" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="definition">Definition</SelectItem>
+                              <SelectItem value="concept">Concept</SelectItem>
+                              <SelectItem value="code">Code</SelectItem>
+                              <SelectItem value="comparison">Comparison</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </FormItem>
                       )}
-                    </div>
+                    />
+                    <FormField
+                      control={formMethods.control}
+                      name="domain"
+                      render={({ field }) => (
+                        <FormItem className={"space-y-1"}>
+                          <FormLabel>Domain</FormLabel>
+                          <Select
+                            value={field.value}
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select A Domain" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {domains &&
+                                domains.length > 0 &&
+                                domains.map((domain) => (
+                                  <SelectItem
+                                    className={"capitalize"}
+                                    key={domain.value}
+                                    value={domain.value}
+                                  >
+                                    {domain.value}
+                                  </SelectItem>
+                                ))}
+                              <SelectItem value="">Other</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          {field.value === "" && (
+                            <Input
+                              className={"text-sm md:text-base"}
+                              placeholder={"Ex: Python"}
+                              required
+                              {...register("otherLanguage")}
+                            />
+                          )}
+                        </FormItem>
+                      )}
+                    />
                   </div>
 
-                  <div className={"grid grid-cols-1 gap-0.5"}>
-                    <label htmlFor="tags" className={"text-sm font-medium text-gray-200 md:text-sm 2xl:text-base"}>
-                      Tags
-                    </label>
-                    <input
+                  <div className={"grid grid-cols-1 gap-1.5"}>
+                    <Label htmlFor="tags">Tags</Label>
+                    <Input
                       type="text"
-                      className={
-                        "mt-1 w-full rounded-md bg-zinc-900 px-2 py-1.5 text-sm tracking-normal focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-base 2xl:px-3 2xl:py-2"
-                      }
+                      className={"text-sm md:text-base"}
                       placeholder={"Ex: Python, Variables"}
                       id="tags"
                       {...register("tags")}
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={mutation.isLoading}
-                    className={
-                      "flex w-fit items-center space-x-1 " +
-                      "rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-zinc-300 duration-150 " +
-                      "hover:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-zinc-300 md:text-sm "
-                    }
-                  >
-                    <span className={"h-5 w-5 text-xs"}>
-                      <BiPlus size={20} />
-                    </span>
+                  <Button type="submit" className={"w-fit"} disabled={mutation.isLoading}>
+                    <Plus className={"mr-1 h-5 w-5"} />
                     <p>{mutation.isLoading ? "Adding..." : "Submit"}</p>
-                  </button>
-                  <p className={"font-medium"}>
-                    {mutation.isError && (
-                      <p className="text-red-500">An error occurred while submitting the question.</p>
-                    )}
-                    {mutation.isSuccess && <p className="text-green-500">Question submitted successfully!</p>}
-                  </p>
+                  </Button>
                 </form>
+              </Form>
+              <div className={"font-medium"}>
+                {mutation.isError && (
+                  <p className="text-red-500">An error occurred while submitting the question.</p>
+                )}
+                {mutation.isSuccess && (
+                  <p className="text-green-500">Question submitted successfully!</p>
+                )}
               </div>
-              <div className={"xl:px-3"}>
-                <h5 className={"mb-2 text-base font-semibold"}>Preview</h5>
-                <div className={"grid grid-cols-1 gap-2"}>
-                  <div>
-                    <p className={"text-sm font-medium text-gray-200 underline md:text-sm 2xl:text-base"}>Question: </p>
-                    <div
-                      className={
-                        "prose prose-invert grid max-w-none grid-cols-1 gap-2 md:prose-base 2xl:prose-lg prose-p:m-0 prose-p:text-zinc-300 prose-code:font-mono prose-pre:my-2 prose-pre:p-0"
-                      }
-                    >
-                      {watch()
-                        .question.trim()
-                        .split("=*=")
-                        .map((question: string, index: number) => (
-                          <CustomMarkdown key={watch()?.question + index} value={question} />
-                        ))}
-                    </div>
-                  </div>
-                  <div>
-                    <p className={"mb-1 text-sm font-medium text-gray-200 underline md:text-sm 2xl:text-base"}>
-                      Answer:{" "}
-                    </p>
-                    <div
-                      className={
-                        "prose prose-invert grid max-w-none grid-cols-1 gap-2 md:prose-base 2xl:prose-lg prose-p:m-0 prose-p:text-zinc-300 prose-code:font-mono prose-pre:my-2 prose-pre:p-0"
-                      }
-                    >
-                      {watch()
-                        .answer.trim()
-                        .split("=*=")
-                        .map((answer: string, index: number) => (
-                          <CustomMarkdown key={watch()?.answer + index} value={answer} />
-                        ))}
-                    </div>
-                  </div>
-                  <div>
-                    <p className={"mb-1 text-sm font-medium text-gray-200 underline md:text-sm 2xl:text-base"}>
-                      Tags:{" "}
-                    </p>
-                    <div className={"flex flex-row flex-wrap gap-2 "}>
-                      {(watch().tags.trim().split(",") ?? []).map((tag: string, index: number) => (
-                        <Fragment key={tag}>
-                          <span className={"font text-sm capitalize text-zinc-300 2xl:text-base"}>{tag}</span>
-                          {index !== (watch().tags.trim().split(",").length - 1 ?? 0) && (
-                            <span className={" text-xs font-medium 2xl:text-sm"}>|</span>
-                          )}
-                        </Fragment>
+            </div>
+
+            <div className={"xl:px-3"}>
+              <h5 className={"mb-2 text-base font-semibold"}>Preview</h5>
+              <div className={"grid grid-cols-1 gap-2"}>
+                <div>
+                  <Label className={"underline"}>Question: </Label>
+                  <div className={"grid grid-cols-1 gap-2"}>
+                    {watch()
+                      .question.trim()
+                      .split("=*=")
+                      .map((question: string, index: number) => (
+                        <CustomMarkdown key={index} value={question} />
                       ))}
-                    </div>
+                  </div>
+                </div>
+                <div>
+                  <Label className={"underline"}>Answer: </Label>
+                  <div className={"grid grid-cols-1 gap-2"}>
+                    {watch()
+                      .answer.trim()
+                      .split("=*=")
+                      .map((answer: string, index: number) => (
+                        <CustomMarkdown key={index} value={answer} />
+                      ))}
+                  </div>
+                </div>
+                <div>
+                  <Label className={"underline"}>Tags: </Label>
+                  <div className={"flex flex-row flex-wrap gap-2 "}>
+                    {(watch().tags.trim().split(",") ?? []).map((tag: string, index: number) => (
+                      <Fragment key={tag}>
+                        <span className={"font text-sm capitalize 2xl:text-base"}>{tag}</span>
+                        {index !== (watch().tags.trim().split(",").length - 1 ?? 0) && (
+                          <span className={" text-xs font-medium 2xl:text-sm"}>|</span>
+                        )}
+                      </Fragment>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
-}
+};
+
+export default CreatePage;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/types/index.ts
 export interface Question {
   id?: string;
   question: string;
@@ -7,6 +8,8 @@ export interface Question {
   tags?: string[];
 }
 
+=======
+>>>>>>> dev:src/types/question.ts
 type rawString = { raw: string };
 type rawStringArray = { raw: string[] };
 export interface QuestionWithRaw {
@@ -18,18 +21,12 @@ export interface QuestionWithRaw {
   tags?: rawStringArray;
 }
 
-export interface SearchConfigProps {
-  engineName: string;
-  endpointBase: string;
-  searchKey: string;
-  resultFields: string[];
-  querySuggestFields: string[];
-  sortFields: string[];
-  facets: string[];
-  titleField: string;
-  searchFields?: string[];
-  fields?: string[];
-  urlField?: string;
-  thumbnailField?: string;
-  hostIdentifier?: string;
+export interface QuestionAndAnswer {
+  id?: string;
+  date?: string;
+  question: string;
+  answer: string[];
+  domain?: string;
+  question_type?: string;
+  tags?: string[];
 }
