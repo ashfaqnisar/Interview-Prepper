@@ -5,6 +5,7 @@ import { useCallback, useState } from "react";
 import { SearchOptions, SearchState } from "@/types/search";
 import DomainFilterList from "@/app/components/domain-filter-list";
 import QueryBar from "@/app/components/query-bar";
+import Results from "@/app/components/results";
 
 const defaultQueryState: SearchState = {
   query: "",
@@ -62,7 +63,7 @@ const IndexPage = () => {
       <pre>
         <code>{JSON.stringify(queryState, null, 2)}</code>
       </pre>
-      <h3>Results</h3>
+      <Results queryState={queryState} />
       <h3>Pagination</h3>
     </section>
   );
