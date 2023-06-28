@@ -27,6 +27,18 @@ const IndexPage = () => {
     },
     [queryState]
   );
+  const updateCurrentPage = useCallback(
+    (newPage: number) => {
+      setQueryState({
+        ...queryState,
+        page: {
+          ...queryState.page,
+          current: newPage,
+        },
+      });
+    },
+    [queryState]
+  );
 
   return (
     <section className="container grid max-w-4xl items-center gap-4 px-4 pb-8 pt-6">
@@ -57,8 +69,7 @@ const IndexPage = () => {
         }}
       />
       <QueryBar updateQuery={updateQueryState} queryState={queryState} />
-      <Results queryState={queryState} />
-      <h3>Pagination</h3>
+      <Results queryState={queryState} updatePage={updateCurrentPage} />
     </section>
   );
 };

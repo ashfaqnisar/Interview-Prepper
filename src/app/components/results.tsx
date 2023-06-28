@@ -2,6 +2,7 @@ import * as React from "react";
 import { memo, useCallback, useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { ChevronsLeft, ChevronsRight } from "lucide-react";
 
 import { SearchState } from "@/types/search";
 import { Badge } from "@/shared/ui/badge";
@@ -163,59 +164,133 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
 });
 QuestionCard.displayName = "QuestionCard";
 
-const Results = memo(({ queryState }: { queryState: SearchState }) => {
-  const [currentEditableId, setCurrentEditableId] = useState("");
-
-  const { data, isLoading } = useQuery({
-    queryKey: ["questions", queryState],
-    queryFn: async ({ signal }) => {
-      const res = await axios({
-        method: "POST",
-        url: "/api/questions",
-        // url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
-        data: {
-          ...queryState,
-          ...(queryState.sort && queryState?.sort?.field !== "relevance"
-            ? {
-                sort: { [queryState.sort.field]: queryState.sort.order },
-              }
-            : { sort: undefined }),
-        },
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_SEARCH_KEY}`,
-        },
-        signal,
-      });
-      return res.data;
-    },
-    keepPreviousData: true,
-    staleTime: 20 * 1000,
-    initialDataUpdatedAt: Date.now(),
-  });
-
-  const updateEditableId = useCallback(
-    (editableId: string) => {
-      setCurrentEditableId(editableId);
-    },
-    [currentEditableId]
-  );
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+const Pagination = memo(
+  ({
+    totalPages,
+    currentPage,
+    updatePage,
+  }: {
+    totalPages: number;
+    currentPage: number;
+    updatePage: (newPage: number) => void;
+  }) => {
+    return (
+      <div className={"flex flex-wrap items-center gap-2"}>
+        <p className={"text-sm font-medium"}>
+          Page {currentPage} of {totalPages}
+        </p>
+        <Button
+          variant={"outline"}
+          size={"icon"}
+          disabled={currentPage === 1}
+          onClick={() => {
+            if (currentPage !== 1) updatePage(1);
+          }}
+        >
+          <ChevronsLeft className={"h-3 w-3"} />
+        </Button>
+        <Button
+          variant={"outline"}
+          size={"icon"}
+          disabled={currentPage === 1}
+          onClick={() => {
+            if (currentPage !== 1) updatePage(currentPage - 1);
+          }}
+        >
+          <Icons.leftArrow className={"h-3 w-3"} />
+        </Button>
+        <Button
+          variant={"outline"}
+          size={"icon"}
+          disabled={currentPage === totalPages}
+          onClick={() => {
+            if (currentPage !== totalPages) updatePage(currentPage + 1);
+          }}
+        >
+          <Icons.rightArrow className={"h-3 w-3"} />
+        </Button>
+        <Button
+          variant={"outline"}
+          size={"icon"}
+          disabled={currentPage === totalPages}
+          onClick={() => {
+            if (currentPage !== totalPages) updatePage(totalPages);
+          }}
+        >
+          <ChevronsRight className={"h-3 w-3"} />
+        </Button>
+      </div>
+    );
   }
+);
+Pagination.displayName = "Pagination";
 
-  if (!data?.results.length) {
-    return <div>No results found.</div>;
+const Results = memo(
+  ({
+    queryState,
+    updatePage,
+  }: {
+    queryState: SearchState;
+    updatePage: (newPage: number) => void;
+  }) => {
+    const [currentEditableId, setCurrentEditableId] = useState("");
+
+    const { data, isLoading } = useQuery({
+      queryKey: ["questions", queryState],
+      queryFn: async ({ signal }) => {
+        const res = await axios({
+          method: "POST",
+          url: "/api/questions",
+          // url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
+          data: {
+            ...queryState,
+            ...(queryState.sort && queryState?.sort?.field !== "relevance"
+              ? {
+                  sort: { [queryState.sort.field]: queryState.sort.order },
+                }
+              : { sort: undefined }),
+          },
+          headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_SEARCH_KEY}`,
+          },
+          signal,
+        });
+        return res.data;
+      },
+      keepPreviousData: true,
+      staleTime: 20 * 1000,
+      initialDataUpdatedAt: Date.now(),
+    });
+
+    const updateEditableId = useCallback(
+      (editableId: string) => {
+        setCurrentEditableId(editableId);
+      },
+      [currentEditableId]
+    );
+
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+
+    if (!data?.results.length) {
+      return <div>No results found.</div>;
+    }
+
+    return (
+      <div className={"grid grid-cols-1 gap-3"}>
+        {data?.results.map((item: QuestionAnswerWithRaw) => (
+          <QuestionCard key={item.id.raw} data={item} />
+        ))}
+        <Pagination
+          totalPages={data.meta.page.total_pages}
+          currentPage={data.meta.page.current}
+          updatePage={updatePage}
+        />
+      </div>
+    );
   }
-
-  return (
-    <div className={"grid grid-cols-1 gap-3"}>
-      {data?.results.map((item: QuestionAnswerWithRaw) => (
-        <QuestionCard key={item.id.raw} data={item} />
-      ))}
-    </div>
-  );
-});
+);
 
 Results.displayName = "Results";
 
