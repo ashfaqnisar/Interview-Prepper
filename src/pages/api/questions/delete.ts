@@ -13,12 +13,13 @@ export default async function handler(
     if (id) {
       try {
         // Delete the document from the index using the id.
-        const response = await elasticClient.app.deleteDocuments({
+        await elasticClient.app.deleteDocuments({
           engine_name: process.env.ELASTIC_ENGINE_NAME as string,
           documentIds: [id],
         });
 
-        console.log(response);
+        // Wait for the document to be deleted.
+        await new Promise((resolve) => setTimeout(resolve, 500));
 
         return res.status(200).send({ message: "Successfully deleted the question." });
       } catch (err) {

@@ -1,11 +1,14 @@
 import {
   ChevronLeft,
   ChevronRight,
+  Edit,
   GraduationCap,
   LucideProps,
   Menu,
   Moon,
+  RefreshCw,
   SunMedium,
+  Trash,
   Twitter,
   X,
   type Icon as LucideIcon,
@@ -22,6 +25,9 @@ export const Icons = {
   leftArrow: ChevronLeft,
   graduation: GraduationCap,
   close: X,
+  trash: Trash,
+  edit: Edit,
+  refresh: RefreshCw,
   send: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

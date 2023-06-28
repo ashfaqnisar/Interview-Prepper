@@ -1,13 +1,15 @@
 import * as React from "react";
-import { memo } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { memo, useCallback, useEffect, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 import { SearchState } from "@/types/search";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/shared/ui/card";
+import { Textarea } from "@/shared/ui/textarea";
 import CustomMarkdown from "@/shared/CustomMarkdown";
+import { Icons } from "@/shared/icons";
 
 interface QuestionAnswerWithRaw {
   id: { raw: string };
@@ -18,39 +20,159 @@ interface QuestionAnswerWithRaw {
   tags?: { raw: string[] };
 }
 
-const QuestionCard = ({ data }: { data: QuestionAnswerWithRaw }) => {
+const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
+  const [isEditable, setIsEditable] = useState(false);
+  const queryClient = useQueryClient();
+
+  const [newAnswer, setNewAnswer] = useState("");
+
+  const deleteQuestionMutation = useMutation({
+    mutationFn: async () => {
+      return axios({
+        method: "POST",
+        url: "/api/questions/delete",
+        data: {
+          id: data.id.raw,
+        },
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["questions"]);
+      queryClient.invalidateQueries(["domains"]);
+    },
+  });
+  const updateQuestionMutation = useMutation({
+    mutationFn: async () => {
+      return axios({
+        method: "PATCH",
+        url: "/api/questions/update",
+        data: {
+          id: data.id.raw,
+          answer: newAnswer.split("=*="),
+        },
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["questions"]);
+      queryClient.invalidateQueries(["domains"]);
+      isEditable && setIsEditable(false);
+    },
+  });
+
+  const refreshQuestion = () => {
+    queryClient.invalidateQueries(["questions"]);
+    queryClient.invalidateQueries(["domains"]);
+  };
+
+  useEffect(() => {
+    if (isEditable) {
+      setNewAnswer(data.answer.raw.join("=*="));
+    } else {
+      setNewAnswer("");
+    }
+  }, [isEditable]);
+
   return (
     <Card className={"border-primary"}>
       <CardHeader className={"p-4 pb-2"}>
-        <Badge className={"mb-3 w-fit capitalize"} variant={"outline"}>
-          {data.domain.raw}
-        </Badge>
+        <div className={"flex flex-wrap justify-between"}>
+          <Badge className={"mb-3 w-fit capitalize"} variant={"outline"}>
+            {data.domain.raw}
+          </Badge>
+          <div className={"flex gap-2"}>
+            <Button
+              variant={"outline"}
+              className={"h-7 w-7"}
+              size={"icon"}
+              onClick={() => {
+                setIsEditable(true);
+              }}
+            >
+              <Icons.edit className={"h-3 w-3"} />
+            </Button>{" "}
+            <Button
+              variant={"outline"}
+              className={"h-7 w-7"}
+              size={"icon"}
+              onClick={refreshQuestion}
+            >
+              <Icons.refresh className={"h-3 w-3"} />
+            </Button>{" "}
+            <Button
+              variant={"outline"}
+              className={"h-7 w-7 hover:bg-destructive"}
+              size={"icon"}
+              onClick={() => deleteQuestionMutation.mutate()}
+              disabled={deleteQuestionMutation.isLoading}
+            >
+              <Icons.trash className={"h-3 w-3"} />
+            </Button>
+          </div>
+        </div>
         <CardTitle className={"text-base 2xl:text-lg"}>
           {"->"} {data.question.raw}
         </CardTitle>
       </CardHeader>
       <CardContent className={"p-4 pt-0"}>
-        <div className={"grid grid-cols-1 gap-2"}>
-          {data?.answer?.raw.map((answer: string, index: number) => (
-            <CustomMarkdown key={index} value={answer} />
-          ))}
-        </div>
+        {isEditable ? (
+          <div className={"flex flex-col flex-wrap gap-2"}>
+            <Textarea
+              defaultValue={""}
+              className={"w-full rounded px-3 py-2 text-base 2xl:text-lg"}
+              value={newAnswer}
+              disabled={updateQuestionMutation.isLoading}
+              onChange={(event) => {
+                const target = event.target;
+                target.style.height = "22.5px";
+                target.style.height = target.scrollHeight + "px";
+                setNewAnswer(event.target.value);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" && event.ctrlKey) {
+                  event.preventDefault();
+                  event.stopPropagation();
+
+                  updateQuestionMutation.mutate();
+                }
+              }}
+              rows={11}
+            />
+            <p className={"mt-2 text-sm font-semibold text-muted-foreground"}>Preview: </p>
+            <div className={"grid grid-cols-1 gap-2"}>
+              {newAnswer.split("=*=").map((answer: string, index: number) => (
+                <CustomMarkdown key={index} value={answer} />
+              ))}
+            </div>
+            <CardFooter className="flex gap-2 px-0">
+              <Button variant="outline" onClick={() => setIsEditable(false)}>
+                Cancel
+              </Button>
+              <Button onClick={() => updateQuestionMutation.mutate()}>Update</Button>
+            </CardFooter>
+          </div>
+        ) : (
+          <div className={"grid grid-cols-1 gap-2"}>
+            {data?.answer?.raw.map((answer: string, index: number) => (
+              <CustomMarkdown key={index} value={answer} />
+            ))}
+          </div>
+        )}
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="outline">Cancel</Button>
-        <Button>Deploy</Button>
-      </CardFooter>
     </Card>
   );
-};
+});
+QuestionCard.displayName = "QuestionCard";
 
 const Results = memo(({ queryState }: { queryState: SearchState }) => {
+  const [currentEditableId, setCurrentEditableId] = useState("");
+
   const { data, isLoading } = useQuery({
     queryKey: ["questions", queryState],
     queryFn: async ({ signal }) => {
       const res = await axios({
         method: "POST",
-        url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
+        url: "/api/questions",
+        // url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
         data: {
           ...queryState,
           ...(queryState.sort && queryState?.sort?.field !== "relevance"
@@ -70,6 +192,13 @@ const Results = memo(({ queryState }: { queryState: SearchState }) => {
     staleTime: 20 * 1000,
     initialDataUpdatedAt: Date.now(),
   });
+
+  const updateEditableId = useCallback(
+    (editableId: string) => {
+      setCurrentEditableId(editableId);
+    },
+    [currentEditableId]
+  );
 
   if (isLoading) {
     return <div>Loading...</div>;

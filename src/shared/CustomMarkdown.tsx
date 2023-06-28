@@ -9,8 +9,67 @@ import { cn } from "@/lib/utils";
 const CustomMarkdown = ({ value }: { value: string }) => {
   return (
     <ReactMarkdown
-      className={"text-sm 2xl:text-base"}
       components={{
+        td: ({ children, ...props }) => {
+          return (
+            <td
+              className={cn(
+                "py-2 pr-2 text-left text-sm text-foreground/90 2xl:text-base",
+                props.className
+              )}
+              {...props}
+            >
+              {children}
+            </td>
+          );
+        },
+        th: ({ children, ...props }) => {
+          return (
+            <th
+              className={cn(
+                "py-2 pr-2 text-left text-sm font-semibold text-foreground/90 2xl:text-base",
+                props.className
+              )}
+              {...props}
+            >
+              {children}
+            </th>
+          );
+        },
+        tr: ({ children, ...props }) => {
+          return (
+            <tr
+              className={cn("border-b border-foreground/30 last:border-b-0", props.className)}
+              {...props}
+            >
+              {children}
+            </tr>
+          );
+        },
+        thead: ({ children, ...props }) => {
+          return (
+            <thead
+              className={cn("border-b border-foreground/30 last:border-b-0", props.className)}
+              {...props}
+            >
+              {children}
+            </thead>
+          );
+        },
+
+        // td: ({ children, ...props }) => {
+        //   return (
+        //     <th
+        //       className={cn(
+        //         "pb-2 pr-2 text-left text-sm text-foreground/90 2xl:text-base",
+        //         props.className
+        //       )}
+        //       {...props}
+        //     >
+        //       {children}
+        //     </th>
+        //   );
+        // },
         a: ({ children, ...props }) => {
           return (
             <a
@@ -45,10 +104,8 @@ const CustomMarkdown = ({ value }: { value: string }) => {
         },
         code: ({ inline, className, children, ...props }) => {
           const match = /language-(\w+)/.exec(className || "");
-          console.log("I am in code", children);
-
           return !inline && match ? (
-            <div className={"mb-4"}>
+            <div className={"mb-4 text-sm 2xl:text-base"}>
               <SyntaxHighlighter
                 // @ts-ignore
                 style={dracula}

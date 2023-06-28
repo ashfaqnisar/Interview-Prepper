@@ -29,6 +29,9 @@ export default async function handler(
         return res.status(500).json({ message: "Unable to update the document." });
       }
 
+      // Wait for the document to be updated in the index.
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
       return res.status(200).send({
         message: "Successfully updated the question.",
       });
