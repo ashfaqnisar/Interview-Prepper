@@ -20,13 +20,13 @@ const SORT_OPTIONS: {
     field: "relevance"
   },
   {
-    name: "SID - asc",
-    field: "sid",
+    name: "Id - asc",
+    field: "id",
     direction: "asc"
   },
   {
-    name: "SID - desc",
-    field: "sid",
+    name: "Id - desc",
+    field: "id",
     direction: "desc"
   }
 ];
@@ -61,7 +61,7 @@ interface QuerySearchStateType {
 
 const DEFAULT_QUERY_SEARCH_STATE: QuerySearchStateType = {
   query: "",
-  sort: SORT_OPTIONS[0],
+  sort: SORT_OPTIONS[1],
   page: {
     size: PAGE_OPTIONS[0].size,
     current: 1
