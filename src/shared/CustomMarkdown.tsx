@@ -17,7 +17,6 @@ const CustomMarkdown = ({ value }: { value: string }) => {
                 "py-2 pr-2 text-left text-sm text-foreground/90 2xl:text-base",
                 props.className
               )}
-              {...props}
             >
               {children}
             </td>
@@ -30,7 +29,6 @@ const CustomMarkdown = ({ value }: { value: string }) => {
                 "py-2 pr-2 text-left text-sm font-semibold text-foreground/90 2xl:text-base",
                 props.className
               )}
-              {...props}
             >
               {children}
             </th>
@@ -38,10 +36,7 @@ const CustomMarkdown = ({ value }: { value: string }) => {
         },
         tr: ({ children, ...props }) => {
           return (
-            <tr
-              className={cn("border-b border-foreground/30 last:border-b-0", props.className)}
-              {...props}
-            >
+            <tr className={cn("border-b border-foreground/30 last:border-b-0", props.className)}>
               {children}
             </tr>
           );
