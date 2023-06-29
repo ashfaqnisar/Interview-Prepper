@@ -45,6 +45,7 @@ const QueryBar = memo(
       updateQuery({
         ...searchState,
         query,
+        page: { ...searchState.page, current: 1 },
         sort: { field: "relevance" },
       });
     };
