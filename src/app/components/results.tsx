@@ -238,15 +238,14 @@ const Results = memo(
       queryFn: async ({ signal }) => {
         const res = await axios({
           method: "POST",
-          url: "/api/questions",
-          // url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
+          // url: "/api/questions",
+          url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
           data: {
             ...queryState,
-            ...(queryState.sort && queryState?.sort?.field !== "relevance"
-              ? {
-                  sort: { [queryState.sort.field]: queryState.sort.order },
-                }
-              : { sort: undefined }),
+            ...(queryState.sort &&
+              queryState?.sort?.field !== "relevance" && {
+                sort: { [queryState.sort.field]: queryState.sort.order },
+              }),
           },
           headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_SEARCH_KEY}`,
