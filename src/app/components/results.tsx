@@ -242,10 +242,13 @@ const Results = memo(
           url: `${process.env.NEXT_PUBLIC_APP_SEARCH_ENDPOINT}/api/as/v1/engines/${process.env.NEXT_PUBLIC_ENGINE_NAME}/search`,
           data: {
             ...queryState,
-            ...(queryState.sort &&
-              queryState?.sort?.field !== "relevance" && {
-                sort: { [queryState.sort.field]: queryState.sort.order },
-              }),
+            ...(queryState.sort && queryState?.sort?.field !== "relevance"
+              ? {
+                  sort: { [queryState.sort.field]: queryState.sort.order },
+                }
+              : {
+                  sort: undefined,
+                }),
           },
           headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_SEARCH_KEY}`,
