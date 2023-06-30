@@ -145,10 +145,16 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
               ))}
             </div>
             <CardFooter className="flex gap-2 px-0">
-              <Button variant="outline" onClick={() => setIsEditable(false)}>
+              <Button variant="outline" size={"sm"} onClick={() => setIsEditable(false)}>
                 Cancel
               </Button>
-              <Button onClick={() => updateQuestionMutation.mutate()}>Update</Button>
+              <Button
+                disabled={updateQuestionMutation.isLoading}
+                size={"sm"}
+                onClick={() => updateQuestionMutation.mutate()}
+              >
+                {updateQuestionMutation.isLoading ? "Saving..." : "Save"}
+              </Button>
             </CardFooter>
           </div>
         ) : (
