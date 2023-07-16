@@ -110,7 +110,7 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
             </Button>
           </div>
         </div>
-        <CardTitle className={"text-base 2xl:text-lg"}>
+        <CardTitle className={"font-sans text-base tracking-normal 2xl:text-lg"}>
           {"->"} {data.question.raw}
         </CardTitle>
       </CardHeader>
