@@ -1,5 +1,5 @@
 import * as React from "react";
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
@@ -60,10 +60,7 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
     },
   });
 
-  const refreshQuestion = () => {
-    queryClient.invalidateQueries(["questions"]);
-    queryClient.invalidateQueries(["domains"]);
-  };
+
 
   useEffect(() => {
     if (isEditable) {
@@ -90,14 +87,6 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
               }}
             >
               <Icons.edit className={"h-3 w-3"} />
-            </Button>{" "}
-            <Button
-              variant={"outline"}
-              className={"h-7 w-7"}
-              size={"icon"}
-              onClick={refreshQuestion}
-            >
-              <Icons.refresh className={"h-3 w-3"} />
             </Button>{" "}
             <Button
               variant={"outline"}
