@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChangeEvent, FormEvent, memo, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, memo } from "react";
 
 import { SearchOptions } from "@/types/search";
 import { Badge } from "@/shared/ui/badge";

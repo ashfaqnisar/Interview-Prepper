@@ -60,8 +60,6 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
     },
   });
 
-
-
   useEffect(() => {
     if (isEditable) {
       setNewAnswer(data.answer.raw.join("=*="));
@@ -88,15 +86,6 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
             >
               <Icons.edit className={"h-3 w-3"} />
             </Button>{" "}
-            <Button
-              variant={"outline"}
-              className={"h-7 w-7 hover:bg-destructive"}
-              size={"icon"}
-              onClick={() => deleteQuestionMutation.mutate()}
-              disabled={deleteQuestionMutation.isLoading}
-            >
-              <Icons.trash className={"h-3 w-3"} />
-            </Button>
           </div>
         </div>
         <CardTitle className={"font-sans text-base tracking-normal 2xl:text-lg"}>
@@ -133,16 +122,37 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
                 <CustomMarkdown key={index} value={answer} />
               ))}
             </div>
-            <CardFooter className="flex gap-2 px-0">
-              <Button variant="outline" size={"sm"} onClick={() => setIsEditable(false)}>
-                Cancel
-              </Button>
+            <CardFooter className="flex justify-between gap-2 px-0">
+              <div className={"space-x-2"}>
+                <Button variant="outline" size={"sm"} onClick={() => setIsEditable(false)}>
+                  Cancel
+                </Button>
+                <Button
+                  disabled={updateQuestionMutation.isLoading}
+                  size={"sm"}
+                  onClick={() => updateQuestionMutation.mutate()}
+                >
+                  {updateQuestionMutation.isLoading ? "Saving..." : "Save"}
+                </Button>
+              </div>
               <Button
-                disabled={updateQuestionMutation.isLoading}
-                size={"sm"}
-                onClick={() => updateQuestionMutation.mutate()}
+                variant={"outline"}
+                className={"hover:bg-destructive hover:text-primary"}
+                size={"icon"}
+                onClick={() => {
+                  deleteQuestionMutation.mutate();
+                  queryClient.invalidateQueries(["/questions"]);
+                  queryClient.invalidateQueries(["/domains"]);
+                  setIsEditable(false);
+                }}
+                disabled={deleteQuestionMutation.isLoading}
               >
-                {updateQuestionMutation.isLoading ? "Saving..." : "Save"}
+                {deleteQuestionMutation.isLoading ? (
+                  <Icons.refresh className={"mr-2 h-4 w-4 animate-spin"} />
+                ) : (
+                  <Icons.trash className={"h-4 w-4"} />
+                )}
+                <span className={"sr-only"}>Delete</span>
               </Button>
             </CardFooter>
           </div>
