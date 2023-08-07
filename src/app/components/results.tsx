@@ -117,7 +117,7 @@ const QuestionCard = memo(({ data }: { data: QuestionAnswerWithRaw }) => {
               rows={11}
             />
             <p className={"mt-2 text-sm font-semibold text-muted-foreground"}>Preview: </p>
-            <div className={"grid grid-cols-1 gap-2"}>
+            <div className={"grid grid-cols-1 gap-1"}>
               {newAnswer.split("=*=").map((answer: string, index: number) => (
                 <CustomMarkdown key={index} value={answer} />
               ))}

@@ -51,20 +51,6 @@ const CustomMarkdown = ({ value }: { value: string }) => {
             </thead>
           );
         },
-
-        // td: ({ children, ...props }) => {
-        //   return (
-        //     <th
-        //       className={cn(
-        //         "pb-2 pr-2 text-left text-sm text-foreground/90 2xl:text-base",
-        //         props.className
-        //       )}
-        //       {...props}
-        //     >
-        //       {children}
-        //     </th>
-        //   );
-        // },
         a: ({ children, ...props }) => {
           return (
             <a
